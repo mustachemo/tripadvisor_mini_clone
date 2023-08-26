@@ -1,3 +1,8 @@
+/********** ROOT ************/
+$grey: #333;
+
+/********** NAVBAR **********/
+
 nav {
   border-bottom: 1px solid #eee;
   position: sticky;
@@ -5,4 +10,60 @@ nav {
   left: 0;
   right: 0;
   z-index: 999;
+
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+
+  #logo {
+    width: 4rem;
+    line-height: 0; // remove space below image
+  }
+
+  ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+
+    li {
+      font: 600 1.2rem 'Open Sans', sans-serif;
+      margin-right: 1rem;
+      padding: 0.5rem;
+      border-radius: 50%;
+      transition: all 0.1s ease-in-out;
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      &:hover {
+        background: #eee;
+      }
+
+      a {
+        text-decoration: none;
+        color: $grey;
+      }
+    }
+  }
+
+  .nav-buttons-container {
+    text-align: center;
+
+    button {
+      background-color: #3498db;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+
+      &hover {
+        background-color: #2980b9;
+      }
+    }
+  }
 }

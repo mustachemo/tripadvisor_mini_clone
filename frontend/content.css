@@ -1,7 +1,46 @@
+/********** ROOT ************/
+/********** NAVBAR **********/
 nav {
   border-bottom: 1px solid #eee;
   position: sticky;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 999; }
+  z-index: 999;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center; }
+  nav #logo {
+    width: 4rem;
+    line-height: 0; }
+  nav ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black; }
+    nav ul li {
+      font: 600 1.2rem 'Open Sans', sans-serif;
+      margin-right: 1rem;
+      padding: 0.5rem;
+      border-radius: 50%;
+      transition: all 0.1s ease-in-out; }
+      nav ul li:last-child {
+        margin-right: 0; }
+      nav ul li:hover {
+        background: #eee; }
+      nav ul li a {
+        text-decoration: none;
+        color: #333; }
+  nav .nav-buttons-container {
+    text-align: center; }
+    nav .nav-buttons-container button {
+      background-color: #3498db;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease; }
+      nav .nav-buttons-container buttonhover {
+        background-color: #2980b9; }
