@@ -73,7 +73,7 @@ main {
   cursor: pointer;
   margin: 30px; }
   .card:hover {
-    transform: scale(1.1);
+    transform: scale(1.0675);
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6); }
   .card-image {
     grid-area: image;
