@@ -1,6 +1,10 @@
 /********** ROOT ************/
 $grey: #333;
 
+* {
+  font-family: 'Bricolage Grotesque', sans-serif;
+}
+
 /********** NAVBAR **********/
 
 nav {
@@ -17,9 +21,10 @@ nav {
 
   #logo {
     flex: 1;
+    line-height: 0; // remove space below image
     img {
       width: 4rem;
-      line-height: 0; // remove space below image
+      margin: 0.5rem 0 0.5rem 10rem;
     }
   }
 
@@ -28,13 +33,12 @@ nav {
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid black;
 
     li {
-      font: 600 1.2rem 'Open Sans', sans-serif;
+      font: 600 2rem 'Open Sans', sans-serif;
       margin-right: 1rem;
       padding: 0.5rem;
-      border-radius: 50%;
+      border-radius: 20%;
       transition: all 0.1s ease-in-out;
 
       &:last-child {
@@ -42,7 +46,7 @@ nav {
       }
 
       &:hover {
-        background: #eee;
+        background-color: #eee;
       }
 
       a {
