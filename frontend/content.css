@@ -8,12 +8,15 @@ nav {
   right: 0;
   z-index: 999;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center; }
   nav #logo {
-    width: 4rem;
-    line-height: 0; }
+    flex: 1; }
+    nav #logo img {
+      width: 4rem;
+      line-height: 0; }
   nav ul {
+    flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -32,7 +35,8 @@ nav {
         text-decoration: none;
         color: #333; }
   nav .nav-buttons-container {
-    text-align: center; }
+    text-align: center;
+    flex: 1; }
     nav .nav-buttons-container button {
       background-color: #3498db;
       color: white;
@@ -42,5 +46,5 @@ nav {
       font-size: 16px;
       cursor: pointer;
       transition: background-color 0.3s ease; }
-      nav .nav-buttons-container buttonhover {
+      nav .nav-buttons-container button:hover {
         background-color: #2980b9; }

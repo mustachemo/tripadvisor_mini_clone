@@ -57,7 +57,8 @@ html {
 }
 
 img,
-video {
+video,
+svg {
   height: auto;
   max-width: 100%;
 }
