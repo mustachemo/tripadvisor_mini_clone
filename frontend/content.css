@@ -183,6 +183,9 @@ dialog {
         height: 30px;
         width: 100%;
         background-color: #3498db; }
+        dialog .modalContainer form .file-label:hover {
+          cursor: pointer;
+          background-color: #ff336e; }
       dialog .modalContainer form button {
         width: 100%;
         height: 30px;
@@ -193,6 +196,8 @@ dialog {
         font-weight: 400;
         background: #129d72;
         cursor: pointer; }
+        dialog .modalContainer form button:hover {
+          background: #ff336e; }
 
 /********** FOOTER **********/
 footer {

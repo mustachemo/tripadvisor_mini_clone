@@ -259,6 +259,11 @@ dialog {
         height: 30px;
         width: 100%;
         background-color: $blue-color;
+
+        &:hover {
+          cursor: pointer;
+          background-color: $pink-color;
+        }
       }
 
       button {
@@ -271,6 +276,10 @@ dialog {
         font-weight: 400;
         background: $bright-green-color;
         cursor: pointer;
+
+        &:hover {
+          background: $pink-color;
+        }
       }
     }
   }
