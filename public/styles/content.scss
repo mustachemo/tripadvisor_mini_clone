@@ -68,7 +68,7 @@ nav {
     flex: 1;
 
     button {
-      background-color: $blue-color;
+      background-color: $green-color;
       color: white;
       border: none;
       border-radius: 5px;
@@ -188,7 +188,7 @@ main {
   right: 10px;
   i {
     font-size: 3rem;
-    color: $blue-color;
+    color: $green-color;
     transition: all 0.1s;
     cursor: pointer;
     &:hover {
