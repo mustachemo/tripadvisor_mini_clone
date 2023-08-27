@@ -19,6 +19,7 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: white;
 
   #logo {
     flex: 1;
@@ -91,7 +92,7 @@ main {
 .card {
   display: grid;
   grid-template-columns: auto;
-  grid-template-rows: 210px 210px 80px;
+  grid-template-rows: 210px auto 80px;
   grid-template-areas: 'image' 'text' 'stats';
 
   border-radius: 18px;
@@ -117,16 +118,18 @@ main {
   }
   &-text {
     grid-area: text;
-    margin: 25px;
+    padding: 10px;
 
     .date {
       color: rgb(255, 7, 110);
       font-size: 13px;
     }
     p {
-      color: grey;
+      color: rgb(0, 0, 0);
       font-size: 15px;
       font-weight: 300;
+      line-height: 1.25;
+      padding: 0.5rem 0;
     }
     h2 {
       margin-top: 0px;
