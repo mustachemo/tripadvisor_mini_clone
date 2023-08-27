@@ -15,12 +15,10 @@ export const postCity = async (req, res) => {
   try {
     // console.log('entered postCity');
     // console.log(req.file);
-    console.log(req.body);
+    // console.log(req.body);
     await connectDB();
-    console.log('successfully connected to db');
 
     const { cityName, cityDesc, cityPop, cityArea, cityTZ } = req.body;
-
     let imageToSave = null;
 
     // Check if an image was uploaded
