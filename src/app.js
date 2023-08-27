@@ -3,10 +3,10 @@ import nunjucks from 'nunjucks';
 import dotenv from 'dotenv';
 import bodyParser from 'body-parser';
 import logger from 'morgan';
-import multer from 'multer';
 import cors from 'cors';
 import { fileURLToPath } from 'url';
 import path from 'path';
+import indexRouter from './routes/index.js';
 
 dotenv.config();
 
@@ -32,20 +32,7 @@ app.use(logger('dev'));
 app.use(cors());
 app.use('/public', express.static(path.join(__dirname, 'public')));
 
-// multer config
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, 'public/uploads/');
-  },
-  filename: (req, file, cb) => {
-    const { originalname } = file;
-    const fileExtension = originalname.split('.')[1];
-    cb(null, `${Date.now()}.${fileExtension}`);
-  },
-});
-const upload = multer({ storage });
-
-// app.use('/', indexRouter);
+app.use('/', indexRouter);
 // app.use('/new', newMessageRouter);
 
 export default app;

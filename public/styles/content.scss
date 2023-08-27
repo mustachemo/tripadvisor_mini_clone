@@ -1,0 +1,308 @@
+/********** ROOT ************/
+$grey-color: #333;
+$green-color: #589441;
+$bright-green-color: #129d72;
+$blue-color: #3498db;
+$pink-color: rgb(255, 51, 110);
+$border-line: 1px solid #eee;
+
+* {
+  font-family: 'Bricolage Grotesque', sans-serif;
+}
+
+/********** NAVBAR **********/
+
+nav {
+  // add this line in a @media query to make the navbar fixed with a line after scrolling
+  //   border-bottom: $border-line;
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+
+  #logo {
+    flex: 1;
+    line-height: 0; // remove space below image
+    img {
+      width: 4rem;
+      margin: 0.5rem 0 0.5rem 9rem;
+    }
+  }
+
+  ul {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    li {
+      font: 600 2rem 'Open Sans', sans-serif;
+      margin-right: 1rem;
+      padding: 0.5rem;
+      border-radius: 20%;
+      transition: all 0.1s ease-in-out;
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      &:hover {
+        background-color: #eee;
+      }
+
+      a {
+        text-decoration: none;
+        color: $grey-color;
+      }
+    }
+  }
+
+  .nav-buttons-container {
+    text-align: center;
+    flex: 1;
+
+    button {
+      background-color: $blue-color;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: all 0.1s;
+
+      &:hover {
+        background-color: $pink-color;
+      }
+    }
+  }
+}
+
+/********** GRID **********/
+
+main {
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+/********** CITIES CARD **********/
+
+.card {
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: 210px auto 80px;
+  grid-template-areas: 'image' 'text' 'stats';
+
+  border-radius: 18px;
+  background: white;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6);
+  text-align: center;
+
+  transition: 0.25s ease;
+  cursor: pointer;
+  margin: 30px;
+
+  &:hover {
+    transform: scale(1.0675);
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.9);
+  }
+
+  &-image {
+    grid-area: image;
+    background: url('../public/images/cities/Irvine.jpeg');
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-size: cover;
+  }
+  &-text {
+    grid-area: text;
+    padding: 10px;
+
+    .date {
+      color: rgb(255, 7, 110);
+      font-size: 13px;
+    }
+    p {
+      color: rgb(0, 0, 0);
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 1.25;
+      padding: 0 0 0.75rem 0;
+    }
+    h2 {
+      margin-top: 0px;
+      font-size: 28px;
+    }
+  }
+
+  &-stats {
+    grid-area: stats;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    background: $green-color;
+
+    .stat {
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      color: white;
+    }
+    .border {
+      border-left: 1px solid $grey-color;
+      border-right: 1px solid $grey-color;
+    }
+    .value {
+      font-size: 22px;
+      font-weight: 500;
+      sup {
+        font-size: 12px;
+      }
+    }
+    .type {
+      font-size: 11px;
+      font-weight: 300;
+      text-transform: uppercase;
+    }
+  }
+}
+
+/********** ADD ICON **********/
+
+#addIcon {
+  position: fixed;
+  bottom: 65px;
+  right: 10px;
+  i {
+    font-size: 3rem;
+    color: $blue-color;
+    transition: all 0.1s;
+    cursor: pointer;
+    &:hover {
+      color: $pink-color;
+    }
+  }
+}
+
+/********** ADD CITY MODAL **********/
+
+dialog {
+  width: clamp(40%, 50%, 600px);
+  height: clamp(40%, auto, 600px);
+  font-family: 'Source Sans Pro', sans-serif;
+
+  .modalContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &::backdrop {
+      backdrop-filter: blur(3px); /* Apply a blur effect */
+    }
+
+    #formHeading {
+      font-size: 25px;
+      color: $bright-green-color;
+    }
+
+    form {
+      width: 80%;
+      > * {
+        margin: 10px;
+      }
+
+      input {
+        width: 100%;
+        border: 0;
+        border-bottom: 1px solid #aaa;
+        font-size: 13px;
+        font-weight: 300;
+        color: #000000;
+        letter-spacing: 0.11em;
+
+        &::placeholder {
+          color: rgba(51, 51, 51, 0.5);
+          font-size: 0.75rem;
+        }
+
+        &:focus {
+          outline: 0;
+          border-bottom: 1px solid rgba($bright-green-color, 0.7);
+          transition: 0.6s all ease;
+          font-weight: bold;
+        }
+      }
+
+      input[type='file'] {
+        display: none;
+      }
+
+      .file-label {
+        color: white;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 30px;
+        width: 100%;
+        background-color: $blue-color;
+
+        &:hover {
+          cursor: pointer;
+          background-color: $pink-color;
+        }
+      }
+
+      button {
+        width: 100%;
+        height: 30px;
+        border: 0;
+        outline: 0;
+        color: white;
+        font-size: 15px;
+        font-weight: 400;
+        background: $bright-green-color;
+        cursor: pointer;
+
+        &:hover {
+          background: $pink-color;
+        }
+      }
+    }
+  }
+}
+
+/********** FOOTER **********/
+
+footer {
+  background-color: white;
+  border-top: $border-line;
+  padding: 1rem;
+  text-align: center;
+  font-size: 1.1rem;
+
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+
+  span i {
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+    text-align: center;
+    color: black;
+  }
+}

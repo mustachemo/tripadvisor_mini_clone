@@ -1,9 +1,11 @@
-import City from '../models/cities';
+import City from '../models/cities.js';
+import { connectDB } from '../configs/db.config.js';
 
 const getCities = async (req, res) => {
   try {
+    await connectDB();
     const cities = await City.find();
-    res.status(200).json({ cities });
+    res.render('index', { cities });
   } catch (error) {
     res.status(404).json({ error });
   }
