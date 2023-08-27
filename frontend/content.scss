@@ -1,6 +1,7 @@
 /********** ROOT ************/
 $grey-color: #333;
 $green-color: #589441;
+$bright-green-color: #129d72;
 $blue-color: #3498db;
 $pink-color: rgb(255, 51, 110);
 $border-line: 1px solid #eee;
@@ -199,47 +200,65 @@ main {
 /********** ADD CITY MODAL **********/
 
 dialog {
-  width: clamp(300px, 30%, 600px);
-  height: 300px;
+  width: clamp(300px, auto, 600px);
+  height: clamp(300px, auto, 600px);
 
-  &::backdrop {
-    backdrop-filter: blur(3px); /* Apply a blur effect */
-  }
+  .modalContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
-  form {
-    .form-control {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin: 1rem;
+    &::backdrop {
+      backdrop-filter: blur(3px); /* Apply a blur effect */
+    }
 
-      label {
-        font-size: 1.2rem;
-        margin-bottom: 0.5rem;
+    #formHeading {
+      font-size: 25px;
+      color: $bright-green-color;
+    }
+
+    form {
+      width: 80%;
+      > * {
+        margin: 10px;
       }
 
       input {
-        width: 100%;
-        padding: 0.5rem;
-        font-size: 1.2rem;
-        border: $border-line;
-        border-radius: 5px;
-        margin-bottom: 1rem;
+        width: 90%;
+        border: 0;
+        border-bottom: 1px solid #aaa;
+        font-size: 13px;
+        font-weight: 300;
+        color: #000000;
+        letter-spacing: 0.11em;
+
+        &::placeholder {
+          color: rgba(51, 51, 51, 0.5);
+          font-size: 0.75rem;
+        }
+
+        &:focus {
+          outline: 0;
+          border-bottom: 1px solid rgba($bright-green-color, 0.7);
+          transition: 0.6s all ease;
+          font-weight: bold;
+        }
       }
 
       button {
-        background-color: $blue-color;
+        width: 100%;
+        height: 30px;
+        border: 0;
+        outline: 0;
         color: white;
-        border: none;
-        border-radius: 5px;
-        padding: 10px 20px;
-        font-size: 16px;
+        font-size: 15px;
+        font-weight: 400;
+        position: relative;
+        z-index: 3;
+        background: $bright-green-color;
+        font-family: 'Source Sans Pro', sans-serif;
         cursor: pointer;
-        transition: all 0.1s;
-
-        &:hover {
-          background-color: $pink-color;
-        }
       }
     }
   }
