@@ -76,7 +76,6 @@ main {
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.9); }
   .card-image {
     grid-area: image;
-    background: url("../public/images/cities/Irvine.jpeg");
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     background-size: cover; }
