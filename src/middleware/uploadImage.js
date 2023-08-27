@@ -1,14 +1,6 @@
 import multer from 'multer';
 
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, './public/images/cities');
-  },
-  filename: (req, file, cb) => {
-    cb(null, file.originalname);
-  },
-});
+const storage = multer.memoryStorage();
+const upload = multer({ storage });
 
-const uploadImage = multer({ storage });
-
-export default uploadImage;
+export default upload;
