@@ -181,7 +181,7 @@ main {
 
 /********** ADD ICON **********/
 
-.add-icon {
+#addIcon {
   position: fixed;
   bottom: 65px;
   right: 10px;
@@ -193,6 +193,14 @@ main {
     &:hover {
       color: $pink-color;
     }
+  }
+}
+
+/********** ADD CITY MODAL **********/
+
+dialog {
+  &::backdrop {
+    backdrop-filter: blur(3px); /* Apply a blur effect */
   }
 }
 

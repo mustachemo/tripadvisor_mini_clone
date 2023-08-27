@@ -10,3 +10,9 @@ githubIcon.addEventListener('mouseout', () => {
 });
 
 // click add-icon to open form/modal
+const addIcon = document.querySelector('#addIcon');
+const addCityForm = document.querySelector('#addCityForm');
+
+addIcon.addEventListener('click', () => {
+  addCityForm.showModal();
+});

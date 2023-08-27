@@ -125,17 +125,22 @@ main {
       text-transform: uppercase; }
 
 /********** ADD ICON **********/
-.add-icon {
+#addIcon {
   position: fixed;
   bottom: 65px;
   right: 10px; }
-  .add-icon i {
+  #addIcon i {
     font-size: 3rem;
     color: #3498db;
     transition: all 0.1s;
     cursor: pointer; }
-    .add-icon i:hover {
+    #addIcon i:hover {
       color: #ff336e; }
+
+/********** ADD CITY MODAL **********/
+dialog::backdrop {
+  backdrop-filter: blur(3px);
+  /* Apply a blur effect */ }
 
 /********** FOOTER **********/
 footer {

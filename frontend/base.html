@@ -57,9 +57,50 @@
       </div>
     </main>
 
-    <div class="add-icon">
+    <div id="addIcon">
       <i class="fa-solid fa-circle-plus"></i>
     </div>
+
+    <dialog id="addCityForm">
+      <form>
+        <div class="form-control">
+          <label for="cityName">City Name</label>
+          <input type="text" id="cityName" />
+        </div>
+        <div class="form-control">
+          <label for="cityWebsite">City Website</label>
+          <input type="text" id="cityWebsite" />
+        </div>
+        <div class="form-control">
+          <label for="cityPopulation">City Population</label>
+          <input type="text" id="cityPopulation" />
+        </div>
+        <div class="form-control">
+          <label for="cityTimezone">City Timezone</label>
+          <input type="text" id="cityTimezone" />
+        </div>
+        <div class="form-control">
+          <label for="cityArea">City Area</label>
+          <input type="text" id="cityArea" />
+        </div>
+        <div class="form-control">
+          <label for="cityImage">City Image</label>
+          <input type="file" id="cityImage" />
+        </div>
+        <div class="form-control">
+          <label for="cityDescription">City Description</label>
+          <textarea id="cityDescription" rows="5"></textarea>
+        </div>
+        <div class="form-control">
+          <label for="cityLocation">City Location</label>
+          <input type="text" id="cityLocation" />
+        </div>
+        <div class="button-container">
+          <button type="submit">Submit</button>
+          <button type="submit" formmethod="dialog">Cancel</button>
+        </div>
+      </form>
+    </dialog>
 
     <footer>
       <p>
