@@ -32,7 +32,7 @@
           <div class="card">
             <div class="card-image">
               {% if city.image %}
-                <img src="data:image/jpeg;base64, {{ city.image.img.data.toString('base64') }}", alt="{{ city.name }}">
+                <img src="data:image/{{ city.image.img.contentType }};base64, {{ city.image.img.data.toString('base64') }}", alt="{{ city.name }}">
                 {% else %}
                 <img src="./public/images/cities/irvine.jpeg">
               {% endif %}

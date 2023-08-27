@@ -12,6 +12,9 @@ export const getCities = async (req, res) => {
       population: formatNumber(city.population),
     }));
 
+    console.log(modifiedCities[0].image.img.contentType);
+    console.log(modifiedCities[0].image.img.data);
+
     res.render('index', { cities: modifiedCities });
   } catch (error) {
     res.status(404).json({ error });
@@ -20,9 +23,6 @@ export const getCities = async (req, res) => {
 
 export const postCity = async (req, res) => {
   try {
-    // console.log('entered postCity');
-    // console.log(req.file);
-    // console.log(req.body);
     await connectDB();
 
     const { cityName, cityDesc, cityPop, cityArea, cityTZ } = req.body;

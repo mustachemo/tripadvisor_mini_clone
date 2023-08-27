@@ -139,14 +139,14 @@ dialog {
   width: clamp(40%, 50%, 600px);
   height: clamp(40%, auto, 600px);
   font-family: 'Source Sans Pro', sans-serif; }
+  dialog::backdrop {
+    backdrop-filter: blur(5px);
+    /* Apply a blur effect */ }
   dialog .modalContainer {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center; }
-    dialog .modalContainer::backdrop {
-      backdrop-filter: blur(3px);
-      /* Apply a blur effect */ }
     dialog .modalContainer #formHeading {
       font-size: 25px;
       color: #129d72; }
