@@ -1,5 +1,6 @@
 /********** ROOT ************/
-$grey: #333;
+$grey-text: #333;
+$green-color: #589441;
 
 * {
   font-family: 'Bricolage Grotesque', sans-serif;
@@ -51,7 +52,7 @@ nav {
 
       a {
         text-decoration: none;
-        color: $grey;
+        color: $grey-text;
       }
     }
   }
@@ -142,7 +143,7 @@ main {
 
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
-    background: rgb(255, 7, 110);
+    background: $green-color;
 
     .stat {
       padding: 10px;
@@ -153,8 +154,8 @@ main {
       color: white;
     }
     .border {
-      border-left: 1px solid rgb(172, 26, 87);
-      border-right: 1px solid rgb(172, 26, 87);
+      border-left: 1px solid $grey-text;
+      border-right: 1px solid $grey-text;
     }
     .value {
       font-size: 22px;

@@ -101,7 +101,7 @@ main {
     grid-template-rows: 1fr;
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
-    background: #ff076e; }
+    background: #589441; }
     .card-stats .stat {
       padding: 10px;
       display: flex;
@@ -110,8 +110,8 @@ main {
       flex-direction: column;
       color: white; }
     .card-stats .border {
-      border-left: 1px solid #ac1a57;
-      border-right: 1px solid #ac1a57; }
+      border-left: 1px solid #333;
+      border-right: 1px solid #333; }
     .card-stats .value {
       font-size: 22px;
       font-weight: 500; }
