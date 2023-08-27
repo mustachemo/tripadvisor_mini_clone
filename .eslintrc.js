@@ -20,7 +20,7 @@ module.exports = {
     sourceType: 'module',
   },
   rules: {
-    'no-console': 'off',
+    'no-console': 'warn',
     'no-underscore-dangle': 'off',
     'import/extensions': 'off',
     'import/no-extraneous-dependencies': 'off',

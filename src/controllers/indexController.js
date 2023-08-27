@@ -9,14 +9,12 @@ export const getCities = async (req, res) => {
 
     const modifiedCities = cities.map(city => ({
       ...city.toObject(),
+      name: city.name.toUpperCase(),
       population: formatNumber(city.population),
       AHI: formatNumber(city.AverageHouseholdIncome),
     }));
 
-    console.log('modifiedCities: ', modifiedCities);
-
     res.render('index', { cities: modifiedCities });
-    // }
   } catch (error) {
     res.status(404).json({ error });
   }
@@ -41,9 +39,6 @@ export const postCity = async (req, res) => {
         },
       });
 
-      console.log('filename: ', originalname);
-      console.log('Image name: ', Image.name);
-
       await Image.save();
       imageToSave = Image;
     }
@@ -60,7 +55,6 @@ export const postCity = async (req, res) => {
     await newCity.save();
     res.redirect('/');
   } catch (error) {
-    console.log('City not added: ', error);
     res.status(404).json({ error });
   }
 };
