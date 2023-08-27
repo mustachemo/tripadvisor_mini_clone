@@ -1,39 +1,42 @@
 import mongoose from 'mongoose';
 
-const citySchema = new mongoose.Schema({
-  name: {
-    type: String,
-    required: true,
-    unique: true,
-    trim: true,
-    lowercase: true,
-  },
-  description: {
-    type: String,
-    required: true,
-    trim: true,
-    lowercase: true,
-  },
-  url: {
-    type: String,
-    trim: true,
-  },
-  image: String,
-  population: Number,
-  area: Number,
-  location: {
-    type: {
+const citySchema = new mongoose.Schema(
+  {
+    name: {
       type: String,
-      enum: ['Point'],
+      required: true,
+      unique: true,
+      trim: true,
+      lowercase: true,
     },
-    coordinates: {
-      type: [Number],
+    description: {
+      type: String,
+      required: true,
+      trim: true,
+      lowercase: true,
     },
+    url: {
+      type: String,
+      trim: true,
+    },
+    image: String,
+    population: Number,
+    area: Number,
+    location: {
+      type: {
+        type: String,
+        enum: ['Point'],
+      },
+      coordinates: {
+        type: [Number],
+      },
+    },
+    timezone: String,
+    website: String,
+    highlights: [String],
   },
-  timezone: String,
-  website: String,
-  highlights: [String],
-});
+  { timestamps: true }
+);
 
 citySchema.index({ 'location.coordinates': '2dsphere' });
 

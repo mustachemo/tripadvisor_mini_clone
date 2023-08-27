@@ -23,5 +23,6 @@ module.exports = {
     'no-console': 'off',
     'no-underscore-dangle': 'off',
     'import/extensions': 'off',
+    'import/no-extraneous-dependencies': 'off',
   },
 };
