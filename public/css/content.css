@@ -1,0 +1,216 @@
+/********** ROOT ************/
+* {
+  font-family: 'Bricolage Grotesque', sans-serif; }
+
+/********** NAVBAR **********/
+nav {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white; }
+  nav #logo {
+    flex: 1;
+    line-height: 0; }
+    nav #logo img {
+      width: 4rem;
+      margin: 0.5rem 0 0.5rem 9rem; }
+  nav ul {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+    nav ul li {
+      font: 600 2rem 'Open Sans', sans-serif;
+      margin-right: 1rem;
+      padding: 0.5rem;
+      border-radius: 20%;
+      transition: all 0.1s ease-in-out; }
+      nav ul li:last-child {
+        margin-right: 0; }
+      nav ul li:hover {
+        background-color: #eee; }
+      nav ul li a {
+        text-decoration: none;
+        color: #333; }
+  nav .nav-buttons-container {
+    text-align: center;
+    flex: 1; }
+    nav .nav-buttons-container button {
+      background-color: #3498db;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: all 0.1s; }
+      nav .nav-buttons-container button:hover {
+        background-color: #ff336e; }
+
+/********** GRID **********/
+main {
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
+
+/********** CITIES CARD **********/
+.card {
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: 210px auto 80px;
+  grid-template-areas: 'image' 'text' 'stats';
+  border-radius: 18px;
+  background: white;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6);
+  text-align: center;
+  transition: 0.25s ease;
+  cursor: pointer;
+  margin: 30px; }
+  .card:hover {
+    transform: scale(1.0675);
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.9); }
+  .card-image {
+    grid-area: image;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-size: cover; }
+  .card-text {
+    grid-area: text;
+    padding: 10px; }
+    .card-text .date {
+      color: #ff076e;
+      font-size: 13px; }
+    .card-text p {
+      color: black;
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 1.25;
+      padding: 0.75rem 0; }
+    .card-text h2 {
+      margin-top: 0px;
+      font-size: 28px; }
+  .card-stats {
+    grid-area: stats;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    background: #589441; }
+    .card-stats .stat {
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      color: white; }
+    .card-stats .border {
+      border-left: 1px solid #333;
+      border-right: 1px solid #333; }
+    .card-stats .value {
+      font-size: 22px;
+      font-weight: 500; }
+      .card-stats .value sup {
+        font-size: 12px; }
+    .card-stats .type {
+      font-size: 11px;
+      font-weight: 300;
+      text-transform: uppercase; }
+
+/********** ADD ICON **********/
+#addIcon {
+  position: fixed;
+  bottom: 65px;
+  right: 10px; }
+  #addIcon i {
+    font-size: 3rem;
+    color: #3498db;
+    transition: all 0.1s;
+    cursor: pointer; }
+    #addIcon i:hover {
+      color: #ff336e; }
+
+/********** ADD CITY MODAL **********/
+dialog {
+  width: clamp(40%, 50%, 600px);
+  height: clamp(40%, auto, 600px);
+  font-family: 'Source Sans Pro', sans-serif; }
+  dialog .modalContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; }
+    dialog .modalContainer::backdrop {
+      backdrop-filter: blur(3px);
+      /* Apply a blur effect */ }
+    dialog .modalContainer #formHeading {
+      font-size: 25px;
+      color: #129d72; }
+    dialog .modalContainer form {
+      width: 80%; }
+      dialog .modalContainer form > * {
+        margin: 10px; }
+      dialog .modalContainer form input {
+        width: 100%;
+        border: 0;
+        border-bottom: 1px solid #aaa;
+        font-size: 13px;
+        font-weight: 300;
+        color: #000000;
+        letter-spacing: 0.11em; }
+        dialog .modalContainer form input::placeholder {
+          color: rgba(51, 51, 51, 0.5);
+          font-size: 0.75rem; }
+        dialog .modalContainer form input:focus {
+          outline: 0;
+          border-bottom: 1px solid rgba(18, 157, 114, 0.7);
+          transition: 0.6s all ease;
+          font-weight: bold; }
+      dialog .modalContainer form input[type='file'] {
+        display: none; }
+      dialog .modalContainer form .file-label {
+        color: white;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 30px;
+        width: 100%;
+        background-color: #3498db; }
+        dialog .modalContainer form .file-label:hover {
+          cursor: pointer;
+          background-color: #ff336e; }
+      dialog .modalContainer form button {
+        width: 100%;
+        height: 30px;
+        border: 0;
+        outline: 0;
+        color: white;
+        font-size: 15px;
+        font-weight: 400;
+        background: #129d72;
+        cursor: pointer; }
+        dialog .modalContainer form button:hover {
+          background: #ff336e; }
+
+/********** FOOTER **********/
+footer {
+  background-color: white;
+  border-top: 1px solid #eee;
+  padding: 1rem;
+  text-align: center;
+  font-size: 1.1rem;
+  position: fixed;
+  bottom: 0;
+  width: 100%; }
+  footer span i {
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+    text-align: center;
+    color: black; }

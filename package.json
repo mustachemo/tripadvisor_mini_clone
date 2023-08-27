@@ -3,9 +3,12 @@
   "version": "1.0.0",
   "description": "tripadvisor clone app",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "sass": "node-sass --watch frontend/content.scss -o frontend/"
+    "sass-frontend": "node-sass --watch frontend/content.scss -o frontend/",
+    "nodemon": "nodemon server.js -e *js,scss,html,njk",
+    "watch-sass": "node-sass --watch public/styles/content.scss -o public/css/",
+    "dev": "npm run watch-sass & npm run nodemon"
   },
   "repository": {
     "type": "git",

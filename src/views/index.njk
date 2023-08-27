@@ -1,0 +1,51 @@
+{%extends 'base.njk'%}
+
+{%block main%}
+      <div class="card">
+        <div class="card-image"><img src="./public/images/cities/irvine.jpeg"></div>
+        <div class="card-text">
+          <span class="date"><h2>Irvine</h2></span>
+          <p>"The Master-Planned City"</p>
+        </div>
+        <div class="card-stats">
+          <div class="stat">
+            <div class="value">290k</div>
+            <div class="type">population</div>
+          </div>
+          <div class="stat border">
+            <div class="value">P.T.</div>
+            <div class="type">timezone</div>
+          </div>
+          <div class="stat">
+            <div class="value">
+              66.1
+              <sup>2</sup>
+              m
+            </div>
+            <div class="type">area</div>
+          </div>
+        </div>
+      </div>
+{%endblock%}
+
+{%block dialog%}
+    <dialog id="addCityForm">
+      <div class="modalContainer">
+        <div id="formHeading">Add a City Category!</div>
+        <form action="/" method="POST" enctype="multipart/form-data">
+          <input type="text" placeholder="Name" id="cityName" name="cityName" required/>
+          <input type="text" placeholder="Description" id="cityDesc" name="cityDesc" />
+          <input type="number" placeholder="Population" id="cityPop" name="cityPop" />
+          <input type="number" step="any" placeholder="Area" id="cityArea" name="cityArea" />
+          <input type="text" placeholder="Timezone" id="cityTZ" name="cityTZ" />
+          <input type="file" id="cityImg" name="cityImg" class="file-input" />
+          <label for="cityImg" class="file-label">
+            <i class="fa-solid fa-image"></i>
+            &nbsp;Upload Image
+          </label>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    </dialog>
+{%endblock%}
+```

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@10..48,200&family=Noto+Serif+Khitan+Small+Script&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="../public/css/reset.css" />
+    <link rel="stylesheet" href="../public/css/content.css" />
+  </head>
+  <body>
+    <nav>
+      <div id="logo">
+        <img src="../public/images/logo.svg" alt="logo" />
+      </div>
+      <ul class="nav-items">
+        <li><a href="/">Home</a></li>
+      </ul>
+      <div class="nav-buttons-container">
+        <button>Login</button>
+        <button>Sign up</button>
+      </div>
+    </nav>
+    
+    <main>
+      {%block main%}
+      {%endblock%}
+    </main>
+
+    <div id="addIcon">
+      <i class="fa-solid fa-circle-plus"></i>
+    </div>
+
+    {%block dialog%}
+    {%endblock%}
+
+
+    <footer>
+      <p>
+        Created by mustachemo
+        <span>
+          <a href="https://github.com/mustachemo">
+            <i class="fa-brands fa-github"></i>
+          </a>
+        </span>
+      </p>
+    </footer>
+
+    <script src="https://kit.fontawesome.com/cc64a29b8a.js" crossorigin="anonymous"></script>
+    <script src="../public/js/script.js"></script>
+  </body>
+</html>

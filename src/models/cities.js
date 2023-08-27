@@ -1,5 +1,13 @@
 import mongoose from 'mongoose';
 
+const imgFileSchema = new mongoose.Schema({
+  name: String,
+  img: {
+    data: Buffer,
+    contentType: String,
+  },
+});
+
 const citySchema = new mongoose.Schema(
   {
     name: {
@@ -11,26 +19,15 @@ const citySchema = new mongoose.Schema(
     },
     description: {
       type: String,
-      required: true,
-      trim: true,
-      lowercase: true,
-    },
-    url: {
-      type: String,
       trim: true,
     },
-    image: String,
+    image: imgFileSchema,
     population: Number,
     area: Number,
     timezone: String,
-    website: String,
-    highlights: [String],
   },
   { timestamps: true }
 );
 
-citySchema.index({ location: '2dsphere' });
-
-const City = mongoose.model('City', citySchema);
-
-export default City;
+export const City = mongoose.model('City', citySchema);
+export const CityImage = mongoose.model('CityImages', imgFileSchema);
