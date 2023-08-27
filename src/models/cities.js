@@ -24,7 +24,7 @@ const citySchema = new mongoose.Schema(
     image: imgFileSchema,
     population: Number,
     area: Number,
-    timezone: String,
+    AverageHouseholdIncome: Number,
   },
   { timestamps: true }
 );

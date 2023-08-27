@@ -10,7 +10,10 @@ export const getCities = async (req, res) => {
     const modifiedCities = cities.map(city => ({
       ...city.toObject(),
       population: formatNumber(city.population),
+      AHI: formatNumber(city.AverageHouseholdIncome),
     }));
+
+    console.log('modifiedCities: ', modifiedCities);
 
     res.render('index', { cities: modifiedCities });
     // }
@@ -23,20 +26,23 @@ export const postCity = async (req, res) => {
   try {
     await connectDB();
 
-    const { cityName, cityDesc, cityPop, cityArea, cityTZ } = req.body;
+    const { cityName, cityDesc, cityPop, cityArea, cityAHI } = req.body;
     let imageToSave = null;
 
     // Check if an image was uploaded
     if (req.file) {
-      const { filename, buffer, mimetype } = req.file;
+      const { originalname, buffer, mimetype } = req.file;
 
       const Image = new CityImage({
-        name: filename,
+        name: originalname,
         img: {
           data: buffer,
           contentType: mimetype,
         },
       });
+
+      console.log('filename: ', originalname);
+      console.log('Image name: ', Image.name);
 
       await Image.save();
       imageToSave = Image;
@@ -48,7 +54,7 @@ export const postCity = async (req, res) => {
       image: imageToSave,
       population: cityPop,
       area: cityArea,
-      timezone: cityTZ,
+      AverageHouseholdIncome: cityAHI,
     });
 
     await newCity.save();
