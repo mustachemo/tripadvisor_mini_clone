@@ -4,7 +4,6 @@
 
 /********** NAVBAR **********/
 nav {
-  border-bottom: 1px solid #eee;
   position: sticky;
   top: 0;
   left: 0;
@@ -139,4 +138,5 @@ footer {
     width: 24px;
     height: 24px;
     vertical-align: middle;
-    text-align: center; }
+    text-align: center;
+    color: black; }

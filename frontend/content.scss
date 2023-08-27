@@ -10,7 +10,8 @@ $border-line: 1px solid #eee;
 /********** NAVBAR **********/
 
 nav {
-  border-bottom: $border-line;
+  // add this line in a @media query to make the navbar fixed with a line after scrolling
+  //   border-bottom: $border-line;
   position: sticky;
   top: 0;
   left: 0;
@@ -194,5 +195,6 @@ footer {
     height: 24px;
     vertical-align: middle;
     text-align: center;
+    color: black;
   }
 }
