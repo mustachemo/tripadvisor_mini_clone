@@ -1,6 +1,7 @@
 /********** ROOT ************/
 $grey-color: #333;
 $green-color: #589441;
+$border-line: 1px solid #eee;
 
 * {
   font-family: 'Bricolage Grotesque', sans-serif;
@@ -9,7 +10,7 @@ $green-color: #589441;
 /********** NAVBAR **********/
 
 nav {
-  border-bottom: 1px solid #eee;
+  border-bottom: $border-line;
   position: sticky;
   top: 0;
   left: 0;
@@ -129,7 +130,7 @@ main {
       font-size: 15px;
       font-weight: 300;
       line-height: 1.25;
-      padding: 0.5rem 0;
+      padding: 0 0 0.75rem 0;
     }
     h2 {
       margin-top: 0px;
@@ -172,5 +173,26 @@ main {
       font-weight: 300;
       text-transform: uppercase;
     }
+  }
+}
+
+/********** FOOTER **********/
+
+footer {
+  background-color: white;
+  border-top: $border-line;
+  padding: 1rem;
+  text-align: center;
+  font-size: 1.1rem;
+
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+
+  span i {
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+    text-align: center;
   }
 }
