@@ -124,6 +124,19 @@ main {
       font-weight: 300;
       text-transform: uppercase; }
 
+/********** ADD ICON **********/
+.add-icon {
+  position: fixed;
+  bottom: 65px;
+  right: 10px; }
+  .add-icon i {
+    font-size: 3rem;
+    color: #fa0f69;
+    transition: all 0.3s ease;
+    cursor: pointer; }
+    .add-icon i:hover {
+      color: #2980b9; }
+
 /********** FOOTER **********/
 footer {
   background-color: white;

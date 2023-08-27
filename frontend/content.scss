@@ -177,6 +177,23 @@ main {
   }
 }
 
+/********** ADD ICON **********/
+
+.add-icon {
+  position: fixed;
+  bottom: 65px;
+  right: 10px;
+  i {
+    font-size: 3rem;
+    color: rgb(250, 15, 105);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    &:hover {
+      color: #2980b9;
+    }
+  }
+}
+
 /********** FOOTER **********/
 
 footer {
