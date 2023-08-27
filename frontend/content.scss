@@ -1,6 +1,8 @@
 /********** ROOT ************/
 $grey-color: #333;
 $green-color: #589441;
+$blue-color: #3498db;
+$pink-color: rgb(255, 51, 110);
 $border-line: 1px solid #eee;
 
 * {
@@ -28,7 +30,7 @@ nav {
     line-height: 0; // remove space below image
     img {
       width: 4rem;
-      margin: 0.5rem 0 0.5rem 10rem;
+      margin: 0.5rem 0 0.5rem 9rem;
     }
   }
 
@@ -65,17 +67,17 @@ nav {
     flex: 1;
 
     button {
-      background-color: #3498db;
+      background-color: $blue-color;
       color: white;
       border: none;
       border-radius: 5px;
       padding: 10px 20px;
       font-size: 16px;
       cursor: pointer;
-      transition: background-color 0.3s ease;
+      transition: all 0.1s;
 
       &:hover {
-        background-color: #2980b9;
+        background-color: $pink-color;
       }
     }
   }
@@ -185,11 +187,11 @@ main {
   right: 10px;
   i {
     font-size: 3rem;
-    color: rgb(250, 15, 105);
-    transition: all 0.3s ease;
+    color: $blue-color;
+    transition: all 0.1s;
     cursor: pointer;
     &:hover {
-      color: #2980b9;
+      color: $pink-color;
     }
   }
 }

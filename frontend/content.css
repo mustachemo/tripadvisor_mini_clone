@@ -18,7 +18,7 @@ nav {
     line-height: 0; }
     nav #logo img {
       width: 4rem;
-      margin: 0.5rem 0 0.5rem 10rem; }
+      margin: 0.5rem 0 0.5rem 9rem; }
   nav ul {
     flex: 1;
     display: flex;
@@ -48,9 +48,9 @@ nav {
       padding: 10px 20px;
       font-size: 16px;
       cursor: pointer;
-      transition: background-color 0.3s ease; }
+      transition: all 0.1s; }
       nav .nav-buttons-container button:hover {
-        background-color: #2980b9; }
+        background-color: #ff336e; }
 
 /********** GRID **********/
 main {
@@ -131,11 +131,11 @@ main {
   right: 10px; }
   .add-icon i {
     font-size: 3rem;
-    color: #fa0f69;
-    transition: all 0.3s ease;
+    color: #3498db;
+    transition: all 0.1s;
     cursor: pointer; }
     .add-icon i:hover {
-      color: #2980b9; }
+      color: #ff336e; }
 
 /********** FOOTER **********/
 footer {

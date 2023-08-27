@@ -1,3 +1,4 @@
+// make githib icon bounce on hover
 const githubIcon = document.querySelector('footer span i');
 
 githubIcon.addEventListener('mouseover', () => {
@@ -7,3 +8,5 @@ githubIcon.addEventListener('mouseover', () => {
 githubIcon.addEventListener('mouseout', () => {
   githubIcon.classList.remove('fa-bounce');
 });
+
+// click add-icon to open form/modal
