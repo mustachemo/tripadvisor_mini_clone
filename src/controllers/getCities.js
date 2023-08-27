@@ -1,7 +1,7 @@
 import City from '../models/cities.js';
 import { connectDB } from '../configs/db.config.js';
 
-const getCities = async (req, res) => {
+export const getCities = async (req, res) => {
   try {
     await connectDB();
     const cities = await City.find();
@@ -11,4 +11,16 @@ const getCities = async (req, res) => {
   }
 };
 
-export default getCities;
+export const postCity = async (req, res) => {
+  try {
+    await connectDB();
+    const { name, country, img } = req.body;
+    const newCity = new City({ name, country, img });
+    await newCity.save();
+    console.log('City added');
+    res.redirect('/');
+  } catch (error) {
+    console.log('City not added');
+    res.status(404).json({ error });
+  }
+};
