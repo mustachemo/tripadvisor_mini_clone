@@ -12,10 +12,8 @@ export const getCities = async (req, res) => {
       population: formatNumber(city.population),
     }));
 
-    console.log(modifiedCities[0].image.img.contentType);
-    console.log(modifiedCities[0].image.img.data);
-
     res.render('index', { cities: modifiedCities });
+    // }
   } catch (error) {
     res.status(404).json({ error });
   }
@@ -30,12 +28,15 @@ export const postCity = async (req, res) => {
 
     // Check if an image was uploaded
     if (req.file) {
-      const { filename, originalname, mimetype } = req.file;
+      const { filename, buffer, mimetype } = req.file;
+      console.log('before save');
+      console.log('req.file: ', req.file);
+      console.log(`filename: ${filename}, buffer: ${buffer}, mimetype: ${mimetype}`);
 
       const Image = new CityImage({
-        name: originalname,
+        name: filename,
         img: {
-          data: filename,
+          data: buffer,
           contentType: mimetype,
         },
       });
@@ -57,6 +58,7 @@ export const postCity = async (req, res) => {
 
     await newCity.save();
     console.log('City added');
+    console.log(newCity);
     res.redirect('/');
   } catch (error) {
     console.log('City not added: ', error);
