@@ -1,6 +1,6 @@
 {%extends 'base.njk'%}
 
-{%block content%}
+{%block main%}
           <div class="card">
         <div class="card-image"><img src="./public/images/cities/irvine.jpeg"></div>
         <div class="card-text">
@@ -30,3 +30,26 @@
         </div>
       </div>
 {%endblock%}
+
+{%block dialog%}
+    <dialog id="addCityForm">
+      <div class="modalContainer">
+        <div id="formHeading">Add a City Category!</div>
+        <form method="dialog">
+          <input type="text" placeholder="Name" id="cityName" name="cityName" />
+          <input type="text" placeholder="Description" id="cityDesc" name="cityDesc" />
+          <input type="text" placeholder="Website" id="cityURL" name="cityURL" />
+          <input type="number" placeholder="Population" id="cityPop" name="cityPop" />
+          <input type="number" placeholder="Area" id="cityArea" name="cityArea" />
+          <input type="text" placeholder="Timezone" id="cityTZ" name="cityTZ" />
+          <input type="file" id="cityImg" name="cityImg" class="file-input" />
+          <label for="cityImg" class="file-label">
+            <i class="fa-solid fa-image"></i>
+            &nbsp;Upload Image
+          </label>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    </dialog>
+{%endblock%}
+```
