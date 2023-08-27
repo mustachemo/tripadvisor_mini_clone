@@ -7,8 +7,8 @@
   "scripts": {
     "sass-frontend": "node-sass --watch frontend/content.scss -o frontend/",
     "nodemon": "nodemon server.js -e *js,scss,html,njk",
-    "watch-sass": "node-sass --watch public/styles/content.scss -o public/css/content.css",
-    "dev": "npm run nodemon & npm run watch-sass"
+    "watch-sass": "node-sass --watch public/styles/content.scss -o public/css/",
+    "dev": "npm run watch-sass & npm run nodemon"
   },
   "repository": {
     "type": "git",
