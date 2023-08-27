@@ -20,11 +20,6 @@ const citySchema = new mongoose.Schema(
     description: {
       type: String,
       trim: true,
-      lowercase: true,
-    },
-    url: {
-      type: String,
-      trim: true,
     },
     image: imgFileSchema,
     population: Number,
@@ -35,4 +30,4 @@ const citySchema = new mongoose.Schema(
 );
 
 export const City = mongoose.model('City', citySchema);
-export const CityImage = mongoose.model('Image', imgFileSchema);
+export const CityImage = mongoose.model('CityImages', imgFileSchema);

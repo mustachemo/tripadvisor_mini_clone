@@ -15,11 +15,11 @@ export const postCity = async (req, res) => {
   try {
     // console.log('entered postCity');
     // console.log(req.file);
-    // console.log(req.body);
+    console.log(req.body);
     await connectDB();
     console.log('successfully connected to db');
 
-    const { cityName, cityDesc, cityURl, cityPop, cityArea, cityTZ } = req.body;
+    const { cityName, cityDesc, cityPop, cityArea, cityTZ } = req.body;
 
     let imageToSave = null;
 
@@ -44,7 +44,6 @@ export const postCity = async (req, res) => {
     const newCity = new City({
       name: cityName,
       description: cityDesc,
-      url: cityURl,
       image: imageToSave,
       population: cityPop,
       area: cityArea,

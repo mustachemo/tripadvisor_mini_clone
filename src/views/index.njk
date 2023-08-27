@@ -5,9 +5,6 @@
         <div class="card-image"><img src="./public/images/cities/irvine.jpeg"></div>
         <div class="card-text">
           <span class="date"><h2>Irvine</h2></span>
-          <p>
-            <a href="https://www.cityofirvine.org/">Website</a>
-          </p>
           <p>"The Master-Planned City"</p>
         </div>
         <div class="card-stats">
@@ -38,9 +35,8 @@
         <form action="/" method="POST" enctype="multipart/form-data">
           <input type="text" placeholder="Name" id="cityName" name="cityName" required/>
           <input type="text" placeholder="Description" id="cityDesc" name="cityDesc" />
-          <input type="text" placeholder="Website" id="cityURL" name="cityURL" />
           <input type="number" placeholder="Population" id="cityPop" name="cityPop" />
-          <input type="number" placeholder="Area" id="cityArea" name="cityArea" />
+          <input type="number" step="any" placeholder="Area" id="cityArea" name="cityArea" />
           <input type="text" placeholder="Timezone" id="cityTZ" name="cityTZ" />
           <input type="file" id="cityImg" name="cityImg" class="file-input" />
           <label for="cityImg" class="file-label">
