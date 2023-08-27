@@ -12,17 +12,16 @@ dotenv.config();
 
 const app = express();
 const port = process.env.PORT;
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
-nunjucks.configure('views', {
+nunjucks.configure(path.join(__dirname, 'views'), {
   autoescape: true,
   express: app,
 });
 app.set('view engine', 'njk');
 app.set('env', process.env.NODE_ENV);
 app.set('port', port);
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
