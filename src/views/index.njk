@@ -1,6 +1,6 @@
-{%extends 'base.njk'%}
+{% extends 'base.njk' %}
 
-{%block main%}
+{% block main %}
       <div class="card">
         <div class="card-image"><img src="./public/images/cities/irvine.jpeg"></div>
         <div class="card-text">
@@ -26,9 +26,52 @@
           </div>
         </div>
       </div>
-{%endblock%}
 
-{%block dialog%}
+      {% if cities %}
+        {% for city in cities %}
+          <div class="card">
+            <div class="card-image">
+              {% if city.image %}
+                <img src="data:image/jpeg;base64, {{ city.image.img.data.toString('base64') }}", alt="{{ city.name }}">
+                {% else %}
+                <img src="./public/images/cities/irvine.jpeg">
+              {% endif %}
+            </div>
+            <div class="card-text">
+              <span class="date"><h2>{{ city.name }}</h2></span>
+              <p>"{{ city.description }}"</p>
+            </div>
+            <div class="card-stats">
+              <div class="stat">
+                <div class="value">{{ city.population }}</div>
+                <div class="type">population</div>
+              </div>
+              <div class="stat border">
+                {% if city.timezone %}
+                  <div class="value">{{ city.timezone }}</div>
+                {% else %}
+                  <div class="value">null</div>
+                {% endif %}
+                <div class="type">timezone</div>
+              </div>
+              <div class="stat">
+                {% if city.area %}
+                  <div class="value">
+                    {{ city.area }}
+                    <sup>2</sup>
+                  </div>
+                {% else %}
+                  <div class="value">null</div>
+                {% endif %}
+                <div class="type">area (m)</div>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      {% endif %}
+{% endblock %}
+
+{% block dialog %}
     <dialog id="addCityForm">
       <div class="modalContainer">
         <div id="formHeading">Add a City Category!</div>
@@ -47,5 +90,4 @@
         </form>
       </div>
     </dialog>
-{%endblock%}
-```
+{% endblock %}

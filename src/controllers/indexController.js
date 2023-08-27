@@ -1,11 +1,18 @@
 import { City, CityImage } from '../models/cities.js';
 import { connectDB } from '../configs/db.config.js';
+import formatNumber from '../middleware/formatPopulation.js';
 
 export const getCities = async (req, res) => {
   try {
     await connectDB();
-    const cities = await City.find();
-    res.render('index', { cities });
+    const cities = await City.find().populate('image');
+
+    const modifiedCities = cities.map(city => ({
+      ...city.toObject(),
+      population: formatNumber(city.population),
+    }));
+
+    res.render('index', { cities: modifiedCities });
   } catch (error) {
     res.status(404).json({ error });
   }
