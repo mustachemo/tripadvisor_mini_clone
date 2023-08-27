@@ -1,5 +1,10 @@
 import mongoose from 'mongoose';
 
+const imgFileSchema = new mongoose.Schema({
+  name: String,
+  data: Buffer,
+});
+
 const citySchema = new mongoose.Schema(
   {
     name: {
@@ -11,7 +16,6 @@ const citySchema = new mongoose.Schema(
     },
     description: {
       type: String,
-      required: true,
       trim: true,
       lowercase: true,
     },
@@ -19,7 +23,7 @@ const citySchema = new mongoose.Schema(
       type: String,
       trim: true,
     },
-    image: String,
+    image: imgFileSchema,
     population: Number,
     area: Number,
     timezone: String,
@@ -28,8 +32,6 @@ const citySchema = new mongoose.Schema(
   },
   { timestamps: true }
 );
-
-citySchema.index({ location: '2dsphere' });
 
 const City = mongoose.model('City', citySchema);
 
