@@ -1,5 +1,5 @@
 import express from 'express';
-import { getCities, postCity } from '../controllers/index.js';
+import { getCities, postCity } from '../controllers/indexController.js';
 
 const indexRouter = express.Router();
 

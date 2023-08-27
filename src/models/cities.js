@@ -1,7 +1,10 @@
 import mongoose from 'mongoose';
 
 const imgFileSchema = new mongoose.Schema({
-  name: String,
+  filename: String,
+  originalName: String,
+  mimeType: String,
+  size: Number,
   data: Buffer,
 });
 
@@ -33,6 +36,5 @@ const citySchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-const City = mongoose.model('City', citySchema);
-
-export default City;
+export const City = mongoose.model('City', citySchema);
+export const CityImage = mongoose.model('Image', imgFileSchema);

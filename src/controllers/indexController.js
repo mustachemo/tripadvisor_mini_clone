@@ -1,4 +1,4 @@
-import City from '../models/cities.js';
+import { City, CityImage } from '../models/cities.js';
 import { connectDB } from '../configs/db.config.js';
 
 export const getCities = async (req, res) => {
@@ -14,6 +14,18 @@ export const getCities = async (req, res) => {
 export const postCity = async (req, res) => {
   try {
     await connectDB();
+
+    const { filename, originalname, mimetype, size } = req.file;
+
+    const Image = new CityImage({
+      filename,
+      originalName: originalname,
+      mimeType: mimetype,
+      size,
+    });
+
+    await Image.save();
+
     const { name, country, img } = req.body;
     const newCity = new City({ name, country, img });
     await newCity.save();
