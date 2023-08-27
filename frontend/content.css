@@ -138,9 +138,38 @@ main {
       color: #ff336e; }
 
 /********** ADD CITY MODAL **********/
-dialog::backdrop {
-  backdrop-filter: blur(3px);
-  /* Apply a blur effect */ }
+dialog {
+  width: clamp(300px, 30%, 600px);
+  height: 300px; }
+  dialog::backdrop {
+    backdrop-filter: blur(3px);
+    /* Apply a blur effect */ }
+  dialog form .form-control {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem; }
+    dialog form .form-control label {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem; }
+    dialog form .form-control input {
+      width: 100%;
+      padding: 0.5rem;
+      font-size: 1.2rem;
+      border: 1px solid #eee;
+      border-radius: 5px;
+      margin-bottom: 1rem; }
+    dialog form .form-control button {
+      background-color: #3498db;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: all 0.1s; }
+      dialog form .form-control button:hover {
+        background-color: #ff336e; }
 
 /********** FOOTER **********/
 footer {
