@@ -15,6 +15,7 @@ export const postCity = async (req, res) => {
   try {
     console.log('entered postCity');
     console.log(req.file);
+    console.log(req.body);
     await connectDB();
     console.log('successfully connected to db');
 
@@ -45,7 +46,7 @@ export const postCity = async (req, res) => {
     console.log('City added');
     res.redirect('/');
   } catch (error) {
-    console.log('City not added');
+    console.log('City not added: ', error);
     res.status(404).json({ error });
   }
 };
