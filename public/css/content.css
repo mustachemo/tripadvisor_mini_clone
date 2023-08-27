@@ -74,11 +74,13 @@ main {
     transform: scale(1.0675);
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.9); }
   .card-image {
+    flex: 1;
     grid-area: image;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     background-size: cover; }
   .card-text {
+    flex: 1;
     grid-area: text;
     padding: 10px; }
     .card-text .date {

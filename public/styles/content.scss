@@ -114,12 +114,14 @@ main {
   }
 
   &-image {
+    flex: 1;
     grid-area: image;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     background-size: cover;
   }
   &-text {
+    flex: 1;
     grid-area: text;
     padding: 10px;
 
