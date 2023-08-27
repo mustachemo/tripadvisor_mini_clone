@@ -13,21 +13,34 @@ export const getCities = async (req, res) => {
 
 export const postCity = async (req, res) => {
   try {
+    console.log('entered postCity');
+    console.log(req.file);
     await connectDB();
+    console.log('successfully connected to db');
 
-    const { filename, originalname, mimetype, size } = req.file;
+    const { filename, originalname, mimetype } = req.file;
+    const { cityName, cityDesc, cityURl, cityPop, cityArea, cityTZ } = req.body;
 
     const Image = new CityImage({
-      filename,
-      originalName: originalname,
-      mimeType: mimetype,
-      size,
+      name: originalname,
+      img: {
+        data: filename,
+        contentType: mimetype,
+      },
     });
 
     await Image.save();
+    console.log('Image saved');
 
-    const { name, country, img } = req.body;
-    const newCity = new City({ name, country, img });
+    const newCity = new City({
+      name: cityName,
+      description: cityDesc,
+      url: cityURl,
+      image: Image,
+      population: cityPop,
+      area: cityArea,
+      timezone: cityTZ,
+    });
     await newCity.save();
     console.log('City added');
     res.redirect('/');

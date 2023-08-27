@@ -2,7 +2,6 @@ import mongoose from 'mongoose';
 
 const imgFileSchema = new mongoose.Schema({
   name: String,
-  desc: String,
   img: {
     data: Buffer,
     contentType: String,
@@ -31,8 +30,6 @@ const citySchema = new mongoose.Schema(
     population: Number,
     area: Number,
     timezone: String,
-    website: String,
-    highlights: [String],
   },
   { timestamps: true }
 );
