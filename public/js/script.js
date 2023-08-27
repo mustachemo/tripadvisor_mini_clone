@@ -15,4 +15,10 @@ const addCityForm = document.querySelector('#addCityForm');
 
 addIcon.addEventListener('click', () => {
   addCityForm.showModal();
+
+  addCityForm.addEventListener('click', e2 => {
+    if (e2.target === addCityForm) {
+      addCityForm.close();
+    }
+  });
 });
