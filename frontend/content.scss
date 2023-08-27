@@ -150,7 +150,6 @@ main {
 
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
-    border-top: 1px solid $grey-color;
     background: $green-color;
 
     .stat {
@@ -200,8 +199,9 @@ main {
 /********** ADD CITY MODAL **********/
 
 dialog {
-  width: clamp(300px, auto, 600px);
-  height: clamp(300px, auto, 600px);
+  width: clamp(40%, 50%, 600px);
+  height: clamp(40%, auto, 600px);
+  font-family: 'Source Sans Pro', sans-serif;
 
   .modalContainer {
     display: flex;
@@ -225,7 +225,7 @@ dialog {
       }
 
       input {
-        width: 90%;
+        width: 100%;
         border: 0;
         border-bottom: 1px solid #aaa;
         font-size: 13px;
@@ -246,6 +246,21 @@ dialog {
         }
       }
 
+      input[type='file'] {
+        display: none;
+      }
+
+      .file-label {
+        color: white;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 30px;
+        width: 100%;
+        background-color: $blue-color;
+      }
+
       button {
         width: 100%;
         height: 30px;
@@ -254,10 +269,7 @@ dialog {
         color: white;
         font-size: 15px;
         font-weight: 400;
-        position: relative;
-        z-index: 3;
         background: $bright-green-color;
-        font-family: 'Source Sans Pro', sans-serif;
         cursor: pointer;
       }
     }

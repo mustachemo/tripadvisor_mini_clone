@@ -22,15 +22,6 @@ const citySchema = new mongoose.Schema(
     image: String,
     population: Number,
     area: Number,
-    location: {
-      type: {
-        type: String,
-        enum: ['Point'],
-      },
-      coordinates: {
-        type: [Number],
-      },
-    },
     timezone: String,
     website: String,
     highlights: [String],
@@ -38,7 +29,7 @@ const citySchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-citySchema.index({ 'location.coordinates': '2dsphere' });
+citySchema.index({ location: '2dsphere' });
 
 const City = mongoose.model('City', citySchema);
 
