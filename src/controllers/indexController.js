@@ -29,9 +29,6 @@ export const postCity = async (req, res) => {
     // Check if an image was uploaded
     if (req.file) {
       const { filename, buffer, mimetype } = req.file;
-      console.log('before save');
-      console.log('req.file: ', req.file);
-      console.log(`filename: ${filename}, buffer: ${buffer}, mimetype: ${mimetype}`);
 
       const Image = new CityImage({
         name: filename,
@@ -42,8 +39,6 @@ export const postCity = async (req, res) => {
       });
 
       await Image.save();
-      console.log('Image saved');
-
       imageToSave = Image;
     }
 
@@ -57,8 +52,6 @@ export const postCity = async (req, res) => {
     });
 
     await newCity.save();
-    console.log('City added');
-    console.log(newCity);
     res.redirect('/');
   } catch (error) {
     console.log('City not added: ', error);
