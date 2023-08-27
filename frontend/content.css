@@ -67,14 +67,14 @@ main {
   grid-template-areas: 'image' 'text' 'stats';
   border-radius: 18px;
   background: white;
-  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.9);
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6);
   text-align: center;
   transition: 0.25s ease;
   cursor: pointer;
   margin: 30px; }
   .card:hover {
     transform: scale(1.0675);
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6); }
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.9); }
   .card-image {
     grid-area: image;
     background: url("../public/images/cities/Irvine.jpeg");
@@ -101,6 +101,7 @@ main {
     grid-template-rows: 1fr;
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
+    border-top: 1px solid #333;
     background: #589441; }
     .card-stats .stat {
       padding: 10px;

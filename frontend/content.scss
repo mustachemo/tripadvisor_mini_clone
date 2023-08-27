@@ -1,5 +1,5 @@
 /********** ROOT ************/
-$grey-text: #333;
+$grey-color: #333;
 $green-color: #589441;
 
 * {
@@ -52,7 +52,7 @@ nav {
 
       a {
         text-decoration: none;
-        color: $grey-text;
+        color: $grey-color;
       }
     }
   }
@@ -97,7 +97,7 @@ main {
 
   border-radius: 18px;
   background: white;
-  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.9);
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6);
   text-align: center;
 
   transition: 0.25s ease;
@@ -106,7 +106,7 @@ main {
 
   &:hover {
     transform: scale(1.0675);
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6);
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.9);
   }
 
   &-image {
@@ -143,6 +143,7 @@ main {
 
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
+    border-top: 1px solid $grey-color;
     background: $green-color;
 
     .stat {
@@ -154,8 +155,8 @@ main {
       color: white;
     }
     .border {
-      border-left: 1px solid $grey-text;
-      border-right: 1px solid $grey-text;
+      border-left: 1px solid $grey-color;
+      border-right: 1px solid $grey-color;
     }
     .value {
       font-size: 22px;
