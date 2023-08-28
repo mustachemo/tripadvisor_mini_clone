@@ -8,6 +8,12 @@ const imgFileSchema = new mongoose.Schema({
   },
 });
 
+const attractionSchema = new mongoose.Schema({
+  name: String,
+  description: String,
+  image: imgFileSchema,
+});
+
 const citySchema = new mongoose.Schema(
   {
     name: {
@@ -25,6 +31,7 @@ const citySchema = new mongoose.Schema(
     population: Number,
     area: Number,
     AverageHouseholdIncome: Number,
+    attractions: [attractionSchema],
   },
   { timestamps: true }
 );
