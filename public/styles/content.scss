@@ -24,7 +24,7 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: white;
+  background-color: rgba(252, 252, 252, 0.85);
 
   #logo {
     flex: 1;
@@ -89,7 +89,7 @@ nav {
 main {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  margin-bottom: 80px;
+  margin-bottom: 75px;
 }
 
 /********** CITIES CARD **********/
