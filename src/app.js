@@ -7,6 +7,7 @@ import cors from 'cors';
 import { fileURLToPath } from 'url';
 import path from 'path';
 import indexRouter from './routes/index.js';
+import attractionsRouter from './routes/attractions.js';
 
 dotenv.config();
 
@@ -32,6 +33,6 @@ app.use(cors());
 app.use('/public', express.static('public'));
 
 app.use('/', indexRouter);
-// app.use('/new', newMessageRouter);
+app.use('/cities', attractionsRouter);
 
 export default app;
