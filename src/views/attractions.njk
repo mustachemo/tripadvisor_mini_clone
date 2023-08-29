@@ -46,7 +46,11 @@
 {% endblock %}
 
 {% block dialog %}
-    <dialog id="addCityForm">
+    <div id="addAttractionButton" class="addIcon">
+      <i class="fa-solid fa-circle-plus"></i>
+    </div>
+
+    <dialog id="addAttractionForm">
       <div class="modalContainer">
         <div id="formHeading">Add a City Category!</div>
         <form action="/" method="POST" enctype="multipart/form-data">

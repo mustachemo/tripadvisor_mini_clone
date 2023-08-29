@@ -22,3 +22,17 @@ addCity.addEventListener('click', () => {
     }
   });
 });
+
+// click add-icon to open form/modal for attractions
+const addAttraction = document.querySelector('#addAttractionButton');
+const addAttractionForm = document.querySelector('#addAttractionForm');
+
+addAttraction.addEventListener('click', () => {
+  addAttractionForm.showModal();
+
+  addAttractionForm.addEventListener('click', e2 => {
+    if (e2.target === addAttractionForm) {
+      addAttractionForm.close();
+    }
+  });
+});
