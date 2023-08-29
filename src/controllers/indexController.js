@@ -1,6 +1,7 @@
 import { City, CityImage } from '../models/cities.js';
 import { connectDB } from '../configs/db.config.js';
 import formatNumber from '../middleware/formatPopulation.js';
+import sharp from 'sharp';
 
 export const getCities = async (req, res, next) => {
   try {
@@ -14,11 +15,11 @@ export const getCities = async (req, res, next) => {
       AHI: formatNumber(city.AverageHouseholdIncome),
     }));
 
-    // cities.forEach(city => {
-    //   const cityJsonString = JSON.stringify(city.image);
-    //   const citySizeInBytes = Buffer.byteLength(cityJsonString, 'utf-8');
-    //   console.log(`Size of city ${city.name}: ${citySizeInBytes} bytes`);
-    // });
+    cities.forEach(city => {
+      const cityJsonString = JSON.stringify(city.image);
+      const citySizeInBytes = Buffer.byteLength(cityJsonString, 'utf-8');
+      console.log(`Size of city ${city.name}: ${citySizeInBytes} bytes`);
+    });
 
     res.render('index', { cities: modifiedCities });
   } catch (error) {
@@ -36,11 +37,20 @@ export const postCity = async (req, res, next) => {
     // Check if an image was uploaded
     if (req.file) {
       const { originalname, buffer, mimetype } = req.file;
+      let resizedBuffer = 0;
+      sharp(buffer)
+        .resize(250, 250)
+        .png({ quality: 80, compressionLevel: 3 })
+        .toBuffer((err, buffer, info) => {
+          resizedBuffer = buffer;
+          console.log(`buffer: ${buffer}`);
+          console.log(info);
+        });
 
       const Image = new CityImage({
         name: originalname,
         img: {
-          data: buffer,
+          data: resizedBuffer,
           contentType: mimetype,
         },
       });

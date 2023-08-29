@@ -40,27 +40,24 @@ const citySchema = new mongoose.Schema(
 // this is a middleware that runs before the model is saved
 // it is called when we create a new model or update an existing one
 // it is automatically called by mongoose
-citySchema.pre('save', async function (next) {
-  const city = this;
+// citySchema.pre('save', async function (next) {
+//   const city = this;
 
-  console.log('Entered pre save middleware...');
-  try {
-    console.log('Checking if image exists...');
-    if (city.isModified('image') || city.image.data) {
-      // Resize and compress the image if it exists
-      console.log('Resizing image...');
-      city.image.data = await sharp(city.image.data)
-        .resize(250, 250)
-        .png({ quality: 80 }) // Adjust the quality value as needed
-        .toBuffer();
-    }
+//   try {
+//     if (city.isModified('image') || city.image.data instanceof Buffer) {
+//       // Resize and compress the image if it exists
+//       city.image.data = await sharp(city.image.img.data)
+//         .resize(250, 250)
+//         .png({ quality: 80, compressionLevel: 3 }) // Adjust the quality value as needed
+//         .toBuffer();
+//     }
 
-    next();
-  } catch (error) {
-    console.log('could not resize... ' + error);
-    next(error);
-  }
-});
+//     next();
+//   } catch (error) {
+//     console.log('could not resize... ' + error);
+//     next(error);
+//   }
+// });
 
 // this is a middleware that runs before the model is removed
 // it is called when we delete a model
