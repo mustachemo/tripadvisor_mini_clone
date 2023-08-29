@@ -43,8 +43,10 @@ const citySchema = new mongoose.Schema(
 citySchema.pre('save', async function (next) {
   const city = this;
 
+  console.log('Entered pre save middleware...');
   try {
-    if (city.isModified('image') && city.image && city.image.data) {
+    console.log('Checking if image exists...');
+    if (city.isModified('image') || city.image.data) {
       // Resize and compress the image if it exists
       console.log('Resizing image...');
       city.image.data = await sharp(city.image.data)

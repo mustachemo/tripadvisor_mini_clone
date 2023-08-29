@@ -1,7 +1,7 @@
 import { City, CityImage } from '../models/cities.js';
 import { connectDB } from '../configs/db.config.js';
 
-export const getAttractions = async (req, res) => {
+export const getAttractions = async (req, res, next) => {
   try {
     await connectDB();
     const attractions = await City.find().populate('image');
@@ -12,7 +12,7 @@ export const getAttractions = async (req, res) => {
   }
 };
 
-export const postAttractions = async (req, res) => {
+export const postAttractions = async (req, res, next) => {
   try {
     await connectDB();
   } catch (error) {

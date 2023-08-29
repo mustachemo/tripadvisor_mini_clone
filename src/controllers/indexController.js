@@ -2,7 +2,7 @@ import { City, CityImage } from '../models/cities.js';
 import { connectDB } from '../configs/db.config.js';
 import formatNumber from '../middleware/formatPopulation.js';
 
-export const getCities = async (req, res) => {
+export const getCities = async (req, res, next) => {
   try {
     await connectDB();
     const cities = await City.find().populate('image');
@@ -26,7 +26,7 @@ export const getCities = async (req, res) => {
   }
 };
 
-export const postCity = async (req, res) => {
+export const postCity = async (req, res, next) => {
   try {
     await connectDB();
 
