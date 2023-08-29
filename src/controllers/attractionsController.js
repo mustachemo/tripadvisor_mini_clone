@@ -1,4 +1,4 @@
-import { City, CityImage } from '../models/cities';
+import { City, CityImage } from '../models/cities.js';
 import { connectDB } from '../configs/db.config.js';
 
 export const getAttractions = async (req, res) => {
