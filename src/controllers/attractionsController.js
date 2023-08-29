@@ -5,6 +5,8 @@ export const getAttractions = async (req, res) => {
   try {
     await connectDB();
     const attractions = await City.find().populate('image');
+
+    res.render('attractions', { attractions: attractions });
   } catch {}
 };
 

@@ -14,6 +14,12 @@ export const getCities = async (req, res) => {
       AHI: formatNumber(city.AverageHouseholdIncome),
     }));
 
+    // cities.forEach(city => {
+    //   const cityJsonString = JSON.stringify(city.image);
+    //   const citySizeInBytes = Buffer.byteLength(cityJsonString, 'utf-8');
+    //   console.log(`Size of city ${city.name}: ${citySizeInBytes} bytes`);
+    // });
+
     res.render('index', { cities: modifiedCities });
   } catch (error) {
     res.status(404).json({ error });

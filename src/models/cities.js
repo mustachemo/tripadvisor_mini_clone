@@ -44,8 +44,11 @@ citySchema.pre('save', async function (next) {
   const city = this;
 
   if (city.isModified('image') && city.image && city.image.data) {
-    // Resize the image if it exists
-    city.image.data = await sharp(city.image.data).resize(250, 250).png().toBuffer();
+    // Resize and compress the image if it exists
+    city.image.data = await sharp(city.image.data)
+      .resize(250, 250)
+      .png({ quality: 80 }) // Adjust the quality value as needed
+      .toBuffer();
   }
 
   next();
