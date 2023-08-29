@@ -8,6 +8,7 @@ import { fileURLToPath } from 'url';
 import path from 'path';
 import indexRouter from './routes/index.js';
 import attractionsRouter from './routes/attractions.js';
+import errorHandler from './middleware/errorHandling.js';
 
 dotenv.config();
 
@@ -34,5 +35,7 @@ app.use('/public', express.static('public'));
 
 app.use('/', indexRouter);
 app.use('/cities', attractionsRouter);
+
+app.use(errorHandler);
 
 export default app;

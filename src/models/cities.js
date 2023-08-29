@@ -43,15 +43,21 @@ const citySchema = new mongoose.Schema(
 citySchema.pre('save', async function (next) {
   const city = this;
 
-  if (city.isModified('image') && city.image && city.image.data) {
-    // Resize and compress the image if it exists
-    city.image.data = await sharp(city.image.data)
-      .resize(250, 250)
-      .png({ quality: 80 }) // Adjust the quality value as needed
-      .toBuffer();
-  }
+  try {
+    if (city.isModified('image') && city.image && city.image.data) {
+      // Resize and compress the image if it exists
+      console.log('Resizing image...');
+      city.image.data = await sharp(city.image.data)
+        .resize(250, 250)
+        .png({ quality: 80 }) // Adjust the quality value as needed
+        .toBuffer();
+    }
 
-  next();
+    next();
+  } catch (error) {
+    console.log('could not resize... ' + error);
+    next(error);
+  }
 });
 
 // this is a middleware that runs before the model is removed

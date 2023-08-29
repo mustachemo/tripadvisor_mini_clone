@@ -22,7 +22,7 @@ export const getCities = async (req, res) => {
 
     res.render('index', { cities: modifiedCities });
   } catch (error) {
-    res.status(404).json({ error });
+    next(error);
   }
 };
 
@@ -61,7 +61,6 @@ export const postCity = async (req, res) => {
     await newCity.save();
     res.redirect('/');
   } catch (error) {
-    console.log(error);
-    res.status(404).json({ error });
+    next(error);
   }
 };

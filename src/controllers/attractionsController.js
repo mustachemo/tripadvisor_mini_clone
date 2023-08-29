@@ -7,11 +7,15 @@ export const getAttractions = async (req, res) => {
     const attractions = await City.find().populate('image');
 
     res.render('attractions', { attractions: attractions });
-  } catch {}
+  } catch (error) {
+    next(error);
+  }
 };
 
 export const postAttractions = async (req, res) => {
   try {
     await connectDB();
-  } catch {}
+  } catch (error) {
+    next(error);
+  }
 };
