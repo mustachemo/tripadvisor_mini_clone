@@ -9,11 +9,11 @@ githubIcon.addEventListener('mouseout', () => {
   githubIcon.classList.remove('fa-bounce');
 });
 
-// click add-icon to open form/modal
-const addIcon = document.querySelector('#addIcon');
+// click add-icon to open form/modal for cities
+const addCity = document.querySelector('#addCityButton');
 const addCityForm = document.querySelector('#addCityForm');
 
-addIcon.addEventListener('click', () => {
+addCity.addEventListener('click', () => {
   addCityForm.showModal();
 
   addCityForm.addEventListener('click', e2 => {

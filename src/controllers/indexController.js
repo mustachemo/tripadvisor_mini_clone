@@ -55,6 +55,7 @@ export const postCity = async (req, res) => {
     await newCity.save();
     res.redirect('/');
   } catch (error) {
+    console.log(error);
     res.status(404).json({ error });
   }
 };

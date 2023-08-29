@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+import sharp from 'sharp';
 
 const imgFileSchema = new mongoose.Schema({
   name: String,
@@ -42,9 +43,9 @@ const citySchema = new mongoose.Schema(
 citySchema.pre('save', async function (next) {
   const city = this;
 
-  if (city.isModified('image')) {
-    // if the image has been changed, we resize it
-    city.image = await sharp(city.image).resize(250, 250).png().toBuffer();
+  if (city.isModified('image') && city.image && city.image.data) {
+    // Resize the image if it exists
+    city.image.data = await sharp(city.image.data).resize(250, 250).png().toBuffer();
   }
 
   next();
