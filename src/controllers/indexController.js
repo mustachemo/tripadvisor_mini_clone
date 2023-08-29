@@ -18,7 +18,7 @@ export const getCities = async (req, res, next) => {
     cities.forEach(city => {
       const cityJsonString = JSON.stringify(city.image);
       const citySizeInBytes = Buffer.byteLength(cityJsonString, 'utf-8');
-      console.log(`Size of city ${city.name}: ${citySizeInBytes} bytes`);
+      console.log(`Size of city ${city.name} image: ${citySizeInBytes} bytes`);
     });
 
     res.render('index', { cities: modifiedCities });
@@ -37,26 +37,27 @@ export const postCity = async (req, res, next) => {
     // Check if an image was uploaded
     if (req.file) {
       const { originalname, buffer, mimetype } = req.file;
-      let resizedBuffer = 0;
+
       sharp(buffer)
         .resize(250, 250)
-        .png({ quality: 80, compressionLevel: 3 })
-        .toBuffer((err, buffer, info) => {
-          resizedBuffer = buffer;
-          console.log(`buffer: ${buffer}`);
+        .png()
+        .toBuffer((err, resizedBuffer, info) => {
+          if (err) {
+            throw new Error(err);
+          }
           console.log(info);
+
+          const Image = new CityImage({
+            name: originalname,
+            img: {
+              data: resizedBuffer,
+              contentType: mimetype,
+            },
+          });
+
+          Image.save();
+          imageToSave = Image;
         });
-
-      const Image = new CityImage({
-        name: originalname,
-        img: {
-          data: resizedBuffer,
-          contentType: mimetype,
-        },
-      });
-
-      await Image.save();
-      imageToSave = Image;
     }
 
     const newCity = new City({
