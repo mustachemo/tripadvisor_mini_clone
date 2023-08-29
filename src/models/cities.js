@@ -36,18 +36,26 @@ const citySchema = new mongoose.Schema(
   { timestamps: true }
 );
 
+// this is a middleware that runs before the model is saved
+// it is called when we create a new model or update an existing one
+// it is automatically called by mongoose
 citySchema.pre('save', async function (next) {
   const city = this;
 
   if (city.isModified('image')) {
+    // if the image has been changed, we resize it
     city.image = await sharp(city.image).resize(250, 250).png().toBuffer();
   }
 
   next();
 });
 
+// this is a middleware that runs before the model is removed
+// it is called when we delete a model
+// it is automatically called by mongoose
 citySchema.pre('remove', async function (next) {
   const city = this;
+  // we delete all the attractions that belong to the city
   await Attraction.deleteMany({ city: city._id });
   next();
 });
