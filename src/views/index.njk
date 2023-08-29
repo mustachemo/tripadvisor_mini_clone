@@ -8,7 +8,7 @@
               {% if city.image.img.data %}
                 <img src="data:{{ city.image.img.contentType }};base64,{{ city.image.img.data.toString('base64') }}", alt="{{ city.name }}">
                 {% else %}
-                <img src="./public/images/cities/irvine.jpeg">
+                <img src="./public/images/noImg.jpeg">
               {% endif %}
             </div>
             <div class="card-text">
