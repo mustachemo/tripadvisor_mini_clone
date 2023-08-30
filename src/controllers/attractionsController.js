@@ -3,11 +3,11 @@ import { connectDB } from '../configs/db.config.js';
 
 export const getAttractions = async (req, res, next) => {
   try {
-    await connectDB();
-    const attractions = await City.find().populate('image');
-    console.log(`Entered getAttractions`);
+    // await connectDB();
+    // const attractions = await City.find().populate('image');
 
-    res.render('attractions', { attractions: attractions });
+    // res.render('attractions', { attractions: attractions });
+    res.render('attractions');
   } catch (error) {
     next(error);
   }
@@ -15,7 +15,7 @@ export const getAttractions = async (req, res, next) => {
 
 export const postAttractions = async (req, res, next) => {
   try {
-    await connectDB();
+    // await connectDB();
   } catch (error) {
     next(error);
   }

@@ -70,6 +70,8 @@ main {
   transition: 0.25s ease;
   cursor: pointer;
   margin: 30px; }
+  .card a {
+    text-decoration: none; }
   .card:hover {
     transform: scale(1.0675);
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.9); }

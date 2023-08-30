@@ -108,6 +108,10 @@ main {
   cursor: pointer;
   margin: 30px;
 
+  a {
+    text-decoration: none;
+  }
+
   &:hover {
     transform: scale(1.0675);
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.9);

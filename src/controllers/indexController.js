@@ -5,7 +5,7 @@ import sharp from 'sharp';
 
 export const getCities = async (req, res, next) => {
   try {
-    await connectDB();
+    // await connectDB();
     const cities = await City.find().populate('image');
 
     const modifiedCities = cities.map(city => ({
@@ -30,7 +30,7 @@ export const getCities = async (req, res, next) => {
 
 export const postCity = async (req, res, next) => {
   try {
-    await connectDB();
+    // await connectDB();
 
     const { cityName, cityDesc, cityPop, cityArea, cityAHI } = req.body;
     let imageToSave = null;
