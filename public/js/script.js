@@ -28,7 +28,9 @@ const addAttraction = document.querySelector('#addAttractionButton');
 const addAttractionForm = document.querySelector('#addAttractionForm');
 
 addAttraction.addEventListener('click', () => {
+  console.log('add attraction button clicked');
   addAttractionForm.showModal();
+  console.log('add attraction form opened');
 
   addAttractionForm.addEventListener('click', e2 => {
     if (e2.target === addAttractionForm) {
