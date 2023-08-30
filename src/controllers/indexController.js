@@ -13,6 +13,7 @@ export const getCities = async (req, res, next) => {
       name: city.name.toUpperCase(),
       population: formatNumber(city.population),
       AHI: formatNumber(city.AverageHouseholdIncome),
+      url: city.url,
     }));
 
     // cities.forEach(city => {

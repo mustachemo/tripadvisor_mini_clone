@@ -4,6 +4,7 @@
       {% if cities %}
         {% for city in cities %}
           <div class="card">
+            <a href="{{ city.url }}">
               <div class="card-image">
                 {% if city.image.img.data %}
                   <img src="data:{{ city.image.img.contentType }};base64,{{ city.image.img.data.toString('base64') }}", alt="{{ city.name }}">
@@ -37,9 +38,10 @@
                   {% else %}
                     <div class="value">null</div>
                   {% endif %}
-                  <div class="type"><a href="{{ city.url }}">area (m)</a></div>
+                  <div class="type">area (m)</div>
                 </div>
               </div>
+            </a>
           </div>
         {% endfor %}
       {% endif %}

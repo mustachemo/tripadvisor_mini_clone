@@ -4,6 +4,6 @@ import { getAttractions, postAttractions } from '../controllers/attractionsContr
 
 const attractionsController = express.Router();
 
-attractionsController.route('/:id').get(getAttractions).post(uploadImage.single('attractionsImg'), postAttractions);
+attractionsController.route('/:name').get(getAttractions).post(uploadImage.single('attractionsImg'), postAttractions);
 
 export default attractionsController;

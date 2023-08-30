@@ -86,7 +86,8 @@ citySchema.methods.toJSON = function () {
 // it is called when we use res.send() to send the model back to the client
 // it is automatically called by express when we send the response
 citySchema.virtual('url').get(function () {
-  return `/cities/${this._id}`;
+  // return `/cities/${this._id}`;
+  return `/cities/${this.name}`;
 });
 
 export const City = mongoose.model('City', citySchema);
