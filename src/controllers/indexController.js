@@ -8,7 +8,7 @@ export const getCities = async (req, res, next) => {
   try {
     const cities = await City.find().populate('image');
 
-    const modifiedCities = cities.map(city => ({
+    const modifiedCities = cities.map((city) => ({
       ...city.toObject(),
       id: city._id,
       name: city.name.toUpperCase(),
@@ -97,28 +97,35 @@ export const putCity = async (req, res, next) => {
   try {
     console.log('Entered try block');
     const { cityID, cityName, cityDesc, cityPop, cityArea, cityAHI } = req.body;
+    console.log(
+      `cityID: ${cityID}, cityName: ${cityName}, cityDesc: ${cityDesc}, cityPop: ${cityPop}, cityArea: ${cityArea}, cityAHI: ${cityAHI}`
+    );
 
     const filter = { _id: cityID };
 
-    const update = {
-      name: cityName,
-      description: cityDesc,
-      population: cityPop,
-      area: cityArea,
-      AverageHouseholdIncome: cityAHI,
-    };
+    const update = {};
 
-    const doc = await City.findOneAndUpdate(filter, update, {
+    if (cityName !== undefined && cityName !== null) {
+      update.name = cityName;
+    }
+    if (cityDesc !== undefined && cityDesc !== null) {
+      update.description = cityDesc;
+    }
+    if (cityPop !== undefined && cityPop !== null) {
+      update.population = cityPop;
+    }
+    if (cityArea !== undefined && cityArea !== null) {
+      update.area = cityArea;
+    }
+    if (cityAHI !== undefined && cityAHI !== null) {
+      update.AverageHouseholdIncome = cityAHI;
+    }
+
+    await City.findOneAndUpdate(filter, update, {
       new: true,
     });
 
-    if (updatedCity) {
-      res
-        .status(200)
-        .json({ message: 'City updated successfully', updatedCity });
-    } else {
-      res.status(404).json({ message: 'City not found' });
-    }
+    res.redirect('/');
   } catch (error) {
     next(error);
   }

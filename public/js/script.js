@@ -81,11 +81,12 @@ document.addEventListener('DOMContentLoaded', () => {
       });
 
       confirmEditButton.addEventListener('click', async (e) => {
-        e.preventDefault();
+        // e.preventDefault();
         try {
           const editForm = document.querySelector(`#editForm-${cityId}`);
 
           const formData = new FormData(editForm);
+          formData.append('cityID', cityId);
 
           const response = await fetch(`/${cityId}`, {
             method: 'PUT',
