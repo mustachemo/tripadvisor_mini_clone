@@ -87,14 +87,16 @@ main {
       background-color: #ff336e; }
   .card .delete-dialog {
     width: clamp(40%, 50%, 600px);
-    height: clamp(40%, auto, 600px); }
+    height: clamp(40%, auto, 600px);
+    font-size: clamp(1.2rem, 2vw, 1.5rem); }
     .card .delete-dialog button {
       background-color: #589441;
       color: white;
       border: none;
       border-radius: 5px;
       padding: 10px 20px;
-      font-size: 16px;
+      margin: 1rem 0 0 0;
+      font-size: clamp(1rem, 2vw, 1.5rem);
       cursor: pointer;
       transition: all 0.1s; }
       .card .delete-dialog button:hover {
