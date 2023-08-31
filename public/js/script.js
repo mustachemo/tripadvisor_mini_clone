@@ -26,23 +26,26 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // click delete-icon to open form/modal for cities
-  const deleteButton = document.getElementById('cityDELETE');
+  const deleteButtons = document.querySelectorAll('#cityDELETE');
   const deleteDialog = document.getElementById('deleteDialog');
   const confirmDeleteButton = document.getElementById('confirmDelete');
   const cancelDeleteButton = document.getElementById('cancelDelete');
 
-  deleteButton.addEventListener('click', () => {
-    deleteDialog.showModal();
-    const cityId = deleteButton.getAttribute('data-city-id');
-    console.log(cityId);
+  deleteButtons.forEach(deleteButton => {
+    deleteButton.addEventListener('click', event => {
+      const cityId = deleteButton.getAttribute('data-city-id');
+      console.log('cityId: ', cityId);
+      deleteDialog.showModal();
 
-    confirmDeleteButton.addEventListener('click', () => {
-      // Perform delete action here
-      deleteDialog.close();
-    });
+      confirmDeleteButton.addEventListener('click', () => {
+        console.log('confirm delete button clicked');
+        deleteDialog.close();
+      });
 
-    cancelDeleteButton.addEventListener('click', () => {
-      deleteDialog.close();
+      cancelDeleteButton.addEventListener('click', () => {
+        console.log('cancel delete button clicked');
+        deleteDialog.close();
+      });
     });
   });
 
