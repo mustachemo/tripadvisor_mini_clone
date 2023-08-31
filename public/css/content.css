@@ -72,6 +72,19 @@ main {
   margin: 30px; }
   .card a {
     text-decoration: none; }
+  .card .city-delete-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #589441;
+    border-top-right-radius: 15px;
+    padding: 5px;
+    cursor: pointer; }
+    .card .city-delete-button i {
+      color: white;
+      font-size: 1.5rem; }
+    .card .city-delete-button:hover {
+      background-color: #ff336e; }
   .card:hover {
     transform: scale(1.0675);
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.9); }

@@ -42,6 +42,15 @@
                 </div>
               </div>
             </a>
+            <div id="cityDELETE" class="city-delete-button">
+              <i class="fa-regular fa-trash-can"></i>
+            </div>
+            <dialog id="deleteDialog">
+              <p>Are you sure you want to delete?</p>
+              <button id="confirmDelete">Yes</button>
+              <button id="cancelDelete">No</button>
+            </dialog>
+          </div>
           </div>
         {% endfor %}
       {% endif %}

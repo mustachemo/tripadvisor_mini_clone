@@ -25,6 +25,25 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  // click delete-icon to open form/modal for cities
+  const deleteButton = document.getElementById('cityDELETE');
+  const deleteDialog = document.getElementById('deleteDialog');
+  const confirmDeleteButton = document.getElementById('confirmDelete');
+  const cancelDeleteButton = document.getElementById('cancelDelete');
+
+  deleteButton.addEventListener('click', () => {
+    deleteDialog.showModal();
+  });
+
+  confirmDeleteButton.addEventListener('click', () => {
+    // Perform delete action here
+    deleteDialog.close();
+  });
+
+  cancelDeleteButton.addEventListener('click', () => {
+    deleteDialog.close();
+  });
+
   // click add-icon to open form/modal for attractions
   const addAttraction = document.querySelector('#addAttractionButton');
   const addAttractionForm = document.querySelector('#addAttractionForm');

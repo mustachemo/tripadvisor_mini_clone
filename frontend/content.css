@@ -76,9 +76,13 @@ main {
     position: absolute;
     top: 0;
     right: 0;
-    background-color: #cb1f1f;
+    background-color: #589441;
+    border-top-right-radius: 15px;
     padding: 5px;
     cursor: pointer; }
+    .card .city-delete-button i {
+      color: white;
+      font-size: 1.5rem; }
     .card .city-delete-button:hover {
       background-color: #ff336e; }
   .card:hover {

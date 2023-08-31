@@ -56,11 +56,18 @@
             <div class="type">area</div>
           </div>
         </div>
-        <div id="cityDELETE" class="city-delete-button">X</div>
+        <div id="cityDELETE" class="city-delete-button">
+          <i class="fa-regular fa-trash-can"></i>
+        </div>
+        <dialog id="deleteDialog">
+          <p>Are you sure you want to delete?</p>
+          <button id="confirmDelete">Yes</button>
+          <button id="cancelDelete">No</button>
+        </dialog>
       </div>
     </main>
 
-    <div class="addIcon">
+    <div id="addCItyButton" class="addIcon">
       <i class="fa-solid fa-circle-plus"></i>
     </div>
 

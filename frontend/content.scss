@@ -4,6 +4,7 @@ $green-color: #589441;
 $bright-green-color: #129d72;
 $blue-color: #3498db;
 $pink-color: rgb(255, 51, 110);
+$red-color: #e74c3c;
 $border-line: 1px solid #eee;
 
 * {
@@ -116,10 +117,16 @@ main {
     position: absolute;
     top: 0;
     right: 0;
-    background-color: rgb(203, 31, 31);
+    background-color: $green-color;
     // border: none;
+    border-top-right-radius: 15px;
     padding: 5px;
     cursor: pointer;
+
+    i {
+      color: white;
+      font-size: 1.5rem;
+    }
 
     &:hover {
       background-color: $pink-color;
