@@ -2,7 +2,7 @@ import { City, CityImage } from '../models/cities.js';
 import { connectDB } from '../configs/db.config.js';
 import formatNumber from '../middleware/formatPopulation.js';
 import sharp from 'sharp';
-import joi from 'joi';
+import Joi from 'joi';
 
 // * Need to make this faster
 export const getCities = async (req, res, next) => {
@@ -119,11 +119,11 @@ export const putCity = async (req, res, next) => {
     const filter = { _id: cityID };
 
     const update = {};
-    if (cityName !== undefined) update.name = cityName;
-    if (cityDesc !== undefined) update.description = cityDesc;
-    if (cityPop !== undefined) update.population = cityPop;
-    if (cityArea !== undefined) update.area = cityArea;
-    if (cityAHI !== undefined) update.AverageHouseholdIncome = cityAHI;
+    if (cityName !== '') update.name = cityName;
+    if (cityDesc !== '') update.description = cityDesc;
+    if (cityPop !== '') update.population = cityPop;
+    if (cityArea !== '') update.area = cityArea;
+    if (cityAHI !== '') update.AverageHouseholdIncome = cityAHI;
 
     await City.findOneAndUpdate(filter, update, {
       new: true,
