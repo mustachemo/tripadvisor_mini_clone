@@ -10,6 +10,7 @@ import indexRouter from './routes/index.js';
 import attractionsRouter from './routes/attractions.js';
 import errorHandler from './middleware/errorHandling.js';
 // ? How could I use isocket.io in this project?
+// TODO: Use firebase for user authentication, it's easier, free, secure, fast, and is a node module
 
 dotenv.config();
 
