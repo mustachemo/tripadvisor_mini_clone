@@ -4,7 +4,15 @@ This app is practice for nodejs/expressjs, it is an inventory managment site. I 
 
 <a href="https://iconscout.com/icons/tripadvisor" target="_blank">Free Tripadvisor Logo Icon</a> by <a href="https://iconscout.com/contributors/icon-mafia" target="_blank">Icon Mafia</a>
 
-# To do!
+# Setup
+
+Run this command
+
+```javascript
+npm install
+```
+
+## Todo!
 
 - [ ] Optimization
   - [ ] Make index page load faster
