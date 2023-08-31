@@ -14,7 +14,8 @@ npm install
 
 # Build
 
-Run this command
+1. You'll need a connection to mongoDB, my .env is local so you need to connect your own mongoDB
+2. Run this command
 
 ```javascript
 npm run dev
