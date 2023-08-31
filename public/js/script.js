@@ -89,37 +89,25 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
 
-      confirmEditButton.addEventListener('click', async () => {
-        const cityId = editButton.getAttribute('data-city-id');
-        const editForm = document.getElementById(`editForm-${cityId}`);
+      confirmEditButton.addEventListener('click', async e => {
+        try {
+          const editForm = document.querySelector(`#editForm-${cityId}`);
+          console.log('confirm edit button clicked');
+          console.log(`editDialog = ${editForm}`);
 
-        const formData = new FormData(editForm);
-        const cityName = formData.get('cityName');
-        const cityDesc = formData.get('cityDesc');
-        const cityPop = formData.get('cityPop');
-        const cityArea = formData.get('cityArea');
-        const cityAHI = formData.get('cityAHI');
+          const formData = new FormData(editForm);
 
-        const response = await fetch(`/${cityId}`, {
-          method: 'PUT',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            cityName,
-            cityDesc,
-            cityPop,
-            cityArea,
-            cityAHI,
-          }),
-        });
+          const response = await fetch(`/${cityId}`, {
+            method: 'PUT',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(Object.fromEntries(formData)),
+          });
 
-        if (response.ok) {
-          console.log('City updated successfully');
-          // Perform any further actions or UI updates
-        } else {
-          console.error('Failed to update city');
-          // Handle error scenario
+          console.log('response successful', response);
+        } catch (error) {
+          console.error('An error occurred:', error);
         }
 
         editDialog.close();

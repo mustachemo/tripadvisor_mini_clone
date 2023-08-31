@@ -91,3 +91,35 @@ export const deleteCity = async (req, res, next) => {
     next(error);
   }
 };
+
+export const putCity = async (req, res, next) => {
+  console.log('Entered putCity');
+  try {
+    console.log('Entered try block');
+    const { cityID, cityName, cityDesc, cityPop, cityArea, cityAHI } = req.body;
+
+    const filter = { _id: cityID };
+
+    const update = {
+      name: cityName,
+      description: cityDesc,
+      population: cityPop,
+      area: cityArea,
+      AverageHouseholdIncome: cityAHI,
+    };
+
+    const doc = await City.findOneAndUpdate(filter, update, {
+      new: true,
+    });
+
+    if (updatedCity) {
+      res
+        .status(200)
+        .json({ message: 'City updated successfully', updatedCity });
+    } else {
+      res.status(404).json({ message: 'City not found' });
+    }
+  } catch (error) {
+    next(error);
+  }
+};
