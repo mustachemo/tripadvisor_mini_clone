@@ -37,6 +37,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
       deleteDialog.showModal();
 
+      deleteDialog.addEventListener('click', e => {
+        if (e.target === deleteDialog) {
+          deleteDialog.close();
+        }
+      });
+
       confirmDeleteButton.addEventListener('click', async () => {
         // try {
         const cityId = deleteButton.getAttribute('data-city-id');
@@ -76,6 +82,12 @@ document.addEventListener('DOMContentLoaded', () => {
       const confirmEditButton = editDialog.querySelector('#submitChange');
 
       editDialog.showModal();
+
+      editDialog.addEventListener('click', e => {
+        if (e.target === editDialog) {
+          editDialog.close();
+        }
+      });
 
       confirmEditButton.addEventListener('click', async () => {
         const cityId = editButton.getAttribute('data-city-id');
