@@ -10,6 +10,7 @@ export const getCities = async (req, res, next) => {
 
     const modifiedCities = cities.map(city => ({
       ...city.toObject(),
+      id: city._id,
       name: city.name.toUpperCase(),
       population: formatNumber(city.population),
       AHI: formatNumber(city.AverageHouseholdIncome),

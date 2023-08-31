@@ -33,15 +33,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
   deleteButton.addEventListener('click', () => {
     deleteDialog.showModal();
-  });
+    const cityId = deleteButton.getAttribute('data-city-id');
+    console.log(cityId);
 
-  confirmDeleteButton.addEventListener('click', () => {
-    // Perform delete action here
-    deleteDialog.close();
-  });
+    confirmDeleteButton.addEventListener('click', () => {
+      // Perform delete action here
+      deleteDialog.close();
+    });
 
-  cancelDeleteButton.addEventListener('click', () => {
-    deleteDialog.close();
+    cancelDeleteButton.addEventListener('click', () => {
+      deleteDialog.close();
+    });
   });
 
   // click add-icon to open form/modal for attractions
