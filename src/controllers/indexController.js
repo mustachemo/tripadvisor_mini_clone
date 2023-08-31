@@ -107,7 +107,7 @@ export const putCity = async (req, res, next) => {
 
     const { cityID, cityName, cityDesc, cityPop, cityArea, cityAHI } = req.body;
 
-    const { error } = schema.validate({
+    schema.validate({
       cityID,
       cityName,
       cityDesc,
@@ -115,10 +115,6 @@ export const putCity = async (req, res, next) => {
       cityArea,
       cityAHI,
     });
-
-    if (error) {
-      return res.status(400).json({ message: error.details[0].message });
-    }
 
     const filter = { _id: cityID };
 
