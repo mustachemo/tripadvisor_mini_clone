@@ -14,12 +14,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const addCity = document.querySelector('#addCityButton');
   const addCityForm = document.querySelector('#addCityForm');
 
-  addCity.addEventListener('click', event => {
+  addCity.addEventListener('click', (event) => {
     console.log('add city button clicked');
     addCityForm.showModal();
   });
 
-  addCityForm.addEventListener('click', e => {
+  addCityForm.addEventListener('click', (e) => {
     if (e.target === addCityForm) {
       addCityForm.close();
     }
@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // click delete-icon to open form/modal for cities and perform delete
   const deleteButtons = document.querySelectorAll('.city-delete-button');
 
-  deleteButtons.forEach(deleteButton => {
+  deleteButtons.forEach((deleteButton) => {
     deleteButton.addEventListener('click', () => {
       const cityId = deleteButton.getAttribute('data-city-id');
       const deleteDialog = document.getElementById(`deleteDialog-${cityId}`);
@@ -37,33 +37,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
       deleteDialog.showModal();
 
-      deleteDialog.addEventListener('click', e => {
+      deleteDialog.addEventListener('click', (e) => {
         if (e.target === deleteDialog) {
           deleteDialog.close();
         }
       });
 
       confirmDeleteButton.addEventListener('click', async () => {
-        // try {
-        const cityId = deleteButton.getAttribute('data-city-id');
-        const response = await fetch(`/${cityId}`, {
-          method: 'DELETE',
-        });
+        try {
+          const cityId = deleteButton.getAttribute('data-city-id');
+          const response = await fetch(`/${cityId}`, {
+            method: 'DELETE',
+          });
 
-        deleteDialog.close();
-
-        //   if (response.ok) {
-        //     console.log('City deleted successfully');
-        //     // Perform any further actions or UI updates
-        //   } else {
-        //     console.error('Failed to delete city');
-        //     // Handle error scenario
-        //   }
-
-        //   deleteDialog.close();
-        // } catch (error) {
-        //   console.error('An error occurred:', error);
-        // }
+          console.log('response successful', response);
+          deleteDialog.close();
+        } catch (error) {
+          console.error('An error occurred:', error);
+        }
       });
 
       cancelDeleteButton.addEventListener('click', () => {
@@ -75,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // click edit-icon to open form/modal for cities and perform edit
   const editButtons = document.querySelectorAll('.city-edit-button');
 
-  editButtons.forEach(editButton => {
+  editButtons.forEach((editButton) => {
     editButton.addEventListener('click', () => {
       const cityId = editButton.getAttribute('data-city-id');
       const editDialog = document.getElementById(`editDialog-${cityId}`);
@@ -83,17 +74,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
       editDialog.showModal();
 
-      editDialog.addEventListener('click', e => {
+      editDialog.addEventListener('click', (e) => {
         if (e.target === editDialog) {
           editDialog.close();
         }
       });
 
-      confirmEditButton.addEventListener('click', async e => {
+      confirmEditButton.addEventListener('click', async (e) => {
+        e.preventDefault();
         try {
           const editForm = document.querySelector(`#editForm-${cityId}`);
-          console.log('confirm edit button clicked');
-          console.log(`editDialog = ${editForm}`);
 
           const formData = new FormData(editForm);
 
@@ -124,7 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
     addAttractionForm.showModal();
   });
 
-  addAttractionForm.addEventListener('click', e => {
+  addAttractionForm.addEventListener('click', (e) => {
     if (e.target === addAttractionForm) {
       addAttractionForm.close();
     }
