@@ -132,6 +132,26 @@ main {
     }
   }
 
+  .delete-dialog {
+    width: clamp(40%, 50%, 600px);
+    height: clamp(40%, auto, 600px);
+
+    button {
+      background-color: $green-color;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: all 0.1s;
+
+      &:hover {
+        background-color: $pink-color;
+      }
+    }
+  }
+
   &:hover {
     transform: scale(1.0675);
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.9);
