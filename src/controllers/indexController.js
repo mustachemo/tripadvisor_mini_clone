@@ -2,6 +2,7 @@ import { City, CityImage } from '../models/cities.js';
 import { connectDB } from '../configs/db.config.js';
 import formatNumber from '../middleware/formatPopulation.js';
 import sharp from 'sharp';
+import joi from 'joi';
 
 // * Need to make this faster
 export const getCities = async (req, res, next) => {
@@ -95,31 +96,38 @@ export const deleteCity = async (req, res, next) => {
 export const putCity = async (req, res, next) => {
   console.log('Entered putCity');
   try {
-    console.log('Entered try block');
+    const schema = Joi.object({
+      cityID: Joi.string().required(),
+      cityName: Joi.string(),
+      cityDesc: Joi.string(),
+      cityPop: Joi.number(),
+      cityArea: Joi.number(),
+      cityAHI: Joi.number(),
+    });
+
     const { cityID, cityName, cityDesc, cityPop, cityArea, cityAHI } = req.body;
-    console.log(
-      `cityID: ${cityID}, cityName: ${cityName}, cityDesc: ${cityDesc}, cityPop: ${cityPop}, cityArea: ${cityArea}, cityAHI: ${cityAHI}`
-    );
+
+    const { error } = schema.validate({
+      cityID,
+      cityName,
+      cityDesc,
+      cityPop,
+      cityArea,
+      cityAHI,
+    });
+
+    if (error) {
+      return res.status(400).json({ message: error.details[0].message });
+    }
 
     const filter = { _id: cityID };
 
     const update = {};
-
-    if (cityName !== undefined && cityName !== null) {
-      update.name = cityName;
-    }
-    if (cityDesc !== undefined && cityDesc !== null) {
-      update.description = cityDesc;
-    }
-    if (cityPop !== undefined && cityPop !== null) {
-      update.population = cityPop;
-    }
-    if (cityArea !== undefined && cityArea !== null) {
-      update.area = cityArea;
-    }
-    if (cityAHI !== undefined && cityAHI !== null) {
-      update.AverageHouseholdIncome = cityAHI;
-    }
+    if (cityName !== undefined) update.name = cityName;
+    if (cityDesc !== undefined) update.description = cityDesc;
+    if (cityPop !== undefined) update.population = cityPop;
+    if (cityArea !== undefined) update.area = cityArea;
+    if (cityAHI !== undefined) update.AverageHouseholdIncome = cityAHI;
 
     await City.findOneAndUpdate(filter, update, {
       new: true,

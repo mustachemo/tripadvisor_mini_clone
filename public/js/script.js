@@ -51,6 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
           });
 
           console.log('response successful', response);
+          window.location.reload();
           deleteDialog.close();
         } catch (error) {
           console.error('An error occurred:', error);
@@ -81,12 +82,10 @@ document.addEventListener('DOMContentLoaded', () => {
       });
 
       confirmEditButton.addEventListener('click', async (e) => {
-        // e.preventDefault();
         try {
           const editForm = document.querySelector(`#editForm-${cityId}`);
 
           const formData = new FormData(editForm);
-          console.log(`cityId: ${cityId}`);
           formData.append('cityID', cityId);
 
           const response = await fetch(`/${cityId}`, {
@@ -97,6 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
             body: JSON.stringify(Object.fromEntries(formData)),
           });
 
+          window.location.reload();
           console.log('response successful', response);
         } catch (error) {
           console.error('An error occurred:', error);
