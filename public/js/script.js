@@ -15,7 +15,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const addCityForm = document.querySelector('#addCityForm');
 
   addCity.addEventListener('click', (event) => {
-    console.log('add city button clicked');
     addCityForm.showModal();
   });
 
