@@ -7,4 +7,4 @@ This app is practice for nodejs/expressjs, it is an inventory managment site. I 
 # To do!
 
 - [ ] Optimization
-  - [x] Make index page load faster
+  - [ ] Make index page load faster
