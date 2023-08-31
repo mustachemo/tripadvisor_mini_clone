@@ -81,3 +81,13 @@ export const postCity = async (req, res, next) => {
     next(error);
   }
 };
+
+export const deleteCity = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    await City.findByIdAndDelete(id);
+    res.redirect('/');
+  } catch (error) {
+    next(error);
+  }
+};
