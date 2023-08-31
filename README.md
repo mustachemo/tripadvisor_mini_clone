@@ -12,6 +12,14 @@ Run this command
 npm install
 ```
 
+# Build
+
+Run this command
+
+```javascript
+npm run dev
+```
+
 ## Todo!
 
 - [ ] Optimization
