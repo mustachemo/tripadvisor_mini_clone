@@ -9,6 +9,7 @@ import path from 'path';
 import indexRouter from './routes/index.js';
 import attractionsRouter from './routes/attractions.js';
 import errorHandler from './middleware/errorHandling.js';
+// ? How could I use isocket.io in this project?
 
 dotenv.config();
 

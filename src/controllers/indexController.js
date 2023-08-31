@@ -3,9 +3,9 @@ import { connectDB } from '../configs/db.config.js';
 import formatNumber from '../middleware/formatPopulation.js';
 import sharp from 'sharp';
 
+// * Need to make this faster
 export const getCities = async (req, res, next) => {
   try {
-    // await connectDB();
     const cities = await City.find().populate('image');
 
     const modifiedCities = cities.map(city => ({
