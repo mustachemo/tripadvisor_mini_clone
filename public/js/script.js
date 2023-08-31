@@ -86,6 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
           const editForm = document.querySelector(`#editForm-${cityId}`);
 
           const formData = new FormData(editForm);
+          console.log(`cityId: ${cityId}`);
           formData.append('cityID', cityId);
 
           const response = await fetch(`/${cityId}`, {
