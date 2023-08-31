@@ -12,7 +12,7 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: white; }
+  background-color: rgba(252, 252, 252, 0.85); }
   nav #logo {
     flex: 1;
     line-height: 0; }
@@ -41,7 +41,7 @@ nav {
     text-align: center;
     flex: 1; }
     nav .nav-buttons-container button {
-      background-color: #3498db;
+      background-color: #589441;
       color: white;
       border: none;
       border-radius: 5px;
@@ -55,33 +55,49 @@ nav {
 /********** GRID **********/
 main {
   display: grid;
-  grid-gap: 1rem;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  margin-bottom: 75px; }
 
 /********** CITIES CARD **********/
 .card {
-  display: grid;
-  grid-template-columns: auto;
-  grid-template-rows: 210px auto 80px;
-  grid-template-areas: 'image' 'text' 'stats';
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-self: flex-start;
   border-radius: 18px;
-  background: white;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6);
   text-align: center;
   transition: 0.25s ease;
   cursor: pointer;
   margin: 30px; }
+  .card a {
+    text-decoration: none; }
+  .card .city-delete-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #589441;
+    border-top-right-radius: 15px;
+    padding: 5px;
+    cursor: pointer; }
+    .card .city-delete-button i {
+      color: white;
+      font-size: 1.5rem; }
+    .card .city-delete-button:hover {
+      background-color: #ff336e; }
   .card:hover {
     transform: scale(1.0675);
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.9); }
   .card-image {
-    grid-area: image;
-    background: url("../public/images/cities/Irvine.jpeg");
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
+    height: 210px;
     background-size: cover; }
+    .card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-top-left-radius: 15px;
+      border-top-right-radius: 15px; }
   .card-text {
-    grid-area: text;
     padding: 10px; }
     .card-text .date {
       color: #ff076e;
@@ -91,25 +107,24 @@ main {
       font-size: 15px;
       font-weight: 300;
       line-height: 1.25;
-      padding: 0 0 0.75rem 0; }
+      padding: 0.75rem 0; }
     .card-text h2 {
       margin-top: 0px;
       font-size: 28px; }
   .card-stats {
-    grid-area: stats;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr;
     border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
-    background: #589441; }
+    border-bottom-right-radius: 15px; }
     .card-stats .stat {
       padding: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
       flex-direction: column;
-      color: white; }
+      background-color: #3498db;
+      color: #fcfcfc; }
     .card-stats .border {
       border-left: 1px solid #333;
       border-right: 1px solid #333; }
@@ -124,16 +139,18 @@ main {
       text-transform: uppercase; }
 
 /********** ADD ICON **********/
-#addIcon {
+.addIcon {
   position: fixed;
   bottom: 65px;
-  right: 10px; }
-  #addIcon i {
+  right: 10px;
+  background-color: white;
+  border-radius: 50%; }
+  .addIcon i {
     font-size: 3rem;
-    color: #3498db;
+    color: #589441;
     transition: all 0.1s;
     cursor: pointer; }
-    #addIcon i:hover {
+    .addIcon i:hover {
       color: #ff336e; }
 
 /********** ADD CITY MODAL **********/
@@ -141,14 +158,14 @@ dialog {
   width: clamp(40%, 50%, 600px);
   height: clamp(40%, auto, 600px);
   font-family: 'Source Sans Pro', sans-serif; }
+  dialog::backdrop {
+    backdrop-filter: blur(5px);
+    /* Apply a blur effect */ }
   dialog .modalContainer {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center; }
-    dialog .modalContainer::backdrop {
-      backdrop-filter: blur(3px);
-      /* Apply a blur effect */ }
     dialog .modalContainer #formHeading {
       font-size: 25px;
       color: #129d72; }
@@ -206,7 +223,7 @@ footer {
   padding: 1rem;
   text-align: center;
   font-size: 1.1rem;
-  position: absolute;
+  position: fixed;
   bottom: 0;
   width: 100%; }
   footer span i {

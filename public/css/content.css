@@ -72,6 +72,35 @@ main {
   margin: 30px; }
   .card a {
     text-decoration: none; }
+  .card .city-delete-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #589441;
+    border-top-right-radius: 15px;
+    padding: 5px;
+    cursor: pointer; }
+    .card .city-delete-button i {
+      color: white;
+      font-size: 1.5rem; }
+    .card .city-delete-button:hover {
+      background-color: #ff336e; }
+  .card .delete-dialog {
+    width: clamp(40%, 50%, 600px);
+    height: clamp(40%, auto, 600px);
+    font-size: clamp(1.2rem, 2vw, 1.5rem); }
+    .card .delete-dialog button {
+      background-color: #589441;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 20px;
+      margin: 1rem 0 0 0;
+      font-size: clamp(1rem, 2vw, 1.5rem);
+      cursor: pointer;
+      transition: all 0.1s; }
+      .card .delete-dialog button:hover {
+        background-color: #ff336e; }
   .card:hover {
     transform: scale(1.0675);
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.9); }

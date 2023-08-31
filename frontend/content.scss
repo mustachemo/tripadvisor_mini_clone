@@ -4,6 +4,7 @@ $green-color: #589441;
 $bright-green-color: #129d72;
 $blue-color: #3498db;
 $pink-color: rgb(255, 51, 110);
+$red-color: #e74c3c;
 $border-line: 1px solid #eee;
 
 * {
@@ -24,7 +25,7 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: white;
+  background-color: rgba(252, 252, 252, 0.85);
 
   #logo {
     flex: 1;
@@ -68,7 +69,7 @@ nav {
     flex: 1;
 
     button {
-      background-color: $blue-color;
+      background-color: $green-color;
       color: white;
       border: none;
       border-radius: 5px;
@@ -88,20 +89,19 @@ nav {
 
 main {
   display: grid;
-  grid-gap: 1rem;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  margin-bottom: 75px;
 }
 
 /********** CITIES CARD **********/
 
 .card {
-  display: grid;
-  grid-template-columns: auto;
-  grid-template-rows: 210px auto 80px;
-  grid-template-areas: 'image' 'text' 'stats';
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-self: flex-start;
 
   border-radius: 18px;
-  background: white;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6);
   text-align: center;
 
@@ -109,20 +109,48 @@ main {
   cursor: pointer;
   margin: 30px;
 
+  a {
+    text-decoration: none;
+  }
+
+  .city-delete-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: $green-color;
+    // border: none;
+    border-top-right-radius: 15px;
+    padding: 5px;
+    cursor: pointer;
+
+    i {
+      color: white;
+      font-size: 1.5rem;
+    }
+
+    &:hover {
+      background-color: $pink-color;
+    }
+  }
+
   &:hover {
     transform: scale(1.0675);
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.9);
   }
 
   &-image {
-    grid-area: image;
-    background: url('../public/images/cities/Irvine.jpeg');
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
+    height: 210px;
     background-size: cover;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; // perhaps not needed
+      border-top-left-radius: 15px;
+      border-top-right-radius: 15px;
+    }
   }
   &-text {
-    grid-area: text;
     padding: 10px;
 
     .date {
@@ -134,7 +162,7 @@ main {
       font-size: 15px;
       font-weight: 300;
       line-height: 1.25;
-      padding: 0 0 0.75rem 0;
+      padding: 0.75rem 0;
     }
     h2 {
       margin-top: 0px;
@@ -143,14 +171,12 @@ main {
   }
 
   &-stats {
-    grid-area: stats;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr;
 
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
-    background: $green-color;
 
     .stat {
       padding: 10px;
@@ -158,7 +184,8 @@ main {
       align-items: center;
       justify-content: center;
       flex-direction: column;
-      color: white;
+      background-color: $blue-color;
+      color: rgb(252, 252, 252);
     }
     .border {
       border-left: 1px solid $grey-color;
@@ -181,13 +208,17 @@ main {
 
 /********** ADD ICON **********/
 
-#addIcon {
+.addIcon {
   position: fixed;
   bottom: 65px;
   right: 10px;
+
+  background-color: white;
+  border-radius: 50%;
+
   i {
     font-size: 3rem;
-    color: $blue-color;
+    color: $green-color;
     transition: all 0.1s;
     cursor: pointer;
     &:hover {
@@ -203,15 +234,15 @@ dialog {
   height: clamp(40%, auto, 600px);
   font-family: 'Source Sans Pro', sans-serif;
 
+  &::backdrop {
+    backdrop-filter: blur(5px); /* Apply a blur effect */
+  }
+
   .modalContainer {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
-    &::backdrop {
-      backdrop-filter: blur(3px); /* Apply a blur effect */
-    }
 
     #formHeading {
       font-size: 25px;
@@ -294,7 +325,7 @@ footer {
   text-align: center;
   font-size: 1.1rem;
 
-  position: absolute;
+  position: fixed;
   bottom: 0;
   width: 100%;
 

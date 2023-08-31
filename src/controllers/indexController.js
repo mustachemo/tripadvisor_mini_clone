@@ -10,6 +10,7 @@ export const getCities = async (req, res, next) => {
 
     const modifiedCities = cities.map(city => ({
       ...city.toObject(),
+      id: city._id,
       name: city.name.toUpperCase(),
       population: formatNumber(city.population),
       AHI: formatNumber(city.AverageHouseholdIncome),
@@ -75,6 +76,16 @@ export const postCity = async (req, res, next) => {
     });
 
     await newCity.save();
+    res.redirect('/');
+  } catch (error) {
+    next(error);
+  }
+};
+
+export const deleteCity = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    await City.findByIdAndDelete(id);
     res.redirect('/');
   } catch (error) {
     next(error);

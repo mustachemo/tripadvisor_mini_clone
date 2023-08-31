@@ -28,7 +28,9 @@
 
     <main>
       <div class="card">
-        <div class="card-image"></div>
+        <div class="card-image">
+          <img src="../public/images/cities/austin.jpeg" alt="" />
+        </div>
         <div class="card-text">
           <span class="date"><h2>Irvine</h2></span>
           <p>
@@ -54,10 +56,18 @@
             <div class="type">area</div>
           </div>
         </div>
+        <div id="cityDELETE" class="city-delete-button">
+          <i class="fa-regular fa-trash-can"></i>
+        </div>
+        <dialog id="deleteDialog">
+          <p>Are you sure you want to delete?</p>
+          <button id="confirmDelete">Yes</button>
+          <button id="cancelDelete">No</button>
+        </dialog>
       </div>
     </main>
 
-    <div id="addIcon">
+    <div id="addCItyButton" class="addIcon">
       <i class="fa-solid fa-circle-plus"></i>
     </div>
 
@@ -66,10 +76,26 @@
         <div id="formHeading">Add a City Category!</div>
         <form method="dialog">
           <input type="text" placeholder="Name" id="cityName" name="cityName" />
-          <input type="text" placeholder="Description" id="cityDesc" name="cityDesc" />
-          <input type="text" placeholder="Website" id="cityURL" name="cityURL" />
-          <input type="number" placeholder="Population" id="cityPop" name="cityPop" />
-          <input type="number" placeholder="Area" id="cityArea" name="cityArea" />
+          <input
+            type="text"
+            placeholder="Description"
+            id="cityDesc"
+            name="cityDesc" />
+          <input
+            type="text"
+            placeholder="Website"
+            id="cityURL"
+            name="cityURL" />
+          <input
+            type="number"
+            placeholder="Population"
+            id="cityPop"
+            name="cityPop" />
+          <input
+            type="number"
+            placeholder="Area"
+            id="cityArea"
+            name="cityArea" />
           <input type="text" placeholder="Timezone" id="cityTZ" name="cityTZ" />
           <input type="file" id="cityImg" name="cityImg" class="file-input" />
           <label for="cityImg" class="file-label">
@@ -92,7 +118,9 @@
       </p>
     </footer>
 
-    <script src="https://kit.fontawesome.com/cc64a29b8a.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/cc64a29b8a.js"
+      crossorigin="anonymous"></script>
     <script src="../public/js/script.js"></script>
   </body>
 </html>
