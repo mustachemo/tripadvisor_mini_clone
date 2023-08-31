@@ -132,6 +132,26 @@ main {
     }
   }
 
+  .city-edit-button {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: $green-color;
+    // border: none;
+    border-top-left-radius: 15px;
+    padding: 5px;
+    cursor: pointer;
+
+    i {
+      color: white;
+      font-size: 1.5rem;
+    }
+
+    &:hover {
+      background-color: $pink-color;
+    }
+  }
+
   .delete-dialog {
     width: clamp(40%, 50%, 600px);
     height: clamp(40%, auto, 600px);

@@ -66,6 +66,55 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // click edit-icon to open form/modal for cities and perform edit
+  const editButtons = document.querySelectorAll('.city-edit-button');
+
+  editButtons.forEach(editButton => {
+    editButton.addEventListener('click', () => {
+      const cityId = editButton.getAttribute('data-city-id');
+      const editDialog = document.getElementById(`editDialog-${cityId}`);
+      const confirmEditButton = editDialog.querySelector('#submitChange');
+
+      editDialog.showModal();
+
+      confirmEditButton.addEventListener('click', async () => {
+        const cityId = editButton.getAttribute('data-city-id');
+        const editForm = document.getElementById(`editForm-${cityId}`);
+
+        const formData = new FormData(editForm);
+        const cityName = formData.get('cityName');
+        const cityDesc = formData.get('cityDesc');
+        const cityPop = formData.get('cityPop');
+        const cityArea = formData.get('cityArea');
+        const cityAHI = formData.get('cityAHI');
+
+        const response = await fetch(`/${cityId}`, {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            cityName,
+            cityDesc,
+            cityPop,
+            cityArea,
+            cityAHI,
+          }),
+        });
+
+        if (response.ok) {
+          console.log('City updated successfully');
+          // Perform any further actions or UI updates
+        } else {
+          console.error('Failed to update city');
+          // Handle error scenario
+        }
+
+        editDialog.close();
+      });
+    });
+  });
+
   // click add-icon to open form/modal for attractions
   const addAttraction = document.querySelector('#addAttractionButton');
   const addAttractionForm = document.querySelector('#addAttractionForm');
