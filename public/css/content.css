@@ -12,7 +12,7 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: white; }
+  background-color: rgba(252, 252, 252, 0.85); }
   nav #logo {
     flex: 1;
     line-height: 0; }
@@ -56,7 +56,7 @@ nav {
 main {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  margin-bottom: 80px; }
+  margin-bottom: 75px; }
 
 /********** CITIES CARD **********/
 .card {
@@ -70,6 +70,8 @@ main {
   transition: 0.25s ease;
   cursor: pointer;
   margin: 30px; }
+  .card a {
+    text-decoration: none; }
   .card:hover {
     transform: scale(1.0675);
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.9); }
@@ -124,18 +126,18 @@ main {
       text-transform: uppercase; }
 
 /********** ADD ICON **********/
-#addIcon {
+.addIcon {
   position: fixed;
   bottom: 65px;
   right: 10px;
   background-color: white;
   border-radius: 50%; }
-  #addIcon i {
+  .addIcon i {
     font-size: 3rem;
     color: #589441;
     transition: all 0.1s;
     cursor: pointer; }
-    #addIcon i:hover {
+    .addIcon i:hover {
       color: #ff336e; }
 
 /********** ADD CITY MODAL **********/

@@ -1,0 +1,68 @@
+{% extends 'base.njk' %}
+
+{% block main %}
+      {% if attractions %}
+        {% for city in cities %}
+          <div class="card">
+            <div class="card-image">
+              {% if city.image.img.data %}
+                <img src="data:{{ city.image.img.contentType }};base64,{{ city.image.img.data.toString('base64') }}", alt="{{ city.name }}">
+                {% else %}
+                <img src="./public/images/cities/irvine.jpeg">
+              {% endif %}
+            </div>
+            <div class="card-text">
+              <span class="date"><h2>{{ city.name }}</h2></span>
+              <p>"{{ city.description }}"</p>
+            </div>
+            <div class="card-stats">
+              <div class="stat">
+                <div class="value">{{ city.population }}</div>
+                <div class="type">population</div>
+              </div>
+              <div class="stat border">
+                {% if city.AHI %}
+                  <div class="value">{{ city.AHI }}</div>
+                {% else %}
+                  <div class="value">null</div>
+                {% endif %}
+                <div class="type">AHI ($)</div>
+              </div>
+              <div class="stat">
+                {% if city.area %}
+                  <div class="value">
+                    {{ city.area }}
+                    <sup>2</sup>
+                  </div>
+                {% else %}
+                  <div class="value">null</div>
+                {% endif %}
+                <div class="type">area (m)</div>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      {% endif %}
+{% endblock %}
+
+{% block dialog %}
+    <div id="addAttractionButton" class="addIcon">
+      <i class="fa-solid fa-circle-plus"></i>
+    </div>
+
+    <dialog id="addAttractionForm">
+      <div class="modalContainer">
+        <div id="formHeading">Add an Attraction</div>
+        <form action="/" method="POST" enctype="multipart/form-data">
+          <input type="text" placeholder="Name" id="attractionName" name="attractionName" required/>
+          <input type="text" placeholder="Description" id="attractionDesc" name="attractionDesc" />
+          <input type="file" id="attractionImg" name="attractionImg" class="file-input" />
+          <label for="attractionImg" class="file-label">
+            <i class="fa-solid fa-image"></i>
+            &nbsp;Upload Image
+          </label>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    </dialog>
+{% endblock %}
