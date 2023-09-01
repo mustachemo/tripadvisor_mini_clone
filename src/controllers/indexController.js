@@ -3,6 +3,7 @@ import { connectDB } from '../configs/db.config.js';
 import formatNumber from '../middleware/formatPopulation.js';
 import sharp from 'sharp';
 import Joi from 'joi';
+import _ from 'lodash';
 
 // * Need to make this faster
 export const getCities = async (req, res, next) => {
@@ -76,7 +77,8 @@ export const postCity = async (req, res, next) => {
       AverageHouseholdIncome: cityAHI,
     });
 
-    await newCity.save();
+    if (!_.isEmpty(update)) await newCity.save();
+
     res.redirect('/');
   } catch (error) {
     next(error);
