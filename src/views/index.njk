@@ -58,7 +58,7 @@
               <div class="modalContainer">
                 <div id="formHeading">Edit {{ city.name }}</div>
                 <form id="editForm-{{ city.id }}" action="/" method="PUT" enctype="multipart/form-data">
-                  <input type="text" placeholder="{{ city.name }}" id="cityName" name="cityName" required/>
+                  <input type="text" placeholder="{{ city.name }}" id="cityName" name="cityName"/>
                   <input type="text" placeholder="{{ city.description }}" id="cityDesc" name="cityDesc" />
                   <input type="number" placeholder="{{ city.population }}" id="cityPop" name="cityPop" />
                   <input type="number" step="any" placeholder="{{ city.area }}" id="cityArea" name="cityArea" />
