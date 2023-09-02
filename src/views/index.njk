@@ -2,7 +2,7 @@
 
 {% block main %}
     <div class="main-wrapper">
-      {% if cities %}
+      {% if cities and isAuthenticated %}
         {% for city in cities %}
           <div class="card">
             <a href="{{ city.url }}">
@@ -75,6 +75,16 @@
             </dialog>
           </div>
         {% endfor %}
+      {% else %}
+        <div class="card">
+          <div class="card-image">
+            <img src="./public/images/noImg.jpeg">
+          </div>
+          <div class="card-text">
+            <span class="date"><h2>Only members can see the Data</h2></span>
+            <p>Login or Signup!!</p>
+          </div>
+        </div>
       {% endif %}
     </div>
 {% endblock %}
