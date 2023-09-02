@@ -86,7 +86,12 @@ app.use('/signup', signupRouter);
 app.use('/login', loginRouter);
 app.use('/logout', (req, res, next) => {
   try {
-    req.logout();
+    req.logout((err) => {
+      if (err) {
+        console.log(err);
+        next(err);
+      }
+    });
     res.redirect('/');
   } catch (err) {
     console.log(err);
