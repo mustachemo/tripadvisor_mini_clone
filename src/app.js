@@ -11,6 +11,7 @@ import passport from 'passport';
 import { Strategy as LocalStrategy } from 'passport-local';
 import User from './models/user.js';
 import flash from 'connect-flash';
+import bycrypt from 'bcryptjs';
 import indexRouter from './routes/index.js';
 import attractionsRouter from './routes/attractions.js';
 import errorHandler from './middleware/errorHandling.js';
@@ -54,9 +55,10 @@ passport.use(
     try {
       const user = await User.findOne({ email: username });
       if (!user) {
-        return done(null, false, { message: 'Incorrect username.' });
+        return done(null, false, { message: 'No such user found' });
       }
-      if (user.password !== password) {
+      const match = await bycrypt.compare(password, user.password);
+      if (!match) {
         return done(null, false, { message: 'Incorrect password.' });
       }
       return done(null, user);
