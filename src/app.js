@@ -50,17 +50,16 @@ app.use(
 );
 
 passport.use(
-  new LocalStrategy(async (email, password, done) => {
+  new LocalStrategy(async (username, password, done) => {
     try {
-      const user = await User.findOne({ email });
+      const user = await User.findOne({ email: username });
       if (!user) {
-        return done(null, false, { message: 'Incorrect email.' });
+        return done(null, false, { message: 'Incorrect username.' });
       }
-      const validate = await user.isValidPassword(password);
-      if (!validate) {
+      if (user.password !== password) {
         return done(null, false, { message: 'Incorrect password.' });
       }
-      return done(null, user, { message: 'Logged In Successfully' });
+      return done(null, user);
     } catch (err) {
       return done(err);
     }
