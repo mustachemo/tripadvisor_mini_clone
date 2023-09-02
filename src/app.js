@@ -83,6 +83,15 @@ app.use('/public', express.static('public'));
 app.use('/', indexRouter);
 app.use('/signup', signupRouter);
 app.use('/login', loginRouter);
+app.use('/logout', (req, res, next) => {
+  try {
+    req.logout();
+    res.redirect('/');
+  } catch (err) {
+    console.log(err);
+    next(err);
+  }
+});
 app.use('/cities', attractionsRouter);
 
 app.use(errorHandler);
