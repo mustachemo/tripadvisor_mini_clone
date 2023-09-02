@@ -67,6 +67,11 @@ nav {
     text-align: center;
     flex: 1;
 
+    a {
+      text-decoration: none;
+      color: white;
+    }
+
     button {
       background-color: $green-color;
       color: white;
@@ -119,6 +124,26 @@ main {
     background-color: $green-color;
     // border: none;
     border-top-right-radius: 15px;
+    padding: 5px;
+    cursor: pointer;
+
+    i {
+      color: white;
+      font-size: 1.5rem;
+    }
+
+    &:hover {
+      background-color: $pink-color;
+    }
+  }
+
+  .city-edit-button {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: $green-color;
+    // border: none;
+    border-top-left-radius: 15px;
     padding: 5px;
     cursor: pointer;
 

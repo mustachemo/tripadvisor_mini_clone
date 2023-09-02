@@ -40,6 +40,9 @@ nav {
   nav .nav-buttons-container {
     text-align: center;
     flex: 1; }
+    nav .nav-buttons-container a {
+      text-decoration: none;
+      color: white; }
     nav .nav-buttons-container button {
       background-color: #589441;
       color: white;
@@ -84,6 +87,19 @@ main {
       color: white;
       font-size: 1.5rem; }
     .card .city-delete-button:hover {
+      background-color: #ff336e; }
+  .card .city-edit-button {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #589441;
+    border-top-left-radius: 15px;
+    padding: 5px;
+    cursor: pointer; }
+    .card .city-edit-button i {
+      color: white;
+      font-size: 1.5rem; }
+    .card .city-edit-button:hover {
       background-color: #ff336e; }
   .card .delete-dialog {
     width: clamp(40%, 50%, 600px);

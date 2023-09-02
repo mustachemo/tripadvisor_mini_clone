@@ -50,7 +50,29 @@
               <button id="confirmDelete">Yes</button>
               <button id="cancelDelete">No</button>
             </dialog>
-          </div>
+
+            <div id="cityEDIT" class="city-edit-button" data-city-id="{{ city.id }}">
+              <i class="fa-regular fa-pen-to-square"></i>
+            </div>
+            <dialog id="editDialog-{{ city.id }}">
+              <div class="modalContainer">
+                <div id="formHeading">Edit {{ city.name }}</div>
+                <form id="editForm-{{ city.id }}" action="/" method="PUT" enctype="multipart/form-data">
+                  <input type="text" placeholder="{{ city.name }}" id="cityName" name="cityName"/>
+                  <input type="text" placeholder="{{ city.description }}" id="cityDesc" name="cityDesc" />
+                  <input type="number" placeholder="{{ city.population }}" id="cityPop" name="cityPop" />
+                  <input type="number" step="any" placeholder="{{ city.area }}" id="cityArea" name="cityArea" />
+                  <input type="number" placeholder="{{ city.AHI }}" id="cityAHI" name="cityAHI" />
+                  <input type="file" id="cityImg" name="cityImg" class="file-input" />
+                  <label for="cityImg" class="file-label">
+                    <i class="fa-solid fa-image"></i>
+                    &nbsp;Upload Image
+                  </label>
+                  <button id="submitChange" type="submit">Submit Change</button>
+                </form>
+              </div>
+            </dialog>
+
           </div>
         {% endfor %}
       {% endif %}

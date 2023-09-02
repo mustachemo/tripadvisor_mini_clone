@@ -24,4 +24,8 @@ npm run dev
 ## Todo!
 
 - [ ] Optimization
+
   - [ ] Make index page load faster
+
+- [ ] Extra Features
+  - [ ] Make a legend for the values

@@ -3,6 +3,7 @@ import {
   getCities,
   postCity,
   deleteCity,
+  putCity,
 } from '../controllers/indexController.js';
 import uploadImage from '../middleware/uploadImage.js';
 
@@ -13,7 +14,7 @@ indexRouter
   .get(getCities)
   .post(uploadImage.single('cityImg'), postCity);
 
-indexRouter.route('/:id').delete(deleteCity);
+indexRouter.route('/:id').delete(deleteCity).put(putCity);
 // TODO: Add routes for DELETE and PUT
 
 export default indexRouter;
