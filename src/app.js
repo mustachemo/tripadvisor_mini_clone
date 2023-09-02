@@ -40,7 +40,7 @@ app.use(cors());
 app.use('/public', express.static('public'));
 
 app.use('/', indexRouter);
-app.use('signup', signupRouter);
+app.use('/signup', signupRouter);
 app.use('/cities', attractionsRouter);
 
 app.use(errorHandler);

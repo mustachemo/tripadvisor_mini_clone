@@ -56,7 +56,7 @@ nav {
         background-color: #ff336e; }
 
 /********** GRID **********/
-main {
+.main-wrapper {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   margin-bottom: 75px; }
@@ -264,3 +264,7 @@ footer {
     vertical-align: middle;
     text-align: center;
     color: black; }
+
+/********** SIGN UP **********/
+.signup-container-bruh {
+  margin: auto auto; }

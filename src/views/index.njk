@@ -1,6 +1,7 @@
 {% extends 'base.njk' %}
 
 {% block main %}
+    <div class="main-wrapper">
       {% if cities %}
         {% for city in cities %}
           <div class="card">
@@ -72,10 +73,10 @@
                 </form>
               </div>
             </dialog>
-
           </div>
         {% endfor %}
       {% endif %}
+    </div>
 {% endblock %}
 
 {% block dialog %}

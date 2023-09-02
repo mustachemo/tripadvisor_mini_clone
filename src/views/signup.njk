@@ -1,7 +1,7 @@
 {% extends 'base.njk' %}
 
-{% block content %}
-    <div class="signup-container">
+{% block main %}
+    <div class="signup-container-bruh">
         <form action="/signup" Method="POST">
             <input type="email" placeholder="Email" id="email" name="email" required/>
             <input type="password" placeholder="Password" id="password" name="password" required/>
@@ -9,10 +9,5 @@
             <input type="submit" value="Sign Up"/>
         </form>
     </div>
-
-            <form action="/" method="POST" enctype="multipart/form-data">
-          <input type="text" placeholder="Name" id="cityName" name="cityName" required/>
-          <input type="text" placeholder="Description" id="cityDesc" name="cityDesc" />
-          <input type="number" placeholder="Population" id="cityPop" name="cityPop" />
 {% endblock %}
 ```
