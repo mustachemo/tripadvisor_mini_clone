@@ -3,7 +3,7 @@
 {% block main %}
     <form action="/signup" Method="POST" class="signup-container">
         <input type="email" placeholder="Email" id="email" name="email" required/>
-        <input name="password" placeholder="Password" required="required" type="password" id="password" oninput="checkPassword()" required>
+        <input name="password" placeholder="Password" required="required" type="password" id="password" oninput="checkPassword()" minlength="8" maxlength="40" required>
         <input name="password_confirm" placeholder="Confirm Password" required="required" type="password" id="password_confirm" oninput="checkPassword()" required/>
         <button type="submit" id="signupButton">Sign Up</button>
     </form>

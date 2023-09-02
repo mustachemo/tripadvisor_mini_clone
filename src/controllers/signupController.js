@@ -6,15 +6,11 @@ export const getSignup = (req, res) => {
 
 export const postSignup = async (req, res, next) => {
   try {
-    const { email, password, repeatPassword } = req.body;
-    const user = await User.create({ email, password });
-    req.session.user = user;
-    res.status(201).json({
-      status: 'success',
-      data: {
-        user,
-      },
-    });
+    const { email, password } = req.body;
+
+    await User.create({ email, password });
+
+    res.redirect('/login');
   } catch (err) {
     next(err);
   }
