@@ -20,13 +20,15 @@ export const getCities = async (req, res, next) => {
       url: city.url,
     }));
 
+    console.log(`user (req.user): ${req.user}`);
+
     // cities.forEach(city => {
     //   const cityJsonString = JSON.stringify(city.image);
     //   const citySizeInBytes = Buffer.byteLength(cityJsonString, 'utf-8');
     //   console.log(`Size of city ${city.name} image: ${citySizeInBytes} bytes`);
     // });
 
-    res.render('index', { cities: modifiedCities }, { user: req.user });
+    res.render('index', { cities: modifiedCities, user: req.user });
   } catch (error) {
     next(error);
   }
