@@ -1,4 +1,19 @@
 document.addEventListener('DOMContentLoaded', () => {
+  // check passowrd
+  const password = document.querySelector('#password');
+  const repeatPassword = document.querySelector('#password_confirm');
+
+  function checkPassword() {
+    if (password.value !== repeatPassword.value) {
+      repeatPassword.setCustomValidity('Passwords do not match');
+    } else {
+      repeatPassword.setCustomValidity('');
+    }
+  }
+
+  password.addEventListener('change', checkPassword);
+  repeatPassword.addEventListener('keyup', checkPassword);
+
   // make githib icon bounce on hover
   const githubIcon = document.querySelector('footer span i');
 

@@ -1,5 +1,4 @@
 import mongoose from 'mongoose';
-import sharp from 'sharp';
 
 const imgFileSchema = new mongoose.Schema({
   name: String,
