@@ -33,16 +33,34 @@ document.addEventListener('DOMContentLoaded', () => {
   const addCity = document.getElementById('addCityButton');
   const addCityForm = document.querySelector('#addCityForm');
 
-  addCity.addEventListener('click', () => {
-    console.log('add city button clicked');
-    addCityForm.showModal();
-  });
+  if (addCityForm) {
+    addCity.addEventListener('click', () => {
+      addCityForm.showModal();
+    });
 
-  addCityForm.addEventListener('click', (e) => {
-    if (e.target === addCityForm) {
-      addCityForm.close();
-    }
-  });
+    addCityForm.addEventListener('click', (e) => {
+      if (e.target === addCityForm) {
+        addCityForm.close();
+      }
+    });
+  }
+
+  // click add-icon to open form/modal for attractions
+  const addAttraction = document.querySelector('#addAttractionButton');
+  const addAttractionForm = document.querySelector('#addAttractionForm');
+
+  if (addAttractionForm) {
+    addAttraction.addEventListener('click', () => {
+      console.log('add attraction button clicked');
+      addAttractionForm.showModal();
+    });
+
+    addAttractionForm.addEventListener('click', (e) => {
+      if (e.target === addAttractionForm) {
+        addAttractionForm.close();
+      }
+    });
+  }
 
   // click delete-icon to open form/modal for cities and perform delete
   const deleteButtons = document.querySelectorAll('.city-delete-button');
@@ -125,19 +143,4 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   });
-
-  // // click add-icon to open form/modal for attractions
-  // const addAttraction = document.querySelector('#addAttractionButton');
-  // const addAttractionForm = document.querySelector('#addAttractionForm');
-
-  // addAttraction.addEventListener('click', () => {
-  //   console.log('add attraction button clicked');
-  //   addAttractionForm.showModal();
-  // });
-
-  // addAttractionForm.addEventListener('click', (e) => {
-  //   if (e.target === addAttractionForm) {
-  //     addAttractionForm.close();
-  //   }
-  // });
 });
