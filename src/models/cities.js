@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+import sharp from 'sharp';
 
 const imgFileSchema = new mongoose.Schema({
   name: String,
@@ -43,9 +44,9 @@ const citySchema = new mongoose.Schema(
 //   const city = this;
 
 //   try {
-//     if (city.isModified('image') || city.image.data instanceof Buffer) {
+//     if (city.isModified('image') || city.image.img.data instanceof Buffer) {
 //       // Resize and compress the image if it exists
-//       city.image.data = await sharp(city.image.img.data)
+//       city.image.img.data = await sharp(city.image.img.data)
 //         .resize(250, 250)
 //         .png({ quality: 80, compressionLevel: 3 }) // Adjust the quality value as needed
 //         .toBuffer();
@@ -85,7 +86,6 @@ citySchema.methods.toJSON = function () {
 // it is called when we use res.send() to send the model back to the client
 // it is automatically called by express when we send the response
 citySchema.virtual('url').get(function () {
-  // return `/cities/${this._id}`;
   return `/cities/${this.name}`;
 });
 
