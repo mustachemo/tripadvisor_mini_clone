@@ -1,11 +1,10 @@
 {% extends 'base.njk' %}
 
 {% block main %}
-    <form action="/signup" Method="POST" class="signup-container">
+    <form action="/login" Method="POST" class="signup-container">
         <input type="email" placeholder="Email" id="email" name="email" required/>
         <input type="password" placeholder="Password" id="password" name="password" required/>
-        <input type="password" placeholder="Repeat Password" id="repeatPassword" name="repeatPassword" required/>
-        <button type="submit" id="signupButton">Sign Up</button>
+        <button type="submit" id="signupButton">Login</button>
     </form>
 {% endblock %}
 ```

@@ -12,6 +12,7 @@ import indexRouter from './routes/index.js';
 import attractionsRouter from './routes/attractions.js';
 import errorHandler from './middleware/errorHandling.js';
 import signupRouter from './routes/signup.js';
+import loginRouter from './routes/login.js';
 // ? How could I use isocket.io in this project?
 // TODO: Use firebase for user authentication, it's easier, free, secure, fast, and is a node module
 
@@ -41,6 +42,7 @@ app.use('/public', express.static('public'));
 
 app.use('/', indexRouter);
 app.use('/signup', signupRouter);
+app.use('/login', loginRouter);
 app.use('/cities', attractionsRouter);
 
 app.use(errorHandler);
