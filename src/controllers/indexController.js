@@ -40,7 +40,9 @@ export const postCity = async (req, res, next) => {
     let imageToSave = null;
 
     // Check if an image was uploaded
+    console.log(`req.file: ${req.file}`);
     if (req.file) {
+      console.log(`entered if statement`);
       const { originalname, buffer, mimetype } = req.file;
 
       // Resize and compress the image
@@ -78,7 +80,7 @@ export const postCity = async (req, res, next) => {
       AverageHouseholdIncome: cityAHI,
     });
 
-    if (!_.isEmpty(update)) await newCity.save();
+    await newCity.save();
 
     res.redirect('/');
   } catch (error) {
