@@ -9,6 +9,7 @@ import path from 'path';
 import session from 'express-session';
 import passport from 'passport';
 import { Strategy as localStrategy } from 'passport-local';
+import User from './models/user.js';
 import indexRouter from './routes/index.js';
 import attractionsRouter from './routes/attractions.js';
 import errorHandler from './middleware/errorHandling.js';
@@ -45,6 +46,36 @@ app.use(
     saveUninitialized: true,
   })
 );
+
+passport.use(
+  new localStrategy(async (email, password, done) => {
+    try {
+      const user = await User.findOne({ email });
+      if (!user) {
+        return done(null, false, { message: 'Incorrect email.' });
+      }
+      const validate = await user.isValidPassword(password);
+      if (!validate) {
+        return done(null, false, { message: 'Incorrect password.' });
+      }
+      return done(null, user, { message: 'Logged In Successfully' });
+    } catch (err) {
+      return done(err);
+    }
+  })
+);
+passport.serializeUser((user, done) => {
+  done(null, user._id);
+});
+passport.deserializeUser(async (id, done) => {
+  try {
+    const user = await User.findById(id);
+    return done(null, user);
+  } catch (err) {
+    return done(err);
+  }
+});
+
 app.use(passport.initialize());
 app.use(passport.session());
 app.use('/public', express.static('public'));
