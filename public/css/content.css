@@ -79,7 +79,7 @@ nav {
     position: absolute;
     top: 0;
     right: 0;
-    background-color: #589441;
+    background-color: #3498db;
     border-top-right-radius: 15px;
     padding: 5px;
     cursor: pointer; }
@@ -92,7 +92,7 @@ nav {
     position: absolute;
     top: 0;
     left: 0;
-    background-color: #589441;
+    background-color: #3498db;
     border-top-left-radius: 15px;
     padding: 5px;
     cursor: pointer; }
