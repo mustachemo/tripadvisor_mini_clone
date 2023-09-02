@@ -1,4 +1,5 @@
 import { City, CityImage } from '../models/cities.js';
+import User from '../models/user.js';
 import { connectDB } from '../configs/db.config.js';
 import formatNumber from '../middleware/formatPopulation.js';
 import sharp from 'sharp';
@@ -25,7 +26,7 @@ export const getCities = async (req, res, next) => {
     //   console.log(`Size of city ${city.name} image: ${citySizeInBytes} bytes`);
     // });
 
-    res.render('index', { cities: modifiedCities });
+    res.render('index', { cities: modifiedCities }, { user: req.user });
   } catch (error) {
     next(error);
   }
