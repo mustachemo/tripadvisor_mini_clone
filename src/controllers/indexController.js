@@ -28,7 +28,7 @@ export const getCities = async (req, res, next) => {
     //   console.log(`Size of city ${city.name} image: ${citySizeInBytes} bytes`);
     // });
 
-    res.render('index', { cities: modifiedCities, user: req.user });
+    res.render('index', { cities: modifiedCities });
   } catch (error) {
     next(error);
   }

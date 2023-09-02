@@ -21,9 +21,9 @@
         <li><a href="/">Home</a></li>
       </ul>
       <div class="nav-buttons-container">
-        {% if user %}
+        {% if isAuthenticated %}
           <div class="user-info">
-            <p>Welcome {{user.email}}!</p>
+            <p>Welcome {{ currentUser.email }}!</p>
           </div>
           <a href="/logout"><button>Logout</button></a>
         {% else %}
