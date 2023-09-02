@@ -6,13 +6,17 @@ import logger from 'morgan';
 import cors from 'cors';
 import { fileURLToPath } from 'url';
 import path from 'path';
+// import session from 'express-session';
+// import LocalStorage from 'passport-local';
 import indexRouter from './routes/index.js';
 import attractionsRouter from './routes/attractions.js';
 import errorHandler from './middleware/errorHandling.js';
+import signupRouter from './routes/signup.js';
 // ? How could I use isocket.io in this project?
 // TODO: Use firebase for user authentication, it's easier, free, secure, fast, and is a node module
 
 dotenv.config();
+// LocalStorage.Strategy;
 
 const app = express();
 const port = process.env.PORT;
@@ -36,6 +40,7 @@ app.use(cors());
 app.use('/public', express.static('public'));
 
 app.use('/', indexRouter);
+app.use('signup', signupRouter);
 app.use('/cities', attractionsRouter);
 
 app.use(errorHandler);

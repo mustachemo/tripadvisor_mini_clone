@@ -40,6 +40,9 @@ nav {
   nav .nav-buttons-container {
     text-align: center;
     flex: 1; }
+    nav .nav-buttons-container a {
+      text-decoration: none;
+      color: white; }
     nav .nav-buttons-container button {
       background-color: #589441;
       color: white;
