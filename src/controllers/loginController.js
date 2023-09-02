@@ -1,3 +1,5 @@
+import passport from 'passport';
+
 export const getLogin = (req, res) => {
   res.render('login');
 };
