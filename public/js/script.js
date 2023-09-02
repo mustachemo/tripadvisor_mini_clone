@@ -1,6 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-  setAttribute('autocomplete', 'chrome-off');
-
   // check passowrd in signup form
   const signUpPageConfirmation = document.getElementById('signupForm');
 
