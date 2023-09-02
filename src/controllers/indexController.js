@@ -20,8 +20,6 @@ export const getCities = async (req, res, next) => {
       url: city.url,
     }));
 
-    console.log(`user (req.user): ${req.user}`);
-
     // cities.forEach(city => {
     //   const cityJsonString = JSON.stringify(city.image);
     //   const citySizeInBytes = Buffer.byteLength(cityJsonString, 'utf-8');

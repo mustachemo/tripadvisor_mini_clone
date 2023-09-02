@@ -1,7 +1,7 @@
 {% extends 'base.njk' %}
 
 {% block main %}
-    <form action="/signup" Method="POST" class="signup-container">
+    <form action="/signup" Method="POST" class="signup-container" id="signupForm">
         <div id="formHeading">Signup :)</div>
         {% if message %}
             <div id="errorMessage">{{ message }}</div>

@@ -1,18 +1,22 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // check passowrd
-  const password = document.querySelector('#password');
-  const repeatPassword = document.querySelector('#password_confirm');
+  // check passowrd in signup form
+  const signUpPageConfirmation = document.getElementById('signupForm');
 
-  function checkPassword() {
-    if (password.value !== repeatPassword.value) {
-      repeatPassword.setCustomValidity('Passwords do not match');
-    } else {
-      repeatPassword.setCustomValidity('');
+  if (signUpPageConfirmation) {
+    const password = document.querySelector('#password');
+    const repeatPassword = document.querySelector('#password_confirm');
+
+    function checkPassword() {
+      if (password.value !== repeatPassword.value) {
+        repeatPassword.setCustomValidity('Passwords do not match');
+      } else {
+        repeatPassword.setCustomValidity('');
+      }
     }
-  }
 
-  password.addEventListener('change', checkPassword);
-  repeatPassword.addEventListener('keyup', checkPassword);
+    password.addEventListener('change', checkPassword);
+    repeatPassword.addEventListener('keyup', checkPassword);
+  }
 
   // make githib icon bounce on hover
   const githubIcon = document.querySelector('footer span i');
@@ -26,10 +30,11 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // click add-icon to open form/modal for cities
-  const addCity = document.querySelector('#addCityButton');
+  const addCity = document.getElementById('addCityButton');
   const addCityForm = document.querySelector('#addCityForm');
 
-  addCity.addEventListener('click', (event) => {
+  addCity.addEventListener('click', () => {
+    console.log('add city button clicked');
     addCityForm.showModal();
   });
 
@@ -121,18 +126,18 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // click add-icon to open form/modal for attractions
-  const addAttraction = document.querySelector('#addAttractionButton');
-  const addAttractionForm = document.querySelector('#addAttractionForm');
+  // // click add-icon to open form/modal for attractions
+  // const addAttraction = document.querySelector('#addAttractionButton');
+  // const addAttractionForm = document.querySelector('#addAttractionForm');
 
-  addAttraction.addEventListener('click', () => {
-    console.log('add attraction button clicked');
-    addAttractionForm.showModal();
-  });
+  // addAttraction.addEventListener('click', () => {
+  //   console.log('add attraction button clicked');
+  //   addAttractionForm.showModal();
+  // });
 
-  addAttractionForm.addEventListener('click', (e) => {
-    if (e.target === addAttractionForm) {
-      addAttractionForm.close();
-    }
-  });
+  // addAttractionForm.addEventListener('click', (e) => {
+  //   if (e.target === addAttractionForm) {
+  //     addAttractionForm.close();
+  //   }
+  // });
 });
