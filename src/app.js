@@ -8,7 +8,7 @@ import { fileURLToPath } from 'url';
 import path from 'path';
 import session from 'express-session';
 import passport from 'passport';
-import { Strategy as localStrategy } from 'passport-local';
+import { Strategy as LocalStrategy } from 'passport-local';
 import User from './models/user.js';
 import indexRouter from './routes/index.js';
 import attractionsRouter from './routes/attractions.js';
@@ -43,21 +43,24 @@ app.use(
   session({
     secret: process.env.SESSION_SECRET,
     resave: false,
-    saveUninitialized: true,
+    saveUninitialized: false,
   })
 );
 
 passport.use(
-  new localStrategy(async (email, password, done) => {
+  new LocalStrategy(async (email, password, done) => {
     try {
       const user = await User.findOne({ email });
       if (!user) {
+        console.log(`No user found with email: ${email}`);
         return done(null, false, { message: 'Incorrect email.' });
       }
       const validate = await user.isValidPassword(password);
       if (!validate) {
+        console.log(`Incorrect password for user: ${user}`);
         return done(null, false, { message: 'Incorrect password.' });
       }
+      console.log(`${user} validated!`);
       return done(null, user, { message: 'Logged In Successfully' });
     } catch (err) {
       return done(err);
