@@ -82,6 +82,7 @@ export const postCity = async (req, res, next) => {
 
     await newCity.save();
 
+    req.flash('success', 'City added successfully');
     res.redirect('/');
   } catch (error) {
     next(error);
@@ -92,6 +93,7 @@ export const deleteCity = async (req, res, next) => {
   try {
     const { id } = req.params;
     await City.findByIdAndDelete(id);
+    req.flash('success', 'City deleted successfully');
     res.redirect('/');
   } catch (error) {
     next(error);
@@ -134,6 +136,7 @@ export const putCity = async (req, res, next) => {
       new: true,
     });
 
+    req.flash('success', 'City updated successfully');
     res.redirect('/');
   } catch (error) {
     next(error);
