@@ -9,25 +9,25 @@ export const postSignup = async (req, res, next) => {
   try {
     const { email, password } = req.body;
 
-    // // Check if user already exists
-    // const userMatch = User.findOne({ email: email });
-    // if (userMatch) {
-    //   // i want to flash a message here
-    //   req.flash('error', 'User already exists. Please login.');
-    //   res.redirect('/login');
-    // }
+    // Check if user already exists
+    const userMatch = await User.findOne({ email: email });
+    if (userMatch) {
+      // Flash a message here
+      req.flash('error', 'User already exists. Please login.');
+      return res.redirect('/login');
+    }
 
     bycrypt.hash(password, 10, async (err, hashedPassword) => {
       if (err) {
-        // i want to flash a message here
+        // Flash a message here
         req.flash('error', 'Something went wrong. Please try again.');
-        next(err);
+        return next(err);
       } else {
         await User.create({ email, password: hashedPassword });
-        res.redirect('/login');
+        return res.redirect('/login');
       }
     });
   } catch (err) {
-    next(err);
+    return next(err);
   }
 };
