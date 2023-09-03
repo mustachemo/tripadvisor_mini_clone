@@ -1,12 +1,12 @@
 import passport from 'passport';
 
 export const getLogin = (req, res) => {
-  res.render('login', { message: req.flash('error')[0] });
+  res.render('login');
 };
 
 export const postLogin = passport.authenticate('local', {
   successRedirect: '/',
   failureRedirect: '/login',
   failureFlash: true,
-  failureMessage: 'Invalid username or password.',
+  successFlash: 'Welcome!',
 });

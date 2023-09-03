@@ -4,6 +4,8 @@ $green-color: #589441;
 $bright-green-color: #129d72;
 $blue-color: #3498db;
 $pink-color: rgb(255, 51, 110);
+$success-color: #2ecc71;
+$error-color: #e74c3c;
 $border-line: 1px solid #eee;
 
 * {
@@ -87,6 +89,38 @@ nav {
       }
     }
   }
+}
+
+/********** FLASH MESSAGES **********/
+
+.flash-success-message {
+  background-color: $success-color;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  margin: 10px;
+  text-align: center;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+
+  animation: slideDown 0.5s ease-in-out;
+}
+
+.flash-error-message {
+  background-color: $error-color;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  margin: 10px;
+  text-align: center;
+
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 999;
 }
 
 /********** GRID **********/

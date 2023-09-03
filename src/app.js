@@ -61,7 +61,7 @@ passport.use(
       if (!match) {
         return done(null, false, { message: 'Incorrect password' });
       }
-      return done(null, user);
+      return done(null, user, { message: 'Logged in successfully' });
     } catch (err) {
       return done(err);
     }
@@ -85,6 +85,8 @@ app.use('/public', express.static('public'));
 app.use((req, res, next) => {
   res.locals.isAuthenticated = req.isAuthenticated();
   res.locals.currentUser = req.user;
+  res.locals.success = req.flash('success');
+  res.locals.error = req.flash('error');
   next();
 });
 

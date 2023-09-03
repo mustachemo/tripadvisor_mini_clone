@@ -32,6 +32,13 @@
         {% endif %}
       </div>
     </nav>
+
+    {% if success %}
+      <div class="flash-success-message">{{ success }}</div>
+    {% endif %}
+    {% if error %}
+      <div class="flash-error-message">{{ error }}</div>
+    {% endif %}
     
     <main>
       {%block main%}
