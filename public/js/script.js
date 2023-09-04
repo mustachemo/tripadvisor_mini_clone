@@ -1,10 +1,31 @@
 document.addEventListener('DOMContentLoaded', () => {
+  // show edit and delete icons on hover
+  const cityCards = document.querySelectorAll('.city-card');
+
+  cityCards.forEach((cityCard) => {
+    cityCard.addEventListener('mouseover', () => {
+      const editIcon = cityCard.querySelector('.city-edit-button');
+      const deleteIcon = cityCard.querySelector('.city-delete-button');
+
+      editIcon.style.display = 'block';
+      deleteIcon.style.display = 'block';
+    });
+
+    cityCard.addEventListener('mouseout', () => {
+      const editIcon = cityCard.querySelector('.city-edit-button');
+      const deleteIcon = cityCard.querySelector('.city-delete-button');
+
+      editIcon.style.display = 'none';
+      deleteIcon.style.display = 'none';
+    });
+  });
+
   // success and error flashign messages
   const successFlash = document.getElementById('successFlash');
   const errorFlash = document.getElementById('errorFlash');
 
-  // if flash message is empty, hide it. Otherwise it will show up as an empty box
   if (successFlash.textContent.trim().length > 0) {
+    // trim() removes whitespace from both ends of a string
     successFlash.classList.add('animate-slide-in-out');
   }
 

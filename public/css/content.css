@@ -131,7 +131,8 @@ nav {
     background-color: #3498db;
     border-top-right-radius: 15px;
     padding: 5px;
-    cursor: pointer; }
+    cursor: pointer;
+    display: none; }
     .city-card .city-delete-button i {
       color: white;
       font-size: 1.5rem; }
@@ -144,7 +145,8 @@ nav {
     background-color: #3498db;
     border-top-left-radius: 15px;
     padding: 5px;
-    cursor: pointer; }
+    cursor: pointer;
+    display: none; }
     .city-card .city-edit-button i {
       color: white;
       font-size: 1.5rem; }
