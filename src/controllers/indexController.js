@@ -20,12 +20,6 @@ export const getCities = async (req, res, next) => {
       url: city.url,
     }));
 
-    // cities.forEach(city => {
-    //   const cityJsonString = JSON.stringify(city.image);
-    //   const citySizeInBytes = Buffer.byteLength(cityJsonString, 'utf-8');
-    //   console.log(`Size of city ${city.name} image: ${citySizeInBytes} bytes`);
-    // });
-
     res.render('index', { cities: modifiedCities });
   } catch (error) {
     next(error);
@@ -34,8 +28,6 @@ export const getCities = async (req, res, next) => {
 
 export const postCity = async (req, res, next) => {
   try {
-    // await connectDB();
-
     const { cityName, cityDesc, cityPop, cityArea, cityAHI } = req.body;
     let imageToSave = null;
 
