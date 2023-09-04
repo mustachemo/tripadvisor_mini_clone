@@ -10,6 +10,10 @@ const imgFileSchema = new mongoose.Schema({
 });
 
 const attractionSchema = new mongoose.Schema({
+  city: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'City',
+  },
   name: String,
   description: String,
   image: imgFileSchema,

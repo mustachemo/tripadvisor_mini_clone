@@ -27,7 +27,7 @@
 
     <dialog id="addAttractionForm">
       <div class="modalContainer">
-        <div id="formHeading">Add an Attraction</div>
+        <div id="formHeading">Add an Attraction {{ city.name }}</div>
         <form action="/cities/{{ city.name }}" method="POST" enctype="multipart/form-data">
           <input type="text" placeholder="Name" id="attractionName" name="attractionName" required/>
           <input type="text" placeholder="Description" id="attractionDesc" name="attractionDesc" />
