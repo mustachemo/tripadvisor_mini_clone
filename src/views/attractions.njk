@@ -33,7 +33,7 @@
             <dialog id="editAttractionDialog-{{ attraction.id }}">
               <div class="modalContainer">
                 <div id="formHeading">Edit {{ city.name }}</div>
-                <form id="editForm-{{ city.id }}" action="/" method="PUT" enctype="multipart/form-data">
+                <form id="editAttractionForm-{{ attraction.id }}" action="/" method="PUT" enctype="multipart/form-data">
                   <input type="text" placeholder="{{ attraction.name }}" id="attractionName" name="attractionName"/>
                   <input type="text" placeholder="{{ attraction.description }}" id="attractionDesc" name="attractionDesc" />
                   <input type="file" id="attractionImgPUT" name="attractionImgPUT" class="file-input" />
