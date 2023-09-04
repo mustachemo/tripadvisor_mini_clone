@@ -92,3 +92,4 @@ citySchema.virtual('url').get(function () {
 // I want to validate data before PUT request. set runValidators to true for findOneAndUpdate
 export const City = mongoose.model('City', citySchema);
 export const CityImage = mongoose.model('CityImages', imgFileSchema);
+export const Attraction = mongoose.model('Attraction', attractionSchema);

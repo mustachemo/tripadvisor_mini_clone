@@ -2,7 +2,7 @@
 
 {% block main %}
       {% if attractions %}
-        {% for city in cities %}
+        {% for attraction in attractions %}
           <div class="card">
             <div class="card-image">
               {% if city.image.img.data %}
@@ -14,31 +14,6 @@
             <div class="card-text">
               <span class="date"><h2>{{ city.name }}</h2></span>
               <p>"{{ city.description }}"</p>
-            </div>
-            <div class="card-stats">
-              <div class="stat">
-                <div class="value">{{ city.population }}</div>
-                <div class="type">population</div>
-              </div>
-              <div class="stat border">
-                {% if city.AHI %}
-                  <div class="value">{{ city.AHI }}</div>
-                {% else %}
-                  <div class="value">null</div>
-                {% endif %}
-                <div class="type">AHI ($)</div>
-              </div>
-              <div class="stat">
-                {% if city.area %}
-                  <div class="value">
-                    {{ city.area }}
-                    <sup>2</sup>
-                  </div>
-                {% else %}
-                  <div class="value">null</div>
-                {% endif %}
-                <div class="type">area (m)</div>
-              </div>
             </div>
           </div>
         {% endfor %}
