@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // show edit and delete icons on hover
+  // show edit and delete icons for city on hover
   const cityCards = document.querySelectorAll('.city-card');
 
   cityCards.forEach((cityCard) => {
@@ -14,6 +14,31 @@ document.addEventListener('DOMContentLoaded', () => {
     cityCard.addEventListener('mouseout', () => {
       const editIcon = cityCard.querySelector('.city-edit-button');
       const deleteIcon = cityCard.querySelector('.city-delete-button');
+
+      editIcon.style.display = 'none';
+      deleteIcon.style.display = 'none';
+    });
+  });
+
+  // show edit and delete icons for attraction on hover
+  const attractionCards = document.querySelectorAll('.attraction-card');
+
+  attractionCards.forEach((attractionCard) => {
+    attractionCard.addEventListener('mouseover', () => {
+      const editIcon = attractionCard.querySelector('.attraction-edit-button');
+      const deleteIcon = attractionCard.querySelector(
+        '.attraction-delete-button'
+      );
+
+      editIcon.style.display = 'block';
+      deleteIcon.style.display = 'block';
+    });
+
+    attractionCard.addEventListener('mouseout', () => {
+      const editIcon = attractionCard.querySelector('.attraction-edit-button');
+      const deleteIcon = attractionCard.querySelector(
+        '.attraction-delete-button'
+      );
 
       editIcon.style.display = 'none';
       deleteIcon.style.display = 'none';

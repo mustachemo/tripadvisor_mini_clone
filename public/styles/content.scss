@@ -327,6 +327,7 @@ nav {
   transition: 0.25s ease;
   cursor: pointer;
   margin: 30px;
+  position: relative;
 
   a {
     text-decoration: none;
@@ -341,6 +342,7 @@ nav {
     border-top-right-radius: 15px;
     padding: 5px;
     cursor: pointer;
+    display: none;
 
     i {
       color: white;
@@ -361,6 +363,7 @@ nav {
     border-top-left-radius: 15px;
     padding: 5px;
     cursor: pointer;
+    display: none;
 
     i {
       color: white;
