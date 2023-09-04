@@ -9,7 +9,7 @@
               <span class="date"><h2>{{ attraction.name }}</h2></span>
             </div>
             <div class="attraction-card-image">
-              {% if attraction.image.img.data %}
+              {% if attraction.image !== null %}
                   <img src="data:{{ attraction.image.img.contentType }};base64,{{ attraction.image.img.data.toString('base64') }}", alt="{{ city.name }}">
                 {% else %}
                   <img src="./public/images/noImg.jpeg">
