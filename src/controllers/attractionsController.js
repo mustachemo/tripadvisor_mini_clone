@@ -5,7 +5,9 @@ export const getAttractions = async (req, res, next) => {
   try {
     const cityName = req.params.name; // Access the city name from the URL parameter
     console.log(`cityName: ${cityName}`);
-    const attractions = await Attraction.find({}); // Assuming you have a 'city' field in your Attraction schema
+    const refCity = await City.findOne({ name: cityName }); // Assuming you have a 'name' field in your City schema
+
+    const attractions = await Attraction.find({ city: refCity }); // Assuming you have a 'city' field in your Attraction schema
 
     res.render('attractions', { attractions: attractions, cityName }); // Pass the city data to the view
   } catch (error) {
