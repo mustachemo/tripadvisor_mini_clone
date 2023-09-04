@@ -5,15 +5,15 @@
         {% for attraction in attractions %}
           <div class="card">
             <div class="card-image">
-              {% if city.image.img.data %}
-                <img src="data:{{ city.image.img.contentType }};base64,{{ city.image.img.data.toString('base64') }}", alt="{{ city.name }}">
+              {% if attraction.image.img.data %}
+                <img src="data:{{ attraction.image.img.contentType }};base64,{{ attraction.image.img.data.toString('base64') }}", alt="{{ city.name }}">
                 {% else %}
                 <img src="./public/images/cities/irvine.jpeg">
               {% endif %}
             </div>
             <div class="card-text">
-              <span class="date"><h2>{{ city.name }}</h2></span>
-              <p>"{{ city.description }}"</p>
+              <span class="date"><h2>{{ attraction.name }}</h2></span>
+              <p>"{{ attraction.description }}"</p>
             </div>
           </div>
         {% endfor %}
