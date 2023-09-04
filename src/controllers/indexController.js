@@ -20,6 +20,15 @@ export const getCities = async (req, res, next) => {
       url: city.url,
     }));
 
+    // // return all cities with name starting with 'TEST' and delete them
+    // const filteredCities = _.filter(modifiedCities, (city) => {
+    //   return city.name.startsWith('TEST');
+    // });
+    // const filteredCityNames = filteredCities.map((city) => city.name);
+    // const deletedCities = await City.deleteMany({
+    //   name: { $in: filteredCityNames },
+    // });
+
     res.render('index', { cities: modifiedCities });
   } catch (error) {
     next(error);
