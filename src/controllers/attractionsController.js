@@ -24,9 +24,7 @@ export const postAttractions = async (req, res, next) => {
     let imageToSave = null;
 
     // Check if an image was uploaded
-    console.log(`req.file: ${req.file}`);
     if (req.file) {
-      console.log(`entered if statement`);
       const { originalname, buffer, mimetype } = req.file;
 
       // Resize and compress the image
@@ -78,7 +76,9 @@ export const deleteCity = async (req, res, next) => {
     const { id } = req.params;
     const attraction = await Attraction.findById(id);
     const cityName = attraction.city.name;
+
     await Attraction.findByIdAndDelete(id);
+
     req.flash('success', 'Attraction deleted successfully');
     res.redirect(`/cities/${cityName}`);
   } catch (error) {
@@ -87,9 +87,6 @@ export const deleteCity = async (req, res, next) => {
 };
 
 export const putAttractions = async (req, res, next) => {
-  console.log(`req.body: ${JSON.stringify(req.body)}`);
-  console.log(`req.file: ${req.file}`);
-  console.log(`req.originalUrl: ${req.originalUrl}`);
   try {
     const schema = Joi.object({
       attractionID: Joi.string().required(),
@@ -97,8 +94,6 @@ export const putAttractions = async (req, res, next) => {
       attractionDesc: Joi.string(),
     });
 
-    // const { id } = req.params;
-    console.log(`req.params: ${JSON.stringify(req.params)}`);
     const { attractionID, attractionName, attractionDesc } = req.body;
 
     schema.validate({
@@ -113,10 +108,7 @@ export const putAttractions = async (req, res, next) => {
 
     if (attractionName !== '') update.name = attractionName;
     if (attractionDesc !== '') update.description = attractionDesc;
-
-    console.log(`req.file: ${req.file}`);
     if (req.file) {
-      console.log(`entered if statement`);
       const { originalname, buffer, mimetype } = req.file;
 
       // Resize and compress the image
@@ -149,11 +141,7 @@ export const putAttractions = async (req, res, next) => {
       new: true,
     });
 
-    console.log(`refAttraction.city: ${refAttraction.city}`);
-
     const cityName = await City.findOne({ _id: refAttraction.city });
-
-    console.log(`cityName: ${cityName}`);
 
     req.flash('success', 'Attraction updated successfully');
     res.redirect(`/cities/${cityName}`);
