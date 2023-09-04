@@ -1,6 +1,7 @@
 /********** ROOT ************/
+$navbar-footer-background-color: rgba(252, 252, 252, 0.85);
 $grey-color: #333;
-$green-color: #589441;
+$green-color: #129d72;
 $bright-green-color: #129d72;
 $blue-color: #3498db;
 $pink-color: rgb(255, 51, 110);
@@ -26,7 +27,7 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(252, 252, 252, 0.85);
+  background-color: $navbar-footer-background-color;
 
   #logo {
     flex: 1;
@@ -422,7 +423,7 @@ dialog {
 /********** FOOTER **********/
 
 footer {
-  background-color: white;
+  background-color: $navbar-footer-background-color;
   border-top: $border-line;
   padding: 1rem;
   text-align: center;

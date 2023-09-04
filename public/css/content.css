@@ -44,7 +44,7 @@ nav {
       text-decoration: none;
       color: white; }
     nav .nav-buttons-container button {
-      background-color: #589441;
+      background-color: #129d72;
       color: white;
       border: none;
       border-radius: 5px;
@@ -154,7 +154,7 @@ nav {
     height: clamp(40%, auto, 600px);
     font-size: clamp(1.2rem, 2vw, 1.5rem); }
     .card .delete-dialog button {
-      background-color: #589441;
+      background-color: #129d72;
       color: white;
       border: none;
       border-radius: 5px;
@@ -227,7 +227,7 @@ nav {
   border-radius: 50%; }
   .addIcon i {
     font-size: 3rem;
-    color: #589441;
+    color: #129d72;
     transition: all 0.1s;
     cursor: pointer; }
     .addIcon i:hover {
@@ -298,7 +298,7 @@ dialog {
 
 /********** FOOTER **********/
 footer {
-  background-color: white;
+  background-color: rgba(252, 252, 252, 0.85);
   border-top: 1px solid #eee;
   padding: 1rem;
   text-align: center;
