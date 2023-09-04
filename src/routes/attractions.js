@@ -10,6 +10,6 @@ const attractionsRouter = express.Router();
 attractionsRouter
   .route('/:name')
   .get(getAttractions)
-  .post(uploadImage.single('attractionsImg'), postAttractions);
+  .post(uploadImage.single('attractionImg'), postAttractions);
 
 export default attractionsRouter;
