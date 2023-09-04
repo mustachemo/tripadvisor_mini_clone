@@ -120,7 +120,8 @@ nav {
   text-align: center;
   transition: 0.25s ease;
   cursor: pointer;
-  margin: 30px; }
+  margin: 30px;
+  position: relative; }
   .city-card a {
     text-decoration: none; }
   .city-card .city-delete-button {
@@ -300,32 +301,6 @@ nav {
     .attraction-card-text h2 {
       margin-top: 0px;
       font-size: 28px; }
-  .attraction-card-stats {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr;
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px; }
-    .attraction-card-stats .stat {
-      padding: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      background-color: #3498db;
-      color: #fcfcfc; }
-    .attraction-card-stats .border {
-      border-left: 1px solid #333;
-      border-right: 1px solid #333; }
-    .attraction-card-stats .value {
-      font-size: 22px;
-      font-weight: 500; }
-      .attraction-card-stats .value sup {
-        font-size: 12px; }
-    .attraction-card-stats .type {
-      font-size: 11px;
-      font-weight: 300;
-      text-transform: uppercase; }
 
 /********** ADD ICON **********/
 .addIcon {
