@@ -97,7 +97,7 @@ nav {
   color: white;
   position: fixed;
   top: 0; /* Start off-screen */
-  left: 50%;
+  left: 32%;
   transform: translateX(-50%);
   z-index: 999;
   padding: 10px;
@@ -126,11 +126,11 @@ nav {
     opacity: 0;
   }
   10% {
-    top: 0; /* Slide in to the top of the viewport */
+    top: 18px; /* Slide in to the top of the viewport */
     opacity: 1;
   }
   90% {
-    top: 0; /* Stay visible for most of the animation */
+    top: 18px; /* Stay visible for most of the animation */
     opacity: 1;
   }
   100% {
