@@ -6,18 +6,18 @@
         {% for city in cities %}
           <div class="city-card">
             <a href="{{ city.url }}">
-              <div class="card-image">
+              <div class="city-card-image">
                 {% if city.image.img.data %}
                   <img src="data:{{ city.image.img.contentType }};base64,{{ city.image.img.data.toString('base64') }}", alt="{{ city.name }}">
                   {% else %}
                   <img src="./public/images/noImg.jpeg">
                 {% endif %}
               </div>
-              <div class="card-text">
+              <div class="city-card-text">
                 <span class="date"><h2>{{ city.name }}</h2></span>
                 <p>"{{ city.description }}"</p>
               </div>
-              <div class="card-stats">
+              <div class="city-card-stats">
                 <div class="stat">
                   <div class="value">{{ city.population }}</div>
                   <div class="type">population</div>
@@ -77,10 +77,10 @@
         {% endfor %}
       {% else %}
         <div class="city-card">
-          <div class="card-image">
+          <div class="city-card-image">
             <img src="./public/images/noImg.jpeg">
           </div>
-          <div class="card-text">
+          <div class="city-card-text">
             <span class="date"><h2>Only members can see the Data</h2></span>
             <p>Login or Signup!!</p>
           </div>
