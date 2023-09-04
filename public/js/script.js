@@ -1,4 +1,25 @@
 document.addEventListener('DOMContentLoaded', () => {
+  // success and error flashign messages
+  const successFlash = document.getElementById('successFlash');
+  const errorFlash = document.getElementById('errorFlash');
+
+  // if flash message is empty, hide it. Otherwise it will show up as an empty box
+  if (successFlash.textContent.trim().length === 0) {
+    successFlash.style.display = 'none';
+  } else {
+    setTimeout(() => {
+      successFlash.style.display = 'none';
+    }, 3000);
+  }
+
+  if (errorFlash.textContent.trim().length === 0) {
+    errorFlash.style.display = 'none';
+  } else {
+    setTimeout(() => {
+      errorFlash.style.display = 'none';
+    }, 3000);
+  }
+
   // check passowrd in signup form
   const signUpPageConfirmation = document.getElementById('signupForm');
 
