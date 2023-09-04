@@ -3,6 +3,7 @@ import uploadImage from '../middleware/uploadImage.js';
 import {
   getAttractions,
   postAttractions,
+  putAttractions,
   deleteCity,
 } from '../controllers/attractionsController.js';
 
@@ -15,7 +16,7 @@ attractionsRouter
 
 attractionsRouter
   .route('/:id')
-  .put(uploadImage.single('attractionImgPUT'))
+  .put(uploadImage.single('attractionImgPUT'), putAttractions)
   .delete(deleteCity);
 
 export default attractionsRouter;
