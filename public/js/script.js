@@ -138,12 +138,13 @@ document.addEventListener('DOMContentLoaded', () => {
           const formData = new FormData(editForm);
           formData.append('cityID', cityId);
 
+          // append cityImgPUT multer field to formData
+          const cityImgPUT = document.querySelector(`#cityImgPUT`);
+          formData.append('cityImgPUT', cityImgPUT.files[0]);
+
           const response = await fetch(`/${cityId}`, {
             method: 'PUT',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(Object.fromEntries(formData)),
+            body: formData,
           });
 
           window.location.reload();

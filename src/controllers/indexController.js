@@ -102,7 +102,9 @@ export const deleteCity = async (req, res, next) => {
 };
 
 export const putCity = async (req, res, next) => {
-  console.log('Entered putCity');
+  console.log(`req.headers: ${JSON.stringify(req.headers)}`);
+  console.log(`req.body: ${JSON.stringify(req.body)}`);
+  console.log(`req.file: ${req.file}`);
   try {
     const schema = Joi.object({
       cityID: Joi.string().required(),

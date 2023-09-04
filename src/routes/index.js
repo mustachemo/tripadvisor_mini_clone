@@ -14,6 +14,9 @@ indexRouter
   .get(getCities)
   .post(uploadImage.single('cityImg'), postCity);
 
-indexRouter.route('/:id').delete(deleteCity).put(putCity);
+indexRouter
+  .route('/:id')
+  .delete(deleteCity)
+  .put(uploadImage.single('cityImgPUT'), putCity);
 
 export default indexRouter;
