@@ -52,7 +52,7 @@
               <button id="cancelDelete">No</button>
             </dialog>
 
-            {# <div id="cityEDIT" class="city-edit-button" data-city-id="{{ city.id }}">
+            <div id="cityEDIT" class="city-edit-button" data-city-id="{{ city.id }}">
               <i class="fa-regular fa-pen-to-square"></i>
             </div>
             <dialog id="editDialog-{{ city.id }}">
@@ -64,15 +64,15 @@
                   <input type="number" placeholder="{{ city.population }}" id="cityPop" name="cityPop" />
                   <input type="number" step="any" placeholder="{{ city.area }}" id="cityArea" name="cityArea" />
                   <input type="number" placeholder="{{ city.AHI }}" id="cityAHI" name="cityAHI" />
-                  <input type="file" id="cityImg" name="cityImg" class="file-input" />
-                  <label for="cityImg" class="file-label">
+                  <input type="file" id="cityImgPUT" name="cityImgPUT" class="file-input" />
+                  <label for="cityImgPUT" class="file-label">
                     <i class="fa-solid fa-image"></i>
                     &nbsp;Upload Image
                   </label>
                   <button id="submitChange" type="submit">Submit Change</button>
                 </form>
               </div>
-            </dialog> #}
+            </dialog>
           </div>
         {% endfor %}
       {% else %}
