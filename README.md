@@ -29,3 +29,4 @@ npm run dev
 
 - [ ] Extra Features
   - [ ] Make a legend for the values
+  - [ ] Add Google Login

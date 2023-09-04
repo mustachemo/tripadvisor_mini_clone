@@ -36,7 +36,7 @@ const citySchema = new mongoose.Schema(
     population: Number,
     area: Number,
     AverageHouseholdIncome: Number,
-    attractions: [attractionSchema],
+    // attractions: [attractionSchema],
   },
   { timestamps: true }
 );
