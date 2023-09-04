@@ -11,6 +11,11 @@ export const getAttractions = async (req, res, next) => {
 
     const attractions = await Attraction.find({ city: refCity });
 
+    // check if attractions is empty
+    if (_.isEmpty(attractions)) {
+      console.log('No attractions found');
+    }
+
     res.render('attractions', { attractions: attractions, cityName });
   } catch (error) {
     next(error);

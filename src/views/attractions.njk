@@ -1,8 +1,8 @@
 {% extends 'base.njk' %}
 
 {% block main %}
-    <div class="main-wrapper">
-      {% if attractions %}
+      {% if attractions and isAuthenticated %}
+        <div class="main-wrapper">
         {% for attraction in attractions %}
           <div class="attraction-card">
             <div class="attraction-card-text">
@@ -47,8 +47,12 @@
             </dialog>
           </div>
         {% endfor %}
+        </div>
+        {% else %}
+          <div id="bigNotification">
+          only members can view cities, please <span><a href="/login">login</a></span> or <a href="/signup">signup</a> to view cities
+        </div>
       {% endif %}
-    </div>
 {% endblock %}
 
 {% block dialog %}

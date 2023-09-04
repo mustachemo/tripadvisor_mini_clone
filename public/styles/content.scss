@@ -614,3 +614,21 @@ footer {
     }
   }
 }
+
+/********** NOTIFICATION **********/
+
+#bigNotification {
+  background-color: $green-color;
+  color: white;
+  padding: 1rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  transition: opacity 0.3s ease;
+}
+
+#bigNotification:hover {
+  opacity: 0.9; /* Reduce opacity on hover for interaction */
+}

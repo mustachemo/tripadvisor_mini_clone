@@ -1,8 +1,8 @@
 {% extends 'base.njk' %}
 
 {% block main %}
-    <div class="main-wrapper">
       {% if cities and isAuthenticated %}
+        <div class="main-wrapper">
         {% for city in cities %}
           <div class="city-card">
             <a href="{{ city.url }}">
@@ -75,18 +75,13 @@
             </dialog>
           </div>
         {% endfor %}
+        </div>
       {% else %}
-        <div class="city-card">
-          <div class="city-card-image">
-            <img src="./public/images/noImg.jpeg">
-          </div>
-          <div class="city-card-text">
-            <span class="date"><h2>Only members can see the Data</h2></span>
-            <p>Login or Signup!!</p>
-          </div>
+          <div id="bigNotification">
+          only members can view cities, please <span><a href="/login">login</a></span> or <a href="/signup">signup</a> to view cities
         </div>
       {% endif %}
-    </div>
+
 {% endblock %}
 
 {% block dialog %}

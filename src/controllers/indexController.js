@@ -164,6 +164,8 @@ export const putCity = async (req, res, next) => {
       new: true,
     });
 
+    console.log(`City updated successfully`);
+
     req.flash('success', 'City updated successfully');
     res.redirect('/');
   } catch (error) {
