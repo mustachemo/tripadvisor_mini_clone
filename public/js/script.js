@@ -139,8 +139,8 @@ document.addEventListener('DOMContentLoaded', () => {
           formData.append('cityID', cityId);
 
           // append cityImgPUT multer field to formData
-          const cityImgPUT = document.querySelector(`#cityImgPUT`);
-          formData.append('cityImgPUT', cityImgPUT.files[0]);
+          const cityImgPUT = document.querySelector(`#cityImgPUT`); // input type="file"
+          formData.append('cityImgPUT', cityImgPUT.files[0]); // only append if file is selected, otherwise it will be undefined
 
           const response = await fetch(`/${cityId}`, {
             method: 'PUT',

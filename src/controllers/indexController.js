@@ -102,7 +102,7 @@ export const deleteCity = async (req, res, next) => {
 };
 
 export const putCity = async (req, res, next) => {
-  console.log(`req.headers: ${JSON.stringify(req.headers)}`);
+  // console.log(`req.headers: ${JSON.stringify(req.headers)}`);
   console.log(`req.body: ${JSON.stringify(req.body)}`);
   console.log(`req.file: ${req.file}`);
   try {
@@ -134,6 +134,34 @@ export const putCity = async (req, res, next) => {
     if (cityPop !== '') update.population = cityPop;
     if (cityArea !== '') update.area = cityArea;
     if (cityAHI !== '') update.AverageHouseholdIncome = cityAHI;
+    if (req.file) {
+      const { originalname, buffer, mimetype } = req.file;
+
+      // Resize and compress the image
+      // const resizedBuffer = await new Promise((resolve, reject) => {
+      //   sharp(buffer)
+      //     .resize(250, 250)
+      //     .png({ quality: 80 })
+      //     .toBuffer((err, resizedBuffer, info) => {
+      //       if (err) {
+      //         reject(err);
+      //       } else {
+      //         resolve(resizedBuffer);
+      //       }
+      //     });
+      // });
+
+      const Image = new CityImage({
+        name: originalname,
+        img: {
+          data: buffer /* Use resizedBuffer instead for compressed images */,
+          contentType: mimetype,
+        },
+      });
+
+      await Image.save();
+      update.image = Image;
+    }
 
     await City.findOneAndUpdate(filter, update, {
       new: true,
