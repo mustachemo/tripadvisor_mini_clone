@@ -108,7 +108,7 @@ nav {
   opacity: 0; /* Initially hide the element */
 
   &.animate-slide-in-out {
-    animation: slideInOut 3.5s ease-in-out;
+    animation: slideInOut 6s ease-in-out;
   }
 
   &.error-message {
@@ -125,11 +125,11 @@ nav {
     top: -100%; /* Start off-screen and hidden */
     opacity: 0;
   }
-  10% {
+  20% {
     top: 18px; /* Slide in to the top of the viewport */
     opacity: 1;
   }
-  90% {
+  80% {
     top: 18px; /* Stay visible for most of the animation */
     opacity: 1;
   }
