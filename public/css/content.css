@@ -235,7 +235,7 @@ nav {
   margin: 30px; }
   .attraction-card a {
     text-decoration: none; }
-  .attraction-card .city-delete-button {
+  .attraction-card .attraction-delete-button {
     position: absolute;
     top: 0;
     right: 0;
@@ -243,12 +243,12 @@ nav {
     border-top-right-radius: 15px;
     padding: 5px;
     cursor: pointer; }
-    .attraction-card .city-delete-button i {
+    .attraction-card .attraction-delete-button i {
       color: white;
       font-size: 1.5rem; }
-    .attraction-card .city-delete-button:hover {
+    .attraction-card .attraction-delete-button:hover {
       background-color: #ff336e; }
-  .attraction-card .city-edit-button {
+  .attraction-card .attraction-edit-button {
     position: absolute;
     top: 0;
     left: 0;
@@ -256,10 +256,10 @@ nav {
     border-top-left-radius: 15px;
     padding: 5px;
     cursor: pointer; }
-    .attraction-card .city-edit-button i {
+    .attraction-card .attraction-edit-button i {
       color: white;
       font-size: 1.5rem; }
-    .attraction-card .city-edit-button:hover {
+    .attraction-card .attraction-edit-button:hover {
       background-color: #ff336e; }
   .attraction-card .delete-dialog {
     width: clamp(40%, 50%, 600px);

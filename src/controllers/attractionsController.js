@@ -69,3 +69,16 @@ export const postAttractions = async (req, res, next) => {
     next(error);
   }
 };
+
+export const deleteCity = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const attraction = await Attraction.findById(id);
+    const cityName = attraction.city.name;
+    await Attraction.findByIdAndDelete(id);
+    req.flash('success', 'Attraction deleted successfully');
+    res.redirect(`/cities/${cityName}`);
+  } catch (error) {
+    next(error);
+  }
+};

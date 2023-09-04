@@ -178,4 +178,54 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   });
+
+  // click delete-icon to open form/modal for attractions and perform delete
+  const deleteAttractionButtons = document.querySelectorAll(
+    '.attraction-delete-button'
+  );
+
+  deleteAttractionButtons.forEach((deleteAttractionButton) => {
+    deleteAttractionButton.addEventListener('click', () => {
+      const attractionId =
+        deleteAttractionButton.getAttribute('data-attraction-id');
+      const deleteAttractionDialog = document.getElementById(
+        `deleteAttractionDialog-${attractionId}`
+      );
+      const confirmDeleteAttractionButton =
+        deleteAttractionDialog.querySelector('#confirmDeleteAttraction');
+      const cancelDeleteAttractionButton = deleteAttractionDialog.querySelector(
+        '#cancelDeleteAttraction'
+      );
+
+      deleteAttractionDialog.showModal();
+
+      deleteAttractionDialog.addEventListener('click', (e) => {
+        if (e.target === deleteAttractionDialog) {
+          deleteAttractionDialog.close();
+        }
+      });
+
+      confirmDeleteAttractionButton.addEventListener('click', async () => {
+        try {
+          const attractionId =
+            deleteAttractionButton.getAttribute('data-attraction-id');
+          const response = await fetch(`/cities/${attractionId}`, {
+            method: 'DELETE',
+          });
+
+          console.log('response successful', response);
+          window.location.reload();
+          deleteAttractionDialog.close();
+        } catch (error) {
+          console.error('An error occurred:', error);
+        }
+      });
+
+      cancelDeleteAttractionButton.addEventListener('click', () => {
+        deleteAttractionDialog.close();
+      });
+    });
+  });
+
+  // click edit-icon to open form/modal for attractions and perform edit
 });
