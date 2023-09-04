@@ -110,7 +110,7 @@ nav {
   margin-bottom: 75px; }
 
 /********** CITIES CARD **********/
-.card {
+.city-card {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -121,9 +121,9 @@ nav {
   transition: 0.25s ease;
   cursor: pointer;
   margin: 30px; }
-  .card a {
+  .city-card a {
     text-decoration: none; }
-  .card .city-delete-button {
+  .city-card .city-delete-button {
     position: absolute;
     top: 0;
     right: 0;
@@ -131,12 +131,12 @@ nav {
     border-top-right-radius: 15px;
     padding: 5px;
     cursor: pointer; }
-    .card .city-delete-button i {
+    .city-card .city-delete-button i {
       color: white;
       font-size: 1.5rem; }
-    .card .city-delete-button:hover {
+    .city-card .city-delete-button:hover {
       background-color: #ff336e; }
-  .card .city-edit-button {
+  .city-card .city-edit-button {
     position: absolute;
     top: 0;
     left: 0;
@@ -144,16 +144,16 @@ nav {
     border-top-left-radius: 15px;
     padding: 5px;
     cursor: pointer; }
-    .card .city-edit-button i {
+    .city-card .city-edit-button i {
       color: white;
       font-size: 1.5rem; }
-    .card .city-edit-button:hover {
+    .city-card .city-edit-button:hover {
       background-color: #ff336e; }
-  .card .delete-dialog {
+  .city-card .delete-dialog {
     width: clamp(40%, 50%, 600px);
     height: clamp(40%, auto, 600px);
     font-size: clamp(1.2rem, 2vw, 1.5rem); }
-    .card .delete-dialog button {
+    .city-card .delete-dialog button {
       background-color: #129d72;
       color: white;
       border: none;
@@ -163,41 +163,41 @@ nav {
       font-size: clamp(1rem, 2vw, 1.5rem);
       cursor: pointer;
       transition: all 0.1s; }
-      .card .delete-dialog button:hover {
+      .city-card .delete-dialog button:hover {
         background-color: #ff336e; }
-  .card:hover {
+  .city-card:hover {
     transform: scale(1.0675);
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.9); }
-  .card-image {
+  .city-card-image {
     height: 210px;
     background-size: cover; }
-    .card-image img {
+    .city-card-image img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       border-top-left-radius: 15px;
       border-top-right-radius: 15px; }
-  .card-text {
+  .city-card-text {
     padding: 10px; }
-    .card-text .date {
+    .city-card-text .date {
       color: #ff076e;
       font-size: 13px; }
-    .card-text p {
+    .city-card-text p {
       color: black;
       font-size: 15px;
       font-weight: 300;
       line-height: 1.25;
       padding: 0.75rem 0; }
-    .card-text h2 {
+    .city-card-text h2 {
       margin-top: 0px;
       font-size: 28px; }
-  .card-stats {
+  .city-card-stats {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr;
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px; }
-    .card-stats .stat {
+    .city-card-stats .stat {
       padding: 10px;
       display: flex;
       align-items: center;
@@ -205,15 +205,124 @@ nav {
       flex-direction: column;
       background-color: #3498db;
       color: #fcfcfc; }
-    .card-stats .border {
+    .city-card-stats .border {
       border-left: 1px solid #333;
       border-right: 1px solid #333; }
-    .card-stats .value {
+    .city-card-stats .value {
       font-size: 22px;
       font-weight: 500; }
-      .card-stats .value sup {
+      .city-card-stats .value sup {
         font-size: 12px; }
-    .card-stats .type {
+    .city-card-stats .type {
+      font-size: 11px;
+      font-weight: 300;
+      text-transform: uppercase; }
+
+/********** ATTRACTIONS CARD **********/
+.attraction-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-self: flex-start;
+  border-radius: 18px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6);
+  text-align: center;
+  transition: 0.25s ease;
+  cursor: pointer;
+  margin: 30px; }
+  .attraction-card a {
+    text-decoration: none; }
+  .attraction-card .city-delete-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #3498db;
+    border-top-right-radius: 15px;
+    padding: 5px;
+    cursor: pointer; }
+    .attraction-card .city-delete-button i {
+      color: white;
+      font-size: 1.5rem; }
+    .attraction-card .city-delete-button:hover {
+      background-color: #ff336e; }
+  .attraction-card .city-edit-button {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #3498db;
+    border-top-left-radius: 15px;
+    padding: 5px;
+    cursor: pointer; }
+    .attraction-card .city-edit-button i {
+      color: white;
+      font-size: 1.5rem; }
+    .attraction-card .city-edit-button:hover {
+      background-color: #ff336e; }
+  .attraction-card .delete-dialog {
+    width: clamp(40%, 50%, 600px);
+    height: clamp(40%, auto, 600px);
+    font-size: clamp(1.2rem, 2vw, 1.5rem); }
+    .attraction-card .delete-dialog button {
+      background-color: #129d72;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 20px;
+      margin: 1rem 0 0 0;
+      font-size: clamp(1rem, 2vw, 1.5rem);
+      cursor: pointer;
+      transition: all 0.1s; }
+      .attraction-card .delete-dialog button:hover {
+        background-color: #ff336e; }
+  .attraction-card:hover {
+    transform: scale(1.0675);
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.9); }
+  .attraction-card-image {
+    height: 210px;
+    background-size: cover; }
+    .attraction-card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-top-left-radius: 15px;
+      border-top-right-radius: 15px; }
+  .attraction-card-text {
+    padding: 10px; }
+    .attraction-card-text .date {
+      color: #ff076e;
+      font-size: 13px; }
+    .attraction-card-text p {
+      color: black;
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 1.25;
+      padding: 0.75rem 0; }
+    .attraction-card-text h2 {
+      margin-top: 0px;
+      font-size: 28px; }
+  .attraction-card-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px; }
+    .attraction-card-stats .stat {
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      background-color: #3498db;
+      color: #fcfcfc; }
+    .attraction-card-stats .border {
+      border-left: 1px solid #333;
+      border-right: 1px solid #333; }
+    .attraction-card-stats .value {
+      font-size: 22px;
+      font-weight: 500; }
+      .attraction-card-stats .value sup {
+        font-size: 12px; }
+    .attraction-card-stats .type {
       font-size: 11px;
       font-weight: 300;
       text-transform: uppercase; }

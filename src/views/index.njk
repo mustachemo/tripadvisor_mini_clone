@@ -4,7 +4,7 @@
     <div class="main-wrapper">
       {% if cities and isAuthenticated %}
         {% for city in cities %}
-          <div class="card">
+          <div class="city-card">
             <a href="{{ city.url }}">
               <div class="card-image">
                 {% if city.image.img.data %}
@@ -76,7 +76,7 @@
           </div>
         {% endfor %}
       {% else %}
-        <div class="card">
+        <div class="city-card">
           <div class="card-image">
             <img src="./public/images/noImg.jpeg">
           </div>
