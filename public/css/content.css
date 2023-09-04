@@ -52,6 +52,10 @@ nav {
       font-size: 16px;
       cursor: pointer;
       transition: all 0.1s; }
+      nav .nav-buttons-container button.welcome {
+        background-color: #ff336e; }
+        nav .nav-buttons-container button.welcome:hover {
+          cursor: default; }
       nav .nav-buttons-container button:hover {
         background-color: #ff336e; }
 
@@ -86,7 +90,7 @@ nav {
     top: -100%;
     /* Start off-screen and hidden */
     opacity: 0; }
-  20% {
+  10% {
     top: 18px;
     /* Slide in to the top of the viewport */
     opacity: 1; }

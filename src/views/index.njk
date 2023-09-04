@@ -94,6 +94,7 @@
       <i class="fa-solid fa-circle-plus"></i>
     </div>
 
+  {% if isAuthenticated %}
     <dialog id="addCityForm">
       <div class="modalContainer">
         <div id="formHeading">Add a City Category!</div>
@@ -112,4 +113,12 @@
         </form>
       </div>
     </dialog>
+  {% else %}
+    <dialog id="addCityForm">
+      <div class="modalContainer">
+        <div id="formHeading">Only Members can add a City Category!</div>
+      </div>
+    </dialog>
+  {% endif %}
+
 {% endblock %}
