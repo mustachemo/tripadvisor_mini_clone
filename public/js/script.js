@@ -4,22 +4,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const errorFlash = document.getElementById('errorFlash');
 
   // if flash message is empty, hide it. Otherwise it will show up as an empty box
-  if (successFlash.textContent.trim().length === 0) {
-    successFlash.style.display = 'none';
-  } else {
+  if (successFlash.textContent.trim().length > 0) {
     successFlash.classList.add('animate-slide-in-out');
-    // setTimeout(() => {
-    //   successFlash.style.display = 'none';
-    // }, 3000);
   }
 
-  if (errorFlash.textContent.trim().length === 0) {
-    errorFlash.style.display = 'none';
-  } else {
+  if (errorFlash.textContent.trim().length > 0) {
     errorFlash.classList.add('animate-slide-in-out');
-    // setTimeout(() => {
-    //   errorFlash.style.display = 'none';
-    // }, 3000);
   }
 
   // check passowrd in signup form
