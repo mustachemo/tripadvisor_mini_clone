@@ -3,9 +3,6 @@
 {% block main %}
     <form action="/signup" Method="POST" class="signup-container" id="signupForm">
         <div id="formHeading">Signup :)</div>
-        {% if message %}
-            <div id="errorMessage">{{ message }}</div>
-        {% endif %}
         <input type="email" placeholder="Email" id="email" name="email" required autocomplete="new-password"/>
         <input name="password" placeholder="Password" required="required" type="password" id="password" oninput="checkPassword()" minlength="8" maxlength="40" required autocomplete="new-password"/>
         <input name="password_confirm" placeholder="Confirm Password" required="required" type="password" id="password_confirm" oninput="checkPassword()" required autocomplete="new-password"/>
