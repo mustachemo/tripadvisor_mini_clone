@@ -15,6 +15,5 @@ indexRouter
   .post(uploadImage.single('cityImg'), postCity);
 
 indexRouter.route('/:id').delete(deleteCity).put(putCity);
-// TODO: Add routes for DELETE and PUT
 
 export default indexRouter;
