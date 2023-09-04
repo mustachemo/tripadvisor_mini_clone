@@ -19,9 +19,6 @@ export const postAttractions = async (req, res, next) => {
     const { attractionName, attractionDesc } = req.body;
     let imageToSave = null;
 
-    console.log(
-      `attractionName: ${attractionName}, attractionDesc: ${attractionDesc}`
-    );
     // Check if an image was uploaded
     console.log(`req.file: ${req.file}`);
     if (req.file) {
@@ -54,8 +51,10 @@ export const postAttractions = async (req, res, next) => {
       imageToSave = Image;
     }
 
+    const refCity = await City.findOne({ name: cityName });
+
     const newAttraction = new Attraction({
-      city: cityName,
+      city: refCity,
       name: attractionName,
       description: attractionDesc,
       image: imageToSave,
