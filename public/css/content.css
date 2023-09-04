@@ -62,24 +62,42 @@ nav {
   top: 0;
   /* Start off-screen */
   left: 50%;
-  z-index: 999;
   transform: translateX(-50%);
+  z-index: 999;
   padding: 10px;
   border: 1px solid #ccc;
   background-color: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  transition: top 0.5s ease-in-out;
-  animation: slideDown 0.5s ease-in-out; }
+  animation: none;
+  /* Use a single animation for sliding in and out */
+  opacity: 0;
+  /* Initially hide the element */ }
+  .flash-message.animate-slide-in-out {
+    animation: slideInOut 3.5s ease-in-out; }
   .flash-message.error-message {
-    background-color: #e74c3c; }
+    background-color: #e74c3c;
+    /* Assuming $error-color is defined elsewhere */ }
   .flash-message.success-message {
-    background-color: #2ecc71; }
+    background-color: #2ecc71;
+    /* Assuming $success-color is defined elsewhere */ }
 
-@keyframes slideDown {
+@keyframes slideInOut {
   0% {
-    top: -600px; }
+    top: -100%;
+    /* Start off-screen and hidden */
+    opacity: 0; }
+  10% {
+    top: 0;
+    /* Slide in to the top of the viewport */
+    opacity: 1; }
+  90% {
+    top: 0;
+    /* Stay visible for most of the animation */
+    opacity: 1; }
   100% {
-    top: 150; } }
+    top: -100%;
+    /* Slide out and hide */
+    opacity: 0; } }
 
 /********** GRID **********/
 .main-wrapper {

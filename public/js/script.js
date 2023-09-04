@@ -7,17 +7,19 @@ document.addEventListener('DOMContentLoaded', () => {
   if (successFlash.textContent.trim().length === 0) {
     successFlash.style.display = 'none';
   } else {
-    setTimeout(() => {
-      successFlash.style.display = 'none';
-    }, 3000);
+    successFlash.classList.add('animate-slide-in-out');
+    // setTimeout(() => {
+    //   successFlash.style.display = 'none';
+    // }, 3000);
   }
 
   if (errorFlash.textContent.trim().length === 0) {
     errorFlash.style.display = 'none';
   } else {
-    setTimeout(() => {
-      errorFlash.style.display = 'none';
-    }, 3000);
+    errorFlash.classList.add('animate-slide-in-out');
+    // setTimeout(() => {
+    //   errorFlash.style.display = 'none';
+    // }, 3000);
   }
 
   // check passowrd in signup form
