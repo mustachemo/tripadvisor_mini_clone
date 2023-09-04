@@ -3,10 +3,11 @@ import { connectDB } from '../configs/db.config.js';
 
 export const getAttractions = async (req, res, next) => {
   try {
-    const attractions = await Attraction.find({});
-    const cities = await City.find({});
+    const cityName = req.params.name; // Access the city name from the URL parameter
+    console.log(`cityName: ${cityName}`);
+    const attractions = await Attraction.find({}); // Assuming you have a 'city' field in your Attraction schema
 
-    res.render('attractions', { attractions: attractions });
+    res.render('attractions', { attractions: attractions, cityName }); // Pass the city data to the view
   } catch (error) {
     next(error);
   }
@@ -14,6 +15,7 @@ export const getAttractions = async (req, res, next) => {
 
 export const postAttractions = async (req, res, next) => {
   try {
+    const cityName = req.params.name; // Access the city name from the URL parameter
     const { attractionName, attractionDesc } = req.body;
     let imageToSave = null;
 
@@ -53,6 +55,7 @@ export const postAttractions = async (req, res, next) => {
     }
 
     const newAttraction = new Attraction({
+      city: cityName,
       name: attractionName,
       description: attractionDesc,
       image: imageToSave,
