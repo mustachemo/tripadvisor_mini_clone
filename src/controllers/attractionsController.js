@@ -89,6 +89,7 @@ export const deleteCity = async (req, res, next) => {
 export const putAttractions = async (req, res, next) => {
   console.log(`req.body: ${JSON.stringify(req.body)}`);
   console.log(`req.file: ${req.file}`);
+  console.log(`req.originalUrl: ${req.originalUrl}`);
   try {
     const schema = Joi.object({
       attractionID: Joi.string().required(),
@@ -148,8 +149,14 @@ export const putAttractions = async (req, res, next) => {
       new: true,
     });
 
+    console.log(`refAttraction.city: ${refAttraction.city}`);
+
+    const cityName = await City.findOne({ _id: refAttraction.city });
+
+    console.log(`cityName: ${cityName}`);
+
     req.flash('success', 'Attraction updated successfully');
-    res.redirect(`/cities/${refAttraction.city.name}`);
+    res.redirect(`/cities/${cityName}`);
   } catch (error) {
     next(error);
   }
