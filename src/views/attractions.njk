@@ -27,24 +27,21 @@
               <button id="cancelDeleteAttraction">No</button>
             </dialog>
 
-            <div id="cityEDIT" class="attraction-edit-button" data-city-id="{{ city.id }}">
+            <div id="cityEDIT" class="attraction-edit-button" data-attraction-id="{{ attraction.id }}">
               <i class="fa-regular fa-pen-to-square"></i>
             </div>
-            <dialog id="editDialog-{{ city.id }}">
+            <dialog id="editAttractionDialog-{{ attraction.id }}">
               <div class="modalContainer">
                 <div id="formHeading">Edit {{ city.name }}</div>
                 <form id="editForm-{{ city.id }}" action="/" method="PUT" enctype="multipart/form-data">
-                  <input type="text" placeholder="{{ city.name }}" id="cityName" name="cityName"/>
-                  <input type="text" placeholder="{{ city.description }}" id="cityDesc" name="cityDesc" />
-                  <input type="number" placeholder="{{ city.population }}" id="cityPop" name="cityPop" />
-                  <input type="number" step="any" placeholder="{{ city.area }}" id="cityArea" name="cityArea" />
-                  <input type="number" placeholder="{{ city.AHI }}" id="cityAHI" name="cityAHI" />
-                  <input type="file" id="cityImgPUT" name="cityImgPUT" class="file-input" />
-                  <label for="cityImgPUT" class="file-label">
+                  <input type="text" placeholder="{{ attraction.name }}" id="attractionName" name="attractionName"/>
+                  <input type="text" placeholder="{{ attraction.description }}" id="attractionDesc" name="attractionDesc" />
+                  <input type="file" id="attractionImgPUT" name="attractionImgPUT" class="file-input" />
+                  <label for="attractionImgPUT" class="file-label">
                     <i class="fa-solid fa-image"></i>
                     &nbsp;Upload Image
                   </label>
-                  <button id="submitChange" type="submit">Submit Change</button>
+                  <button id="submitAttractionChange" type="submit">Submit Change</button>
                 </form>
               </div>
             </dialog>

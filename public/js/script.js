@@ -253,4 +253,55 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // click edit-icon to open form/modal for attractions and perform edit
+  const editAttractionButtons = document.querySelectorAll(
+    '.attraction-edit-button'
+  );
+
+  editAttractionButtons.forEach((editAttractionButton) => {
+    editAttractionButton.addEventListener('click', () => {
+      const attractionId =
+        editAttractionButton.getAttribute('data-attraction-id');
+      const editAttractionDialog = document.getElementById(
+        `editAttractionDialog-${attractionId}`
+      );
+      const confirmEditAttractionButton = editAttractionDialog.querySelector(
+        '#submitAttractionChange'
+      );
+
+      editAttractionDialog.showModal();
+
+      editAttractionDialog.addEventListener('click', (e) => {
+        if (e.target === editAttractionDialog) {
+          editAttractionDialog.close();
+        }
+      });
+
+      confirmEditAttractionButton.addEventListener('click', async (e) => {
+        try {
+          const editAttractionForm = document.querySelector(
+            `#editAttractionForm-${attractionId}`
+          );
+
+          const formData = new FormData(editAttractionForm);
+          formData.append('attractionID', attractionId);
+
+          // append attractionImgPUT multer field to formData
+          const attractionImgPUT = document.querySelector(`#attractionImgPUT`); // input type="file"
+          formData.append('attractionImgPUT', attractionImgPUT.files[0]); // only append if file is selected, otherwise it will be undefined
+
+          const response = await fetch(`/cities/${attractionId}`, {
+            method: 'PUT',
+            body: formData,
+          });
+
+          window.location.reload();
+          console.log('response successful', response);
+        } catch (error) {
+          console.error('An error occurred:', error);
+        }
+
+        editAttractionDialog.close();
+      });
+    });
+  });
 });
