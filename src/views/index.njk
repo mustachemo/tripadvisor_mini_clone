@@ -1,7 +1,12 @@
 {% extends 'base.njk' %}
 
 {% block main %}
-      {% if cities and isAuthenticated %}
+      {% if not isAuthenticated %}
+        <div id="bigNotification">
+          only members can modify or add cities, please <span><a href="/login">login</a></span> or <a href="/signup">signup</a>
+        </div>
+      {% endif %}
+      {% if cities %}
         <div class="main-wrapper">
         {% for city in cities %}
           <div class="city-card">
@@ -43,18 +48,26 @@
                 </div>
               </div>
             </a>
+
             <div id="cityDELETE" class="city-delete-button" data-city-id="{{ city.id }}">
               <i class="fa-regular fa-trash-can"></i>
             </div>
-            <dialog id="deleteDialog-{{ city.id }}" class="delete-dialog">
-              <p>Are you sure you want to delete city {{ city.name }}?</p>
-              <button id="confirmDelete">Yes</button>
-              <button id="cancelDelete">No</button>
-            </dialog>
+            {% if isAuthenticated %}
+              <dialog id="deleteDialog-{{ city.id }}" class="delete-dialog">
+                <p>Are you sure you want to delete city {{ city.name }}?</p>
+                <button id="confirmDelete">Yes</button>
+                <button id="cancelDelete">No</button>
+              </dialog>
+            {% else %}
+              <dialog id="deleteDialog-{{ city.id }}" class="delete-dialog">
+                <p>You cannot delete city {{ city.name }} because you are not logged in</p>
+              </dialog>
+            {% endif %}
 
             <div id="cityEDIT" class="city-edit-button" data-city-id="{{ city.id }}">
               <i class="fa-regular fa-pen-to-square"></i>
             </div>
+            {% if isAuthenticated %}
             <dialog id="editDialog-{{ city.id }}">
               <div class="modalContainer">
                 <div id="formHeading">Edit {{ city.name }}</div>
@@ -73,18 +86,23 @@
                 </form>
               </div>
             </dialog>
+            {% else %}
+            <dialog id="editDialog-{{ city.id }}">
+              <div class="modalContainer">
+                <div id="formHeading">You cannot edit {{ city.name }} because you are not logged in</div>
+              </div>
+            </dialog>
+            {% endif %}
+
           </div>
         {% endfor %}
-        </div>
-      {% else %}
-          <div id="bigNotification">
-          only members can view cities, please <span><a href="/login">login</a></span> or <a href="/signup">signup</a> to view cities
         </div>
       {% endif %}
 
 {% endblock %}
 
 {% block dialog %}
+  
     <div id="addCityButton" class="addIcon">
       <i class="fa-solid fa-circle-plus"></i>
     </div>

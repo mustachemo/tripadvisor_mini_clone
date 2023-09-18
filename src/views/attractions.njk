@@ -1,7 +1,12 @@
 {% extends 'base.njk' %}
 
 {% block main %}
-      {% if attractions and isAuthenticated %}
+      {% if not isAuthenticated %}
+        <div id="bigNotification">
+          only members can modify or add attractions, please <span><a href="/login">login</a></span> or <a href="/signup">signup</a>
+        </div>
+      {% endif %}
+      {% if attractions %}
         <div class="main-wrapper">
         {% for attraction in attractions %}
           <div class="attraction-card">
@@ -18,18 +23,26 @@
             <div class="attraction-card-text">
               <p>{{ attraction.description }}</p>
             </div>
+
             <div id="attractionDELETE" class="attraction-delete-button" data-attraction-id="{{ attraction.id }}">
               <i class="fa-regular fa-trash-can"></i>
             </div>
+            {% if isAuthenticated %}
             <dialog id="deleteAttractionDialog-{{ attraction.id }}" class="delete-dialog">
               <p>Are you sure you want to delete attraction {{ attraction.name }}?</p>
               <button id="confirmDeleteAttraction">Yes</button>
               <button id="cancelDeleteAttraction">No</button>
             </dialog>
+            {% else %}
+            <dialog id="deleteAttractionDialog-{{ attraction.id }}" class="delete-dialog">
+              <p>Only Members can delete attractions, please <span><a href="/login">login</a></span> or <a href="/signup">signup</a></p>
+            </dialog>
+            {% endif %}
 
             <div id="cityEDIT" class="attraction-edit-button" data-attraction-id="{{ attraction.id }}">
               <i class="fa-regular fa-pen-to-square"></i>
             </div>
+            {% if isAuthenticated %}
             <dialog id="editAttractionDialog-{{ attraction.id }}">
               <div class="modalContainer">
                 <div id="formHeading">Edit {{ city.name }}</div>
@@ -45,12 +58,16 @@
                 </form>
               </div>
             </dialog>
+            {% else %}
+            <dialog id="editAttractionDialog-{{ attraction.id }}">
+              <div class="modalContainer">
+                <div id="formHeading">Only Members can edit attractions, please <span><a href="/login">login</a></span> or <a href="/signup">signup</a></div>
+              </div>
+            </dialog>
+            {% endif %}
+            
           </div>
         {% endfor %}
-        </div>
-        {% else %}
-          <div id="bigNotification">
-          only members can view cities, please <span><a href="/login">login</a></span> or <a href="/signup">signup</a> to view cities
         </div>
       {% endif %}
 {% endblock %}
@@ -60,6 +77,7 @@
       <i class="fa-solid fa-circle-plus"></i>
     </div>
 
+    {% if isAuthenticated %}
     <dialog id="addAttractionForm">
       <div class="modalContainer">
         <div id="formHeading">Add an Attraction {{ city.name }}</div>
@@ -75,4 +93,12 @@
         </form>
       </div>
     </dialog>
+    {% else %}
+    <dialog id="addAttractionForm">
+      <div class="modalContainer">
+        <div id="formHeading">Only Members can add an Attraction!</div>
+      </div>
+    </dialog>
+  {% endif %}
+
 {% endblock %}
