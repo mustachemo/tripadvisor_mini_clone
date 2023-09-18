@@ -9,9 +9,10 @@ import _ from 'lodash';
 // * Need to make this faster
 export const getCities = async (req, res, next) => {
   try {
+    await connectDB;
     const cities = await City.find().populate('image');
 
-    const modifiedCities = cities.map((city) => ({
+    const modifiedCities = cities.map(city => ({
       ...city.toObject(),
       id: city._id,
       name: city.name.toUpperCase(),
