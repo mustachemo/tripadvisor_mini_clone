@@ -1,5 +1,3 @@
-"# TripAdvisor Mini Clone
-
 ## Table of Contents
 
 - [Table of Contents](#table-of-contents)
@@ -45,6 +43,7 @@ This project is a mini-clone of the popular travel website TripAdvisor. It's bui
 ````
 
 3. Create a .env file in the root directory and add the following:
+
    ```bash
 
    ```
